@@ -3,11 +3,12 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31321.278
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StaffFacingBack", "StaffFacingBack\StaffFacingBack.csproj", "{0832B9C0-D5D3-4B19-A5B2-B95B711D20DE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StaffFacingBack", "StaffFacingBack\StaffFacingBack.csproj", "{0832B9C0-D5D3-4B19-A5B2-B95B711D20DE}"
 EndProject
 Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "CustomerFacingWeb", "CustomerFacingWeb\", "{0A405B85-0939-4A31-A915-54F77881F73B}"
 	ProjectSection(WebsiteProperties) = preProject
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.7.2"
+		ProjectReferences = "{e6fddde7-072e-4106-be27-d434f03b1157}|ClassLibrary.dll;"
 		Debug.AspNetCompiler.VirtualPath = "/localhost_1082"
 		Debug.AspNetCompiler.PhysicalPath = "CustomerFacingWeb\"
 		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_1082\"
