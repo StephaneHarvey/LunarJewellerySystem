@@ -10,7 +10,7 @@ namespace Jewellery_System_Testing
         [TestMethod]
         public void InstanceOK()
         {
-            //create an instance of the class we want to create
+            //create an instance of the class we want to createe
             clsCustomer ACustomer = new clsCustomer();
             //test to see that it exists
             Assert.IsNotNull(ACustomer);
