@@ -4,10 +4,10 @@ using System;
 namespace Jewellery_System_Testing
 {
     [TestClass]
-    public class tstCustomer
+    public class clsCustomer
     {
         [TestMethod]
-        public void InstanceOK()
+        public void InstancOK()
         {
             //create an instance of the class we want to create
             clsAddress AnAddress = new clsAddress();
