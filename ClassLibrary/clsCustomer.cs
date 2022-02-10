@@ -15,5 +15,11 @@ namespace ClassLibrary
         public string CustomerFirstName { get; set; }
         public string CustomerSurname { get; set; }
         public string CustomerAddress { get; set; }
+
+        public void Find(int v)
+        {
+            throw new NotImplementedException();
+        }
     }
+
 }
