@@ -88,6 +88,16 @@ namespace Jewellery_System_Testing
             //test to see that the two values are the same
             Assert.AreEqual(ACustomer.CustomerAddress, TestData);
         }
+        [TestMethod]
+        public void CustomerFirstNameFindOK()
+        {
+            //create an instance of the class we want to create
+            clsCustomer ACustomer = new clsCustomer();
+            ACustomer.Find(2);
+            //create some test data to assign to the property
+            string CustomerFirstName = ACustomer.CustomerFirstName;
+        
+        }
 
     }
 }
