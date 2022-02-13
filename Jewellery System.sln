@@ -8,7 +8,7 @@ EndProject
 Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "CustomerFacingWeb", "CustomerFacingWeb\", "{0A405B85-0939-4A31-A915-54F77881F73B}"
 	ProjectSection(WebsiteProperties) = preProject
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.7.2"
-		ProjectReferences = "{e6fddde7-072e-4106-be27-d434f03b1157}|ClassLibrary.dll;"
+		ProjectReferences = "{e6fddde7-072e-4106-be27-d434f03b1157}|ClassLibrary.dll;{6e94441c-6802-4819-a54d-8ab6d2bc2503}|Jewellery System Testing.dll;"
 		Debug.AspNetCompiler.VirtualPath = "/localhost_1082"
 		Debug.AspNetCompiler.PhysicalPath = "CustomerFacingWeb\"
 		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_1082\"
