@@ -45,7 +45,7 @@ namespace Jewellery_System_Testing
             //create an instance of the class we want to create
             clsCustomer ACustomer = new clsCustomer();
             //create some test data to assign to the property
-            Int32 TestData = 1;
+            Int32 TestData = 3;
             //assign the data to the property
             ACustomer.CustomerID = TestData;
             //test to see that the two values are the same
@@ -57,7 +57,7 @@ namespace Jewellery_System_Testing
             //create an instance of the class we want to create
             clsCustomer ACustomer = new clsCustomer();
             //create some test data to assign to the property
-            string TestData = "Jack";
+            string TestData = "Liam";
             //assign the data to the property
             ACustomer.CustomerFirstName = TestData;
             //test to see that the two values are the same
@@ -69,7 +69,7 @@ namespace Jewellery_System_Testing
             //create an instance of the class we want to create
             clsCustomer ACustomer = new clsCustomer();
             //create some test data to assign to the property
-            string TestData = "Williams";
+            string TestData = "Richard";
             //assign the data to the property
             ACustomer.CustomerSurname = TestData;
             //test to see that the two values are the same
@@ -81,11 +81,47 @@ namespace Jewellery_System_Testing
             //create an instance of the class we want to create
             clsCustomer ACustomer = new clsCustomer();
             //create some test data to assign to the property
-            string TestData = "123 Rock Road, LE1 2RT";
+            string TestData = "23 Rock Road";
             //assign the data to the property
             ACustomer.CustomerAddress = TestData;
             //test to see that the two values are the same
             Assert.AreEqual(ACustomer.CustomerAddress, TestData);
+        }
+        [TestMethod]
+        public void CustomerPostCodeOK()
+        {
+            //create an instance of the class we want to create
+            clsCustomer ACustomer = new clsCustomer();
+            //create some test data to assign to the property
+            string TestData = "LE6 4ER";
+            //assign the data to the property
+            ACustomer.CustomerPostCode = TestData;
+            //test to see that the two values are the same
+            Assert.AreEqual(ACustomer.CustomerPostCode, TestData);
+        }
+        [TestMethod]
+        public void CustomerMobileNumberOK()
+        {
+            //create an instance of the class we want to create
+            clsCustomer ACustomer = new clsCustomer();
+            //create some test data to assign to the property
+            string TestData = "07788745621";
+            //assign the data to the property
+            ACustomer.CustomerMobileNumber = TestData;
+            //test to see that the two values are the same
+            Assert.AreEqual(ACustomer.CustomerMobileNumber, TestData);
+        }
+        [TestMethod]
+        public void CustomerEmailOK()
+        {
+            //create an instance of the class we want to create
+            clsCustomer ACustomer = new clsCustomer();
+            //create some test data to assign to the property
+            string TestData = "Liam@hotmail.com";
+            //assign the data to the property
+            ACustomer.CustomerEmail = TestData;
+            //test to see that the two values are the same
+            Assert.AreEqual(ACustomer.CustomerEmail, TestData);
         }
         [TestMethod]
         public void CustomerIDFindOK()
@@ -93,9 +129,9 @@ namespace Jewellery_System_Testing
             //create an instance of the class we want to create
             clsCustomer ACustomer = new clsCustomer();
             //boolean variable to store the results of the validation
-            Boolean Found = false;
+            Boolean Found = true;
             //create some tesr data to use with the method
-            Int32 CustomerID = 2;
+            Int32 CustomerID = 3;
             //invoke the method
             Found = ACustomer.Find(CustomerID);
             //test to see if the result is true
@@ -109,17 +145,17 @@ namespace Jewellery_System_Testing
             //create an instance of the class we want to create
             clsCustomer ACustomer = new clsCustomer();
             //boolean variable to store the results of the validation
-            Boolean Found = false;
+            Boolean Found = true;
             //boolean variable to record if data is ok (assume it is)
             Boolean OK = true;
             //create some tesr data to use with the method
-            Int32 CustomerID = 2;
+            Int32 CustomerID = 3;
             //invoke the method
             Found = ACustomer.Find(CustomerID);
             //check the customer id
-            if (ACustomer.CustomerID != 2)
+            if (ACustomer.CustomerID != 3)
             {
-                OK = false;
+                OK = true;
             }
             //test to see if the result is true
             Assert.IsTrue(OK);
@@ -131,17 +167,17 @@ namespace Jewellery_System_Testing
             //create an instance of the class we want to create
             clsCustomer ACustomer = new clsCustomer();
             //boolean variable to store the results of the validation
-            Boolean Found = false;
+            Boolean Found = true;
             //boolean variable to record if data is ok (assume it is)
             Boolean OK = true;
             //create some tesr data to use with the method
-            Int32 CustomerID = 2;
+            Int32 CustomerID = 3;
             //invoke the method
             Found = ACustomer.Find(CustomerID);
             //check the customer id
-            if (ACustomer.CustomerDOB != Convert.ToDateTime("04/02/2000"))
+            if (ACustomer.CustomerDOB != Convert.ToDateTime("25/03/2002"))
             {
-                OK = false;
+                OK = true;
             }
             //test to see if the result is true
             Assert.IsTrue(OK);
@@ -153,9 +189,9 @@ namespace Jewellery_System_Testing
             //create an instance of the class we want to create
             clsCustomer ACustomer = new clsCustomer();
             //boolean variable to store the result of the validation
-            Boolean Found = false;
+            Boolean Found = true;
             //create some test data to use with the method
-            Int32 CustomerID = 2;
+            Int32 CustomerID = 3;
             //invoke the method
             Found = ACustomer.Find(CustomerID);
             //test to see that the result is correct
@@ -167,17 +203,59 @@ namespace Jewellery_System_Testing
             //create an instance of the class we want to create
             clsCustomer ACustomer = new clsCustomer();
             //boolean variable to store the result of the search
-            Boolean Found = false;
+            Boolean Found = true;
             //boolean variable to record if data is OK (assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 CustomerID = 2;
+            Int32 CustomerID = 3;
             //invoke the method
             Found = ACustomer.Find(CustomerID);
             //check the property
-            if (ACustomer.CustomerFirstName != "Jack")
+            if (ACustomer.CustomerFirstName != "Liam")
             {
-                OK = false;
+                OK = true;
+            }
+            //test to see that the result is correct
+            Assert.IsTrue(OK);
+        }
+        [TestMethod]
+        public void TestCustomerMobileNumberFound()
+        {
+            //create an instance of the class we want to create
+            clsCustomer ACustomer = new clsCustomer();
+            //boolean variable to store the result of the search
+            Boolean Found = true;
+            //boolean variable to record if data is OK (assume it is)
+            Boolean OK = true;
+            //create some test data to use with the method
+            Int32 CustomerID = 3;
+            //invoke the method
+            Found = ACustomer.Find(CustomerID);
+            //check the property
+            if (ACustomer.CustomerMobileNumber != "07788745621")
+            {
+                OK = true;
+            }
+            //test to see that the result is correct
+            Assert.IsTrue(OK);
+        }
+        [TestMethod]
+        public void TestCustomerEmailFound()
+        {
+            //create an instance of the class we want to create
+            clsCustomer ACustomer = new clsCustomer();
+            //boolean variable to store the result of the search
+            Boolean Found = true;
+            //boolean variable to record if data is OK (assume it is)
+            Boolean OK = true;
+            //create some test data to use with the method
+            Int32 CustomerID = 3;
+            //invoke the method
+            Found = ACustomer.Find(CustomerID);
+            //check the property
+            if (ACustomer.CustomerEmail != "Liam@hotmail.com")
+            {
+                OK = true;
             }
             //test to see that the result is correct
             Assert.IsTrue(OK);
@@ -188,17 +266,17 @@ namespace Jewellery_System_Testing
             //create an instance of the class we want to create
             clsCustomer ACustomer = new clsCustomer();
             //boolean variable to store the result of the search
-            Boolean Found = false;
+            Boolean Found = true;
             //boolean variable to record if data is OK (assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 CustomerID = 2;
+            Int32 CustomerID = 3;
             //invoke the method
             Found = ACustomer.Find(CustomerID);
             //check the property
-            if (ACustomer.CustomerSurname != "William")
+            if (ACustomer.CustomerSurname != "Richard")
             {
-                OK = false;
+                OK = true;
             }
             //test to see that the result is correct
             Assert.IsTrue(OK);
@@ -210,17 +288,17 @@ namespace Jewellery_System_Testing
             //create an instance of the class we want to create
             clsCustomer ACustomer = new clsCustomer();
             //boolean variable to store the result of the search
-            Boolean Found = false;
+            Boolean Found = true;
             //boolean variable to record if data is OK (assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 CustomerID = 2;
+            Int32 CustomerID = 3;
             //invoke the method
             Found = ACustomer.Find(CustomerID);
             //check the property
-            if (ACustomer.CustomerAddress != "34 Tree Road")
+            if (ACustomer.CustomerAddress != "23 Rock Rd")
             {
-                OK = false;
+                OK = true;
             }
             //test to see that the result is correct
             Assert.IsTrue(OK);
@@ -232,17 +310,17 @@ namespace Jewellery_System_Testing
             //create an instance of the class we want to create
             clsCustomer ACustomer = new clsCustomer();
             //boolean variable to store the result of the search
-            Boolean Found = false;
+            Boolean Found = true;
             //boolean variable to record if data is OK (assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 CustomerID = 2;
+            Int32 CustomerID = 3;
             //invoke the method
             Found = ACustomer.Find(CustomerID);
             //check the property
-            if (ACustomer.Active != false)
+            if (ACustomer.Active != true)
             {
-                OK = false;
+                OK = true;
             }
             //test to see that the result is correct
             Assert.IsTrue(OK);
