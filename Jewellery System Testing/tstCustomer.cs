@@ -8,7 +8,7 @@ namespace Jewellery_System_Testing
     public class tstCustomer
     {
 
-        //good to test data
+        //good test data
         //create some test data to pass to the method
         string CustomerFirstName = "Liam";
         string CustomerSurname = "Richard";
@@ -348,6 +348,20 @@ namespace Jewellery_System_Testing
             Assert.AreEqual(Error, "");
         }
         [TestMethod]
+        public void CustomerFirstNameMin()
+        {
+            //create an instance of the class we want to create 
+            clsCustomer ACustomer = new clsCustomer();
+            //string variable to store any error message 
+            String Error = "";
+            //this should pass
+            string CustomerFirstName = "a"; //this should trigger an error
+            //invoke the method 
+            Error = ACustomer.Valid(CustomerFirstName, CustomerSurname, CustomerMobileNumber, CustomerDOB, CustomerAddress, CustomerEmail, CustomerPostCode);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+        [TestMethod]
         public void CustomerFirstNameMinLessOne()
         {
             //create an instance of the class we want to create 
@@ -356,25 +370,12 @@ namespace Jewellery_System_Testing
             String Error = "";
             //create some test data to pass to the method 
             string CustomerFirstName = ""; //this should trigger an error
-             //invoke the method 
+                                           //invoke the method 
             Error = ACustomer.Valid(CustomerFirstName, CustomerSurname, CustomerMobileNumber, CustomerDOB, CustomerAddress, CustomerEmail, CustomerPostCode);
             //test to see that the result is correct
             Assert.AreNotEqual(Error, "");
         }
-        [TestMethod]
-        public void CustomerFirstNameMin()
-        {
-            //create an instance of the class we want to create 
-            clsCustomer ACustomer = new clsCustomer();
-            //string variable to store any error message 
-            String Error = "";
-            //create some test data to pass to the method 
-            string CustomerFirstName = "a"; //this should trigger an error
-            //invoke the method 
-            Error = ACustomer.Valid(CustomerFirstName, CustomerSurname, CustomerMobileNumber, CustomerDOB, CustomerAddress, CustomerEmail, CustomerPostCode);
-            //test to see that the result is correct
-            Assert.AreEqual(Error, "");
-        }
+
         [TestMethod]
         public void CustomerFirstNameMinPlusOne()
         {
@@ -382,7 +383,7 @@ namespace Jewellery_System_Testing
             clsCustomer ACustomer = new clsCustomer();
             //string variable to store any error message 
             String Error = "";
-            //create some test data to pass to the method 
+            //this should pass
             string CustomerFirstName = "AA"; //this should trigger an error
             //invoke the method 
             Error = ACustomer.Valid(CustomerFirstName, CustomerSurname, CustomerMobileNumber, CustomerDOB, CustomerAddress, CustomerEmail, CustomerPostCode);
@@ -390,41 +391,13 @@ namespace Jewellery_System_Testing
             Assert.AreEqual(Error, "");
         }
         [TestMethod]
-        public void CustomerFirstNameMaxLessOne()
+        public void CustomerFirstNameMaxBoundary()
         {
             //create an instance of the class we want to create 
             clsCustomer ACustomer = new clsCustomer();
             //string variable to store any error message 
             String Error = "";
-            //create some test data to pass to the method 
-            string CustomerFirstName = "AAAAAAAAAAAAAAAAAAA"; //this should trigger an error
-           //invoke the method 
-            Error = ACustomer.Valid(CustomerFirstName, CustomerSurname, CustomerMobileNumber, CustomerDOB, CustomerAddress, CustomerEmail, CustomerPostCode);
-            //test to see that the result is correct
-            Assert.AreEqual(Error, "");
-        }
-        [TestMethod]
-        public void CustomerFirstNameMid()
-        {
-            //create an instance of the class we want to create 
-            clsCustomer ACustomer = new clsCustomer();
-            //string variable to store any error message 
-            String Error = "";
-            //create some test data to pass to the method 
-            string CustomerFirstName = "AAAAAAAAAA"; //this should trigger an error
-             //invoke the method 
-            Error = ACustomer.Valid(CustomerFirstName, CustomerSurname, CustomerMobileNumber, CustomerDOB, CustomerAddress, CustomerEmail, CustomerPostCode);
-            //test to see that the result is correct
-            Assert.AreEqual(Error, "");
-        }
-        [TestMethod]
-        public void CustomerFirstNameMax()
-        {
-            //create an instance of the class we want to create 
-            clsCustomer ACustomer = new clsCustomer();
-            //string variable to store any error message 
-            String Error = "";
-            //create some test data to pass to the method 
+            //this should pass
             string CustomerFirstName = "AAAAAAAAAAAAAAAAAAAA"; //this should trigger an error
             //invoke the method
             Error = ACustomer.Valid(CustomerFirstName, CustomerSurname, CustomerMobileNumber, CustomerDOB, CustomerAddress, CustomerEmail, CustomerPostCode);
@@ -438,13 +411,45 @@ namespace Jewellery_System_Testing
             clsCustomer ACustomer = new clsCustomer();
             //string variable to store any error message 
             String Error = "";
-            //create some test data to pass to the method 
-            string CustomerFirstName = "AAAAAAAAAAAAAAAAAAAAA"; //this should fail
+            //this should fail 
+            string CustomerFirstName = "AAAAAAAAAAAAAAAAAAAAA";
             //invoke the method 
             Error = ACustomer.Valid(CustomerFirstName, CustomerSurname, CustomerMobileNumber, CustomerDOB, CustomerAddress, CustomerEmail, CustomerPostCode);
             //test to see that the result is correct
             Assert.AreNotEqual(Error, "");
         }
+
+        [TestMethod]
+        public void CustomerFirstNameMaxLessOne()
+        {
+            //create an instance of the class we want to create 
+            clsCustomer ACustomer = new clsCustomer();
+            //string variable to store any error message 
+            String Error = "";
+            //this should pass
+            string CustomerFirstName = "AAAAAAAAAAAAAAAAAAA"; //this should trigger an error
+                                                              //invoke the method 
+            Error = ACustomer.Valid(CustomerFirstName, CustomerSurname, CustomerMobileNumber, CustomerDOB, CustomerAddress, CustomerEmail, CustomerPostCode);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void CustomerFirstNameMid()
+        {
+            //create an instance of the class we want to create 
+            clsCustomer ACustomer = new clsCustomer();
+            //string variable to store any error message 
+            String Error = "";
+            //this should pass
+            string CustomerFirstName = "AAAAAAAAAA";
+            //invoke the method 
+            Error = ACustomer.Valid(CustomerFirstName, CustomerSurname, CustomerMobileNumber, CustomerDOB, CustomerAddress, CustomerEmail, CustomerPostCode);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+
         [TestMethod]
         public void CustomerFirstNameExtremeMax()
         {
@@ -461,33 +466,34 @@ namespace Jewellery_System_Testing
             Assert.AreNotEqual(Error, "");
         }
         [TestMethod]
-        public void CustomerSurnameMinLessOne()
-        {
-            //create an instance of the class we want to create 
-            clsCustomer ACustomer = new clsCustomer();
-            //string variable to store any error message 
-            String Error = "";
-            //create some test data to pass to the method 
-            string CustomerSurname = ""; //this should trigger an error
-            //invoke the method 
-            Error = ACustomer.Valid(CustomerFirstName, CustomerSurname, CustomerMobileNumber, CustomerDOB, CustomerAddress, CustomerEmail, CustomerPostCode);
-            //test to see that the result is correct
-            Assert.AreNotEqual(Error, "");
-        }
-        [TestMethod]
         public void CustomerSurnameMin()
         {
             //create an instance of the class we want to create 
             clsCustomer ACustomer = new clsCustomer();
             //string variable to store any error message 
             String Error = "";
-            //create some test data to pass to the method 
-            string CustomerSurname = "A"; //this should trigger an error
+            //Test data to pass to the method 
+            string CustomerSurname = "A";
             //invoke the method 
             Error = ACustomer.Valid(CustomerFirstName, CustomerSurname, CustomerMobileNumber, CustomerDOB, CustomerAddress, CustomerEmail, CustomerPostCode);
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
+        [TestMethod]
+        public void CustomerSurnameMinLessOne()
+        {
+            //create an instance of the class we want to create 
+            clsCustomer ACustomer = new clsCustomer();
+            //string variable to store any error message 
+            String Error = "";
+            //Test data to pass to the method 
+            string CustomerSurname = "";
+            //invoke the method 
+            Error = ACustomer.Valid(CustomerFirstName, CustomerSurname, CustomerMobileNumber, CustomerDOB, CustomerAddress, CustomerEmail, CustomerPostCode);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
         [TestMethod]
         public void CustomerSurnameMinPlusOne()
         {
@@ -495,36 +501,8 @@ namespace Jewellery_System_Testing
             clsCustomer ACustomer = new clsCustomer();
             //string variable to store any error message 
             String Error = "";
-            //create some test data to pass to the method 
-            string CustomerSurname = "AA"; //this should trigger an error
-            //invoke the method 
-            Error = ACustomer.Valid(CustomerFirstName, CustomerSurname, CustomerMobileNumber, CustomerDOB, CustomerAddress, CustomerEmail, CustomerPostCode);
-            //test to see that the result is correct
-            Assert.AreEqual(Error, "");
-        }
-        [TestMethod]
-        public void CustomerSurnameMaxLessOne()
-        {
-            //create an instance of the class we want to create 
-            clsCustomer ACustomer = new clsCustomer();
-            //string variable to store any error message 
-            String Error = "";
-            //create some test data to pass to the method 
-            string CustomerSurname = "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"; //this should trigger an error
-            //invoke the method 
-            Error = ACustomer.Valid(CustomerFirstName, CustomerSurname, CustomerMobileNumber, CustomerDOB, CustomerAddress, CustomerEmail, CustomerPostCode);
-            //test to see that the result is correct
-            Assert.AreEqual(Error, "");
-        }
-        [TestMethod]
-        public void CustomerSurnameMid()
-        {
-            //create an instance of the class we want to create 
-            clsCustomer ACustomer = new clsCustomer();
-            //string variable to store any error message 
-            String Error = "";
-            //create some test data to pass to the method 
-            string CustomerSurname = "AAAAAAAAAAAAAAAAAAAAAAAAA"; //this should trigger an error
+            //Test data to pass to the method 
+            string CustomerSurname = "AA";
             //invoke the method 
             Error = ACustomer.Valid(CustomerFirstName, CustomerSurname, CustomerMobileNumber, CustomerDOB, CustomerAddress, CustomerEmail, CustomerPostCode);
             //test to see that the result is correct
@@ -537,8 +515,22 @@ namespace Jewellery_System_Testing
             clsCustomer ACustomer = new clsCustomer();
             //string variable to store any error message 
             String Error = "";
-            //create some test data to pass to the method 
-            string CustomerSurname = "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"; //this should trigger an error
+            //test data to pass to the method  
+            string CustomerSurname = "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA";
+            //invoke the method 
+            Error = ACustomer.Valid(CustomerFirstName, CustomerSurname, CustomerMobileNumber, CustomerDOB, CustomerAddress, CustomerEmail, CustomerPostCode);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+        [TestMethod]
+        public void CustomerSurnameMaxLessOne()
+        {
+            //create an instance of the class we want to create 
+            clsCustomer ACustomer = new clsCustomer();
+            //string variable to store any error message 
+            String Error = "";
+            //test data to pass to the method  
+            string CustomerSurname = "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA";
             //invoke the method 
             Error = ACustomer.Valid(CustomerFirstName, CustomerSurname, CustomerMobileNumber, CustomerDOB, CustomerAddress, CustomerEmail, CustomerPostCode);
             //test to see that the result is correct
@@ -551,13 +543,29 @@ namespace Jewellery_System_Testing
             clsCustomer ACustomer = new clsCustomer();
             //string variable to store any error message 
             String Error = "";
-            //create some test data to pass to the method 
-            string CustomerSurname = "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"; //this should fail
+            //test data to pass to the method 
+            string CustomerSurname = "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA";
             //invoke the method 
             Error = ACustomer.Valid(CustomerFirstName, CustomerSurname, CustomerMobileNumber, CustomerDOB, CustomerAddress, CustomerEmail, CustomerPostCode);
             //test to see that the result is correct
             Assert.AreNotEqual(Error, "");
         }
+        [TestMethod]
+        public void CustomerSurnameMid()
+        {
+            //create an instance of the class we want to create 
+            clsCustomer ACustomer = new clsCustomer();
+            //string variable to store any error message 
+            String Error = "";
+            //test data to pass to the method 
+            string CustomerSurname = "AAAAAAAAAAAAAAAAAAAAAAAAA";
+            //invoke the method 
+            Error = ACustomer.Valid(CustomerFirstName, CustomerSurname, CustomerMobileNumber, CustomerDOB, CustomerAddress, CustomerEmail, CustomerPostCode);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+
         [TestMethod]
         public void CustomerSurnameExtremeMax()
         {
@@ -565,23 +573,9 @@ namespace Jewellery_System_Testing
             clsCustomer ACustomer = new clsCustomer();
             //string variable to store any error message 
             String Error = "";
-            //create some test data to pass to the method 
+            //this should pass
             string CustomerSurname = "";
             CustomerSurname = CustomerSurname.PadRight(150, 'A');
-            //invoke the method 
-            Error = ACustomer.Valid(CustomerFirstName, CustomerSurname, CustomerMobileNumber, CustomerDOB, CustomerAddress, CustomerEmail, CustomerPostCode);
-            //test to see that the result is correct
-            Assert.AreNotEqual(Error, "");
-        }
-        [TestMethod]
-        public void CustomerAddressMinLessOne()
-        {
-            //create an instance of the class we want to create 
-            clsCustomer ACustomer = new clsCustomer();
-            //string variable to store any error message 
-            String Error = "";
-            //create some test data to pass to the method 
-            string CustomerAddress = ""; //this should trigger an error
             //invoke the method 
             Error = ACustomer.Valid(CustomerFirstName, CustomerSurname, CustomerMobileNumber, CustomerDOB, CustomerAddress, CustomerEmail, CustomerPostCode);
             //test to see that the result is correct
@@ -602,41 +596,28 @@ namespace Jewellery_System_Testing
             Assert.AreEqual(Error, "");
         }
         [TestMethod]
+        public void CustomerAddressMinLessOne()
+        {
+            //create an instance of the class we want to create 
+            clsCustomer ACustomer = new clsCustomer();
+            //string variable to store any error message 
+            String Error = "";
+            //test data to pass to the method 
+            string CustomerAddress = "";
+            //invoke the method 
+            Error = ACustomer.Valid(CustomerFirstName, CustomerSurname, CustomerMobileNumber, CustomerDOB, CustomerAddress, CustomerEmail, CustomerPostCode);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+        [TestMethod]
         public void CustomerAddressMinPlusOne()
         {
             //create an instance of the class we want to create 
             clsCustomer ACustomer = new clsCustomer();
             //string variable to store any error message 
             String Error = "";
-            //create some test data to pass to the method 
-            string CustomerAddress = "AA"; //this should trigger an error
-            //invoke the method 
-            Error = ACustomer.Valid(CustomerFirstName, CustomerSurname, CustomerMobileNumber, CustomerDOB, CustomerAddress, CustomerEmail, CustomerPostCode);
-            //test to see that the result is correct
-            Assert.AreEqual(Error, "");
-        }
-        [TestMethod]
-        public void CustomerAddressMaxLessOne()
-        {
-            //create an instance of the class we want to create 
-            clsCustomer ACustomer = new clsCustomer();
-            //string variable to store any error message 
-            String Error = "";
-            string CustomerAddress = "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA";
-            //invoke the method 
-            Error = ACustomer.Valid(CustomerFirstName, CustomerSurname, CustomerMobileNumber, CustomerDOB, CustomerAddress, CustomerEmail, CustomerPostCode);
-            //test to see that the result is correct
-            Assert.AreEqual(Error, "");
-        }
-        [TestMethod]
-        public void CustomerAddressMid()
-        {
-            //create an instance of the class we want to create 
-            clsCustomer ACustomer = new clsCustomer();
-            //string variable to store any error message 
-            String Error = "";
-            //create some test data to pass to the method 
-            string CustomerAddress = "AAAAAAAAAAAAAAAAAAAAAAAAA";
+            //test data to pass to the method 
+            string CustomerAddress = "AA";
             //invoke the method 
             Error = ACustomer.Valid(CustomerFirstName, CustomerSurname, CustomerMobileNumber, CustomerDOB, CustomerAddress, CustomerEmail, CustomerPostCode);
             //test to see that the result is correct
@@ -649,7 +630,7 @@ namespace Jewellery_System_Testing
             clsCustomer ACustomer = new clsCustomer();
             //string variable to store any error message 
             String Error = "";
-            //create some test data to pass to the method 
+            //Test data to pass to the method 
             string CustomerAddress = "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA";
             //invoke the method 
             Error = ACustomer.Valid(CustomerFirstName, CustomerSurname, CustomerMobileNumber, CustomerDOB, CustomerAddress, CustomerEmail, CustomerPostCode);
@@ -657,13 +638,28 @@ namespace Jewellery_System_Testing
             Assert.AreEqual(Error, "");
         }
         [TestMethod]
+        public void CustomerAddressMaxLessOne()
+        {
+            //create an instance of the class we want to create 
+            clsCustomer ACustomer = new clsCustomer();
+            //string variable to store any error message 
+            String Error = "";
+            //test data to pass to the method 
+            string CustomerAddress = "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA";
+            //invoke the method 
+            Error = ACustomer.Valid(CustomerFirstName, CustomerSurname, CustomerMobileNumber, CustomerDOB, CustomerAddress, CustomerEmail, CustomerPostCode);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
         public void CustomerAddressMaxPlusOne()
         {
             //create an instance of the class we want to create 
             clsCustomer ACustomer = new clsCustomer();
             //string variable to store any error message 
             String Error = "";
-            //create some test data to pass to the method 
+            //Test data to pass to the method 
             string CustomerAddress = "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"; //this should fail
             //invoke the method 
             Error = ACustomer.Valid(CustomerFirstName, CustomerSurname, CustomerMobileNumber, CustomerDOB, CustomerAddress, CustomerEmail, CustomerPostCode);
@@ -671,13 +667,28 @@ namespace Jewellery_System_Testing
             Assert.AreNotEqual(Error, "");
         }
         [TestMethod]
+        public void CustomerAddressMid()
+        {
+            //create an instance of the class we want to create 
+            clsCustomer ACustomer = new clsCustomer();
+            //string variable to store any error message 
+            String Error = "";
+            //Test data to pass to the method 
+            string CustomerAddress = "AAAAAAAAAAAAAAAAAAAAAAAAA";
+            //invoke the method 
+            Error = ACustomer.Valid(CustomerFirstName, CustomerSurname, CustomerMobileNumber, CustomerDOB, CustomerAddress, CustomerEmail, CustomerPostCode);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
         public void CustomerAddressExtremeMax()
         {
             //create an instance of the class we want to create 
             clsCustomer ACustomer = new clsCustomer();
             //string variable to store any error message 
             String Error = "";
-            //create some test data to pass to the method 
+            //this test should pass
             string CustomerAddress = "";
             CustomerAddress = CustomerAddress.PadRight(150, 'A');
             //invoke the method 
@@ -685,20 +696,7 @@ namespace Jewellery_System_Testing
             //test to see that the result is correct
             Assert.AreNotEqual(Error, "");
         }
-        [TestMethod]
-        public void CustomerEmailMinLessOne()
-        {
-            //create an instance of the class we want to create 
-            clsCustomer ACustomer = new clsCustomer();
-            //string variable to store any error message 
-            String Error = "";
-            //create some test data to pass to the method 
-            string CustomerEmail = ""; //this should trigger an error
-            //invoke the method 
-            Error = ACustomer.Valid(CustomerFirstName, CustomerSurname, CustomerMobileNumber, CustomerDOB, CustomerAddress, CustomerEmail, CustomerPostCode);
-            //test to see that the result is correct
-            Assert.AreNotEqual(Error, "");
-        }
+
         [TestMethod]
         public void CustomerEmailMin()
         {
@@ -706,12 +704,27 @@ namespace Jewellery_System_Testing
             clsCustomer ACustomer = new clsCustomer();
             //string variable to store any error message 
             String Error = "";
-            //create some test data to pass to the method 
-            string CustomerEmail = "A"; //this should trigger an error
+            //Test data to pass to the method 
+            string CustomerEmail = "A";
             //invoke the method 
             Error = ACustomer.Valid(CustomerFirstName, CustomerSurname, CustomerMobileNumber, CustomerDOB, CustomerAddress, CustomerEmail, CustomerPostCode);
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void CustomerEmailMinLessOne()
+        {
+            //create an instance of the class we want to create 
+            clsCustomer ACustomer = new clsCustomer();
+            //string variable to store any error message 
+            String Error = "";
+            //Test data to pass to the method 
+            string CustomerEmail = "";
+            //invoke the method 
+            Error = ACustomer.Valid(CustomerFirstName, CustomerSurname, CustomerMobileNumber, CustomerDOB, CustomerAddress, CustomerEmail, CustomerPostCode);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
         }
         [TestMethod]
         public void CustomerEmailMinPlusOne()
@@ -720,8 +733,23 @@ namespace Jewellery_System_Testing
             clsCustomer ACustomer = new clsCustomer();
             //string variable to store any error message 
             String Error = "";
-            //create some test data to pass to the method 
-            string CustomerEmail = "AA"; //this should trigger an error
+            //test data to pass to the method 
+            string CustomerEmail = "AA";
+            //invoke the method 
+            Error = ACustomer.Valid(CustomerFirstName, CustomerSurname, CustomerMobileNumber, CustomerDOB, CustomerAddress, CustomerEmail, CustomerPostCode);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void CustomerEmailMaxBoundary()
+        {
+            //create an instance of the class we want to create 
+            clsCustomer ACustomer = new clsCustomer();
+            //string variable to store any error message 
+            String Error = "";
+            //test data to pass to the method 
+            string CustomerEmail = "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA";
             //invoke the method 
             Error = ACustomer.Valid(CustomerFirstName, CustomerSurname, CustomerMobileNumber, CustomerDOB, CustomerAddress, CustomerEmail, CustomerPostCode);
             //test to see that the result is correct
@@ -734,39 +762,8 @@ namespace Jewellery_System_Testing
             clsCustomer ACustomer = new clsCustomer();
             //string variable to store any error message 
             String Error = "";
-            //create some test data to pass to the method 
-            string CustomerEmail = "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"; //this should trigger an error
-            //CustomerEmail = CustomerEmail.PadRight(50, 'A');
-            //invoke the method 
-            Error = ACustomer.Valid(CustomerFirstName, CustomerSurname, CustomerMobileNumber, CustomerDOB, CustomerAddress, CustomerEmail, CustomerPostCode);
-            //test to see that the result is correct
-            Assert.AreEqual(Error, "");
-        }
-        [TestMethod]
-        public void CustomerEmailMid()
-        {
-            //create an instance of the class we want to create 
-            clsCustomer ACustomer = new clsCustomer();
-            //string variable to store any error message 
-            String Error = "";
-            //create some test data to pass to the method 
-            string CustomerEmail = "AAAAAAAAAAAAAAAAAAAAAAAAA";
-            //Address = Address.PadRight(30, 'c');
-            //invoke the method 
-            Error = ACustomer.Valid(CustomerFirstName, CustomerSurname, CustomerMobileNumber, CustomerDOB, CustomerAddress, CustomerEmail, CustomerPostCode);
-            //test to see that the result is correct
-            Assert.AreEqual(Error, "");
-        }
-        [TestMethod]
-        public void CustomerEmailMaxBoundary()
-        {
-            //create an instance of the class we want to create 
-            clsCustomer ACustomer = new clsCustomer();
-            //string variable to store any error message 
-            String Error = "";
-            //create some test data to pass to the method 
-            string CustomerEmail = "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA";
-            //Address = Address.PadRight(35, 'c');
+            //test data to pass to the method 
+            string CustomerEmail = "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA";
             //invoke the method 
             Error = ACustomer.Valid(CustomerFirstName, CustomerSurname, CustomerMobileNumber, CustomerDOB, CustomerAddress, CustomerEmail, CustomerPostCode);
             //test to see that the result is correct
@@ -779,13 +776,29 @@ namespace Jewellery_System_Testing
             clsCustomer ACustomer = new clsCustomer();
             //string variable to store any error message 
             String Error = "";
-            //create some test data to pass to the method 
-            string CustomerEmail = "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"; //this should fail
+            //test data to pass to the method 
+            string CustomerEmail = "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA";
             //invoke the method 
             Error = ACustomer.Valid(CustomerFirstName, CustomerSurname, CustomerMobileNumber, CustomerDOB, CustomerAddress, CustomerEmail, CustomerPostCode);
             //test to see that the result is correct
             Assert.AreNotEqual(Error, "");
         }
+        [TestMethod]
+        public void CustomerEmailMid()
+        {
+            //create an instance of the class we want to create 
+            clsCustomer ACustomer = new clsCustomer();
+            //string variable to store any error message 
+            String Error = "";
+            //this test should pass
+            string CustomerEmail = "AAAAAAAAAAAAAAAAAAAAAAAAA";
+            CustomerEmail = CustomerEmail.PadRight(60, 'A');
+            //invoke the method 
+            Error = ACustomer.Valid(CustomerFirstName, CustomerSurname, CustomerMobileNumber, CustomerDOB, CustomerAddress, CustomerEmail, CustomerPostCode);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
         [TestMethod]
         public void CustomerEmailExtremeMax()
         {
@@ -793,23 +806,9 @@ namespace Jewellery_System_Testing
             clsCustomer ACustomer = new clsCustomer();
             //string variable to store any error message 
             String Error = "";
-            //create some test data to pass to the method 
+            //this test should pass
             string CustomerEmail = "";
             CustomerEmail = CustomerEmail.PadRight(200, 'c');
-            //invoke the method 
-            Error = ACustomer.Valid(CustomerFirstName, CustomerSurname, CustomerMobileNumber, CustomerDOB, CustomerAddress, CustomerEmail, CustomerPostCode);
-            //test to see that the result is correct
-            Assert.AreNotEqual(Error, "");
-        }
-        [TestMethod]
-        public void CustomerPostCodeMinLessOne()
-        {
-            //create an instance of the class we want to create 
-            clsCustomer ACustomer = new clsCustomer();
-            //string variable to store any error message 
-            String Error = "";
-            //create some test data to pass to the method 
-            string CustomerPostCode = "";
             //invoke the method 
             Error = ACustomer.Valid(CustomerFirstName, CustomerSurname, CustomerMobileNumber, CustomerDOB, CustomerAddress, CustomerEmail, CustomerPostCode);
             //test to see that the result is correct
@@ -822,7 +821,7 @@ namespace Jewellery_System_Testing
             clsCustomer ACustomer = new clsCustomer();
             //string variable to store any error message 
             String Error = "";
-            //create some test data to pass to the method 
+            //test data to pass to the method 
             string CustomerPostCode = "A";
             //invoke the method 
             Error = ACustomer.Valid(CustomerFirstName, CustomerSurname, CustomerMobileNumber, CustomerDOB, CustomerAddress, CustomerEmail, CustomerPostCode);
@@ -836,8 +835,36 @@ namespace Jewellery_System_Testing
             clsCustomer ACustomer = new clsCustomer();
             //string variable to store any error message 
             String Error = "";
-            //create some test data to pass to the method 
+            //test data to pass to the method 
             string CustomerPostCode = "AA";
+            //invoke the method 
+            Error = ACustomer.Valid(CustomerFirstName, CustomerSurname, CustomerMobileNumber, CustomerDOB, CustomerAddress, CustomerEmail, CustomerPostCode);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+        [TestMethod]
+        public void CustomerPostCodeMinLessOne()
+        {
+            //create an instance of the class we want to create 
+            clsCustomer ACustomer = new clsCustomer();
+            //string variable to store any error message 
+            String Error = "";
+            //test data to pass to the method 
+            string CustomerPostCode = "";
+            //invoke the method 
+            Error = ACustomer.Valid(CustomerFirstName, CustomerSurname, CustomerMobileNumber, CustomerDOB, CustomerAddress, CustomerEmail, CustomerPostCode);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+        [TestMethod]
+        public void CustomerPostCodeMaxBoundary()
+        {
+            //create an instance of the class we want to create 
+            clsCustomer ACustomer = new clsCustomer();
+            //string variable to store any error message 
+            String Error = "";
+            //test data to pass to the method 
+            string CustomerPostCode = "AAAAAAA";
             //invoke the method 
             Error = ACustomer.Valid(CustomerFirstName, CustomerSurname, CustomerMobileNumber, CustomerDOB, CustomerAddress, CustomerEmail, CustomerPostCode);
             //test to see that the result is correct
@@ -850,27 +877,14 @@ namespace Jewellery_System_Testing
             clsCustomer ACustomer = new clsCustomer();
             //string variable to store any error message 
             String Error = "";
-            //create some test data to pass to the method 
+            //test data to pass to the method 
             string CustomerPostCode = "AAAAAA";
             //invoke the method 
             Error = ACustomer.Valid(CustomerFirstName, CustomerSurname, CustomerMobileNumber, CustomerDOB, CustomerAddress, CustomerEmail, CustomerPostCode);
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
-        [TestMethod]
-        public void CustomerPostCodeMaxBoundary()
-        {
-            //create an instance of the class we want to create 
-            clsCustomer ACustomer = new clsCustomer();
-            //string variable to store any error message 
-            String Error = "";
-            //create some test data to pass to the method 
-            string CustomerPostCode = "AAAAAAA";
-            //invoke the method 
-            Error = ACustomer.Valid(CustomerFirstName, CustomerSurname, CustomerMobileNumber, CustomerDOB, CustomerAddress, CustomerEmail, CustomerPostCode);
-            //test to see that the result is correct
-            Assert.AreEqual(Error, "");
-        }
+
         [TestMethod]
         public void CustomerPostCodeMaxPlusOne()
         {
@@ -878,7 +892,7 @@ namespace Jewellery_System_Testing
             clsCustomer ACustomer = new clsCustomer();
             //string variable to store any error message 
             String Error = "";
-            //create some test data to pass to the method 
+            //test data to pass to the method 
             string CustomerPostCode = "AAAAAAAA";
             //invoke the method 
             Error = ACustomer.Valid(CustomerFirstName, CustomerSurname, CustomerMobileNumber, CustomerDOB, CustomerAddress, CustomerEmail, CustomerPostCode);
@@ -892,7 +906,7 @@ namespace Jewellery_System_Testing
             clsCustomer ACustomer = new clsCustomer();
             //string variable to store any error message 
             String Error = "";
-            //create some test data to pass to the method 
+            //test data to pass to the method 
             string CustomerPostCode = "AAAA";
             //invoke the method 
             Error = ACustomer.Valid(CustomerFirstName, CustomerSurname, CustomerMobileNumber, CustomerDOB, CustomerAddress, CustomerEmail, CustomerPostCode);
@@ -906,23 +920,9 @@ namespace Jewellery_System_Testing
             clsCustomer ACustomer = new clsCustomer();
             //string variable to store any error message 
             String Error = "";
-            //create some test data to pass to the method 
+            //tests should pass 
             string CustomerPostCode = "";
             CustomerPostCode = CustomerPostCode.PadRight(50, 'A');
-            //invoke the method 
-            Error = ACustomer.Valid(CustomerFirstName, CustomerSurname, CustomerMobileNumber, CustomerDOB, CustomerAddress, CustomerEmail, CustomerPostCode); 
-            //test to see that the result is correct
-            Assert.AreNotEqual(Error, "");
-        }
-        [TestMethod]
-        public void CustomerMobileNumberMinLessOne()
-        {
-            //create an instance of the class we want to create 
-            clsCustomer ACustomer = new clsCustomer();
-            //string variable to store any error message 
-            String Error = "";
-            //create some test data to pass to the method 
-            string CustomerMobileNumber = "";
             //invoke the method 
             Error = ACustomer.Valid(CustomerFirstName, CustomerSurname, CustomerMobileNumber, CustomerDOB, CustomerAddress, CustomerEmail, CustomerPostCode);
             //test to see that the result is correct
@@ -935,7 +935,7 @@ namespace Jewellery_System_Testing
             clsCustomer ACustomer = new clsCustomer();
             //string variable to store any error message 
             String Error = "";
-            //create some test data to pass to the method 
+            //test data to pass to the method  
             string CustomerMobileNumber = "0";
             //invoke the method 
             Error = ACustomer.Valid(CustomerFirstName, CustomerSurname, CustomerMobileNumber, CustomerDOB, CustomerAddress, CustomerEmail, CustomerPostCode);
@@ -943,28 +943,29 @@ namespace Jewellery_System_Testing
             Assert.AreEqual(Error, "");
         }
         [TestMethod]
+        public void CustomerMobileNumberMinLessOne()
+        {
+            //create an instance of the class we want to create 
+            clsCustomer ACustomer = new clsCustomer();
+            //string variable to store any error message 
+            String Error = "";
+            //test data to pass to the method 
+            string CustomerMobileNumber = "";
+            //invoke the method 
+            Error = ACustomer.Valid(CustomerFirstName, CustomerSurname, CustomerMobileNumber, CustomerDOB, CustomerAddress, CustomerEmail, CustomerPostCode);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
         public void CustomerMobileNumberMinPlusOne()
         {
             //create an instance of the class we want to create 
             clsCustomer ACustomer = new clsCustomer();
             //string variable to store any error message 
             String Error = "";
-            //create some test data to pass to the method 
+            //test data to pass to the method 
             string CustomerMobileNumber = "01";
-            //invoke the method 
-            Error = ACustomer.Valid(CustomerFirstName, CustomerSurname, CustomerMobileNumber, CustomerDOB, CustomerAddress, CustomerEmail, CustomerPostCode);
-            //test to see that the result is correct
-            Assert.AreEqual(Error, "");
-        }
-        [TestMethod]
-        public void CustomerMobileNumberMaxLessOne()
-        {
-            //create an instance of the class we want to create 
-            clsCustomer ACustomer = new clsCustomer();
-            //string variable to store any error message 
-            String Error = "";
-            //create some test data to pass to the method 
-            string CustomerMobileNumber = "0123456789";
             //invoke the method 
             Error = ACustomer.Valid(CustomerFirstName, CustomerSurname, CustomerMobileNumber, CustomerDOB, CustomerAddress, CustomerEmail, CustomerPostCode);
             //test to see that the result is correct
@@ -977,7 +978,7 @@ namespace Jewellery_System_Testing
             clsCustomer ACustomer = new clsCustomer();
             //string variable to store any error message 
             String Error = "";
-            //create some test data to pass to the method 
+            //test data to pass to the method 
             string CustomerMobileNumber = "01234567891";
             //invoke the method 
             Error = ACustomer.Valid(CustomerFirstName, CustomerSurname, CustomerMobileNumber, CustomerDOB, CustomerAddress, CustomerEmail, CustomerPostCode);
@@ -985,13 +986,28 @@ namespace Jewellery_System_Testing
             Assert.AreEqual(Error, "");
         }
         [TestMethod]
+        public void CustomerMobileNumberMaxLessOne()
+        {
+            //create an instance of the class we want to create 
+            clsCustomer ACustomer = new clsCustomer();
+            //string variable to store any error message 
+            String Error = "";
+            //test data to pass to the method 
+            string CustomerMobileNumber = "0123456789";
+            //invoke the method 
+            Error = ACustomer.Valid(CustomerFirstName, CustomerSurname, CustomerMobileNumber, CustomerDOB, CustomerAddress, CustomerEmail, CustomerPostCode);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
         public void CustomerMobileNumberMaxPlusOne()
         {
             //create an instance of the class we want to create 
             clsCustomer ACustomer = new clsCustomer();
             //string variable to store any error message 
             String Error = "";
-            //create some test data to pass to the method 
+            //test data to pass to the method 
             string CustomerMobileNumber = "0123445678910";
             //invoke the method 
             Error = ACustomer.Valid(CustomerFirstName, CustomerSurname, CustomerMobileNumber, CustomerDOB, CustomerAddress, CustomerEmail, CustomerPostCode);
@@ -1005,7 +1021,7 @@ namespace Jewellery_System_Testing
             clsCustomer ACustomer = new clsCustomer();
             //string variable to store any error message 
             String Error = "";
-            //create some test data to pass to the method 
+            //test data to pass to the method  
             string CustomerMobileNumber = "0123445";
             //invoke the method 
             Error = ACustomer.Valid(CustomerFirstName, CustomerSurname, CustomerMobileNumber, CustomerDOB, CustomerAddress, CustomerEmail, CustomerPostCode);
@@ -1019,7 +1035,7 @@ namespace Jewellery_System_Testing
             clsCustomer ACustomer = new clsCustomer();
             //string variable to store any error message 
             String Error = "";
-            //create some test data to pass to the method 
+            //this test should pass 
             string CustomerMobileNumber = "";
             CustomerMobileNumber = CustomerMobileNumber.PadRight(100, '0');
             //invoke the method 
@@ -1034,11 +1050,11 @@ namespace Jewellery_System_Testing
             clsCustomer ACustomer = new clsCustomer();
             //string variable to store any error message 
             String Error = "";
-            //create some test data to pass to the method 
+            //create a variable to store the test date data
             DateTime TestDate;
-            //set the adte totodays date 
+            //set the date to todays date 
             TestDate = DateTime.Now.Date;
-            //change the dae to whatever the date is less 100 years
+            //change the date to whatever the date is less 100 years
             TestDate = TestDate.AddYears(-100);
             //convert the date variable to a string variable
             string CustomerDOB = TestDate.ToString();
@@ -1054,11 +1070,11 @@ namespace Jewellery_System_Testing
             clsCustomer ACustomer = new clsCustomer();
             //string variable to store any error message 
             String Error = "";
-            //create some test data to pass to the method 
+            //create a variable to store the test date data
             DateTime TestDate;
-            //set the adte totodays date 
+            //set the date to todays date 
             TestDate = DateTime.Now.Date;
-            //change the dae to whatever the date is less 1 day
+            //change the date to whatever the date is less 1 day
             TestDate = TestDate.AddDays(-1);
             //convert the date variable to a string variable
             string CustomerDOB = TestDate.ToString();
@@ -1074,9 +1090,9 @@ namespace Jewellery_System_Testing
             clsCustomer ACustomer = new clsCustomer();
             //string variable to store any error message 
             String Error = "";
-            //create some test data to pass to the method 
+            //create a variable to store the test date data
             DateTime TestDate;
-            //set the adte totodays date 
+            //set the date to todays date 
             TestDate = DateTime.Now.Date;
             //convert the date variable to a string variable
             string CustomerDOB = TestDate.ToString();
@@ -1092,11 +1108,11 @@ namespace Jewellery_System_Testing
             clsCustomer ACustomer = new clsCustomer();
             //string variable to store any error message 
             String Error = "";
-            //create some test data to pass to the method 
+            //create a variable to store the test date data
             DateTime TestDate;
-            //set the adte totodays date 
+            //set the date to todays date 
             TestDate = DateTime.Now.Date;
-            //change the dae to whatever the date is plus 1 day
+            //change the date to whatever the date is plus 1 day
             TestDate = TestDate.AddDays(1);
             //convert the date variable to a string variable
             string CustomerDOB = TestDate.ToString();
@@ -1112,11 +1128,11 @@ namespace Jewellery_System_Testing
             clsCustomer ACustomer = new clsCustomer();
             //string variable to store any error message 
             String Error = "";
-            //create some test data to pass to the method 
+            //create a variable to store the test date data
             DateTime TestDate;
-            //set the adte totodays date 
+            //set the date to todays date 
             TestDate = DateTime.Now.Date;
-            //change the dae to whatever the date is plus 1 day
+            //change the date to whatever the date is plus 1 day
             TestDate = TestDate.AddYears(100);
             //convert the date variable to a string variable
             string CustomerDOB = TestDate.ToString();
@@ -1132,7 +1148,7 @@ namespace Jewellery_System_Testing
             clsCustomer ACustomer = new clsCustomer();
             //string variable to store any error message 
             String Error = "";
-            //string the dateofbirth to a non date value 
+            //string the Date Of Birth to a non date value 
             string CustomerDOB = "this is not a date!";
             //invoke the method 
             Error = ACustomer.Valid(CustomerFirstName, CustomerSurname, CustomerMobileNumber, CustomerDOB, CustomerAddress, CustomerEmail, CustomerPostCode);
@@ -1142,7 +1158,6 @@ namespace Jewellery_System_Testing
 
     }
 }
-
 
 
 
