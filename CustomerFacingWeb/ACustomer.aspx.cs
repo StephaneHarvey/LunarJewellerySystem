@@ -8,11 +8,12 @@ using ClassLibrary;
 
 public partial class ACustomer : System.Web.UI.Page
 {
+    
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        
     }
-
+    
     protected void btnOK_Click(object sender, EventArgs e)
     {
         //create a new instance of clsCustomer
