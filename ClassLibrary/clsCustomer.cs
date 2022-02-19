@@ -188,68 +188,78 @@ namespace ClassLibrary
         public string Valid(string customerFirstName, string customerSurname, string customerMobileNumber, string customerDOB, string customerAddress, string customerEmail, string customerPostCode)
         {
 
-                //create a sting variable to store the error
+                //create a string variable to store the error
                 String Error = "";
                 //create a temporary variable to store date values
                 DateTime DateTemp;
 
-                //if the customers first name is blank
+                //if the customers FirstName is blank
                 if (customerFirstName.Length == 0)
                 {
                     //record the error
                     Error = Error + "The Customer's FirstName may not be blank :";
                 }
-                if (customerFirstName.Length > 20)
+            //if the customers FirstName More than 20
+            if (customerFirstName.Length > 20)
                 {
                     //record the error
                     Error = Error + "The Customer's FirstName must be less than 20 characters :";
                 }
-
+            //if the customers Surname is blank
             if (customerSurname.Length == 0)
             {
                 //record the error
                 Error = Error + "The Customer's Surname may not be blank :";
             }
+            //if the customers Surname is More than 50
             if (customerSurname.Length > 50)
             {
                 //record the error
                 Error = Error + "The Customer's Surname must be less than 50 characters :";
             }
+            //if the customers Address is blank
             if (customerAddress.Length == 0)
             {
                 //record the error
                 Error = Error + "The Customer's Address may not be blank :";
             }
+            //if the customers Surname is More than 50
             if (customerAddress.Length > 50)
             {
                 //record the error
                 Error = Error + "The Customer's Address must be less than 50 characters :";
             }
+            //if the customers PostCode is blank
             if (customerPostCode.Length == 0)
             {
                 //record the error
                 Error = Error + "The Customer's PostCode may not be blank :";
             }
+            //if the customers PostCode is more than 7
             if (customerPostCode.Length > 7)
             {
                 //record the error
                 Error = Error + "The Customer's PostCode must be less than 7 characters :";
             }
+            //if the customers Email is blank
             if (customerEmail.Length == 0)
             {
                 //record the error
                 Error = Error + "The Customer's Email may not be blank :";
             }
+            //if the customers Email is more than 50
             if (customerEmail.Length > 50)
             {
                 //record the error
                 Error = Error + "The Customer's Email must be less than 50 characters :";
             }
+            //if the customers MobileNumber is blank
             if (customerMobileNumber.Length == 0)
             {
                 // record the error
                 Error = Error + "The Customer's Mobile Number may not be blank :";
             }
+            //if the customers MobileNumber is more than 11
             if (customerMobileNumber.Length > 11)
             {
                 //record the error
@@ -277,19 +287,19 @@ namespace ClassLibrary
                 //record the error
                 Error = Error + "The date was not a valid date : ";
             }
-            //is the post code blank
+            //is the PostCode blank
             if (customerPostCode.Length == 0)
             {
                 //record the error
                 Error = Error + "The post code may not be blank : ";
             }
-            //if the post code is too long
+            //if the PostCode is more than 7
             if (customerPostCode.Length > 7)
             {
                 //record the error
                 Error = Error + "The post code must be less than 7 characters : ";
             }
-
+            //return any error messages
             return Error;
             }
         }
