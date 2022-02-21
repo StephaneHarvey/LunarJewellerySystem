@@ -303,7 +303,11 @@ namespace ClassLibrary
             return Error;
             }
         }
+
+    public class clsStock
+    {
     }
+}
 
 
 
