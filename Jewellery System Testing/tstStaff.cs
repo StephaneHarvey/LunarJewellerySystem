@@ -15,6 +15,48 @@ namespace Jewellery_System_Testing
             //test to see that it exists
             Assert.IsNotNull(AStaff);
         }
+
+        [TestMethod]
+        public void StaffAddressPropertyOK()
+        {
+            //create an instance of the class that we want to create
+            clsStaff AStaff = new clsStaff();
+            //create some test data to assign to property
+            string TestData = "67 Cross Close";
+            
+            //assign the data to the property
+            AStaff.StaffAddress = TestData;
+            //test to see that it exists
+            Assert.AreEqual(AStaff.StaffAddress, TestData);
+        }
+
+        [TestMethod]
+        public void StaffContactNoPropertyOK()
+        {
+            //create an instance of the class 
+            clsStaff AStaff = new clsStaff();
+            //create test data to assign to property
+            string TestData = "07763890134";
+
+            //assign the data to the property
+            AStaff.StaffContactNo = TestData;
+            //test to see that it exists
+            Assert.AreEqual(AStaff.StaffContactNo, TestData);
+        }
+
+        //[TestMethod]
+        //public void StaffDOBPropertyOK()
+        //{
+        //    //create an instance of the class 
+        //    clsStaff AStaff = new clsStaff();
+        //    //create test data to assign to property
+        //    DateTime TestData = "07763890134";
+
+        //    //assign the data to the property
+        //    AStaff.StaffDOB = TestData;
+        //    //test to see that it exists
+        //    Assert.AreEqual(AStaff.StaffContactNo, TestData);
+        //}
     }
 
    
