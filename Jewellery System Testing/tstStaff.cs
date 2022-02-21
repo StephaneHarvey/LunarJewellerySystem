@@ -1,4 +1,5 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using ClassLibrary;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 
 namespace Jewellery_System_Testing
@@ -11,13 +12,10 @@ namespace Jewellery_System_Testing
         {
             //create an instance of the class we want to create
             clsStaff AStaff = new clsStaff();
-            //test to see that it existss
+            //test to see that it exists
             Assert.IsNotNull(AStaff);
         }
     }
 
-    class clsStaff
-    {
-
-    }
+   
 }
