@@ -12,4 +12,8 @@ namespace ClassLibrary
         public string StaffAddress { get; set; }
         public string StaffContactNo { get; set; }
     }
+
+    public class clsStock
+    {
+    }
 }
