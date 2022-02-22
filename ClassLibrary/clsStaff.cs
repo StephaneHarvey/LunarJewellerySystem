@@ -4,13 +4,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ClassLibrary
+namespace ClassLibrary 
 {
 
     public class clsStaff
     {
         public string StaffAddress { get; set; }
         public string StaffContactNo { get; set; }
+        public string StaffFirstName { get; set; }
+        public string StaffLastName { get; set; }
+        public int StaffID { get; set; }
     }
 
     public class clsStock
