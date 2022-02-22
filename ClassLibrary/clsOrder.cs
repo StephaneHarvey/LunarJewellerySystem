@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace ClassLibrary
 {
-    class clsOrder
+    public class clsOrder
     {
+        public string StatusNo { get; set; }
     }
 }
