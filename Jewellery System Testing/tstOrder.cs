@@ -10,119 +10,91 @@ namespace Jewellery_System_Testing
         [TestMethod]
         public void InstanceOK()
         {
-            //create an instance of the class we want to create 
-            clsOrder AnOrder = new clsOrder();
+            //create an instance of the class that we want to create
+            clsOrder AOrder = new clsOrder();
             //test to see that is exists 
-            Assert.IsNotNull(AnOrder);
+            Assert.IsNotNull(AOrder);
         }
         [TestMethod]
-        public void ActivePropertyOK()
+        public void OrderNameOK()
         {
-            //create an instance of the class we want to create 
-            clsOrder AnOrder = new clsOrder();
-            //create some test data to assign to the property 
-            Boolean TestData = true;
+            //create an instnace of the class that we want to create 
+            clsOrder AOrder = new clsOrder();
+            //create some test data to assign to property 
+            string TestData = "Cross Ring";
             //assign the data to the property 
-            AnOrder.Active = TestData;
-            //test to see that the two values are the same 
-            Assert.AreEqual(AnOrder.Active, TestData);
+            AOrder.OrderName = TestData;
+            //test to see that is exists 
+            Assert.AreEqual(AOrder.OrderName, TestData);
         }
         [TestMethod]
-        public void DateAddedPropertyOK()
+        public void OrderNoOK()
         {
-            //create an instance of the class we want to create 
-            clsOrder AnOrder = new clsOrder();
-            //create some test data to assign to the property 
-            DateTime TestData = DateTime.Now.Date;
-            //assign the data to the property 
-            AnOrder.DateAdded = TestData;
-            //test to see that the two values are the same 
-            Assert.AreEqual(AnOrder.DateAdded, TestData);
-        }
-        [TestMethod]
-        public void OrderNoPropertyOK()
-        {
-            //create an instance of the class we want to create 
-            clsOrder AnOrder = new clsOrder();
-            //create some test data assign to the property 
-            Int32 TestData = 1;
-            //assign the data the property 
-            AnOrder.OrderNo = TestData;
-            //test to see the two values are the same 
-            Assert.AreEqual(AnOrder.OrderNo, TestData);
-        }
-        [TestMethod]
-        public void ProductNoPropertyOK()
-        {
-            //create an instacne of the class we want to create 
-            clsOrder AnOrder = new clsOrder();
-            //create some test data to assign to the property
-            Int32 TestData = 1;
+            //create an instance of the class
+            clsOrder AOrder = new clsOrder();
+            //create test data to assign to property 
+            string TestData = "012345";
             //assign the data to the property
-            AnOrder.ProductNo = TestData;
-            //test to see that the two values are the same 
-            Assert.AreEqual(AnOrder.ProductNo, TestData);
+            AOrder.OrderNo = TestData;
+            //test to see that it exist 
+            Assert.AreEqual(AOrder.OrderNo, TestData);
+
         }
         [TestMethod]
-        public void StatusNoPropertyOK()
+        public void FindMethodOK()
+        {
+            //create an instance of the class we want to create
+            clsOrder AOrder = new clsOrder();
+            //Boolean variable to store the results of the validation 
+            Boolean Found = false;
+            //create some test data to use with the method
+            Int32 OrderNo = 21;
+            //invoke the method
+            Found = AOrder.Find(OrderNo);
+            //test to see if the result is true 
+            Assert.IsTrue(Found);
+        }
+        [TestMethod]
+        public void TestProductNoFound()
+        {
+            //create an instance of the class we want to create
+            clsOrder AOrder = new clsOrder();
+            //boolean variable to store the result of the search 
+            Boolean Found = false;
+            //boolean variable to record if data is OK (assume it is)
+            Boolean OK = true;
+            //create some test data to use with the method
+            Int32 ProductNo = 21;
+            //invoke the method
+            Found = AOrder.Find(ProductNo);
+            //check the orderno
+            if (AOrder.ProductNo != 21)
+            {
+                OK = false;
+            }
+            //test to see that the result is correct 
+            Assert.IsTrue(OK);
+        }
+        [TestMethod]
+        public void TestDateAddedFound()
         {
             //create an instance of the class we want to create 
-            clsOrder AnOrder = new clsOrder();
-            //create some test data to assign to the property 
-            string TestData = "21b";
-            AnOrder.StatusNo = TestData;
-            //test to see that the two values are the same 
-            Assert.AreEqual(AnOrder.StatusNo, TestData);
+            clsOrder AOrder = new clsOrder();
+            //boolean variable to store the result of the search 
+            Boolean Found = false;
+            //boolean variable to record if data is OK (assume it is)
+            Boolean OK = true;
+            //create some test data to use with the method
+            Int32 OrderNo = 21;
+            //invoke the method 
+            Found = AOrder.Find(OrderNo);
+            //check the property
+            if (AOrder.DateAdded != Convert.ToDateTime("16/08/2015"))
+            {
+                OK = false;
+            }
+            //test to see that the result is correct 
+            Assert.IsTrue(OK);
         }
-        [TestMethod]
-        public void OrderNamePropertyOK()
-        {
-            //create an instance of the class we want to create 
-            clsOrder AnOrder = new clsOrder();
-            //create some test data to assign to the property 
-            string TestData = "LE1 4AB";
-            //assign the data to the property 
-            AnOrder.OrderName = TestData;
-            //test to see that the two values are the same 
-            Assert.AreEqual(AnOrder.OrderName, TestData);
-        }
-        [TestMethod]
-        public void ProductTypeOK()
-        {
-            //create an instance of the class we want to create 
-            clsOrder AnOrder = new clsOrder();
-            //create some test data to assign to the property
-            string TestData = "Some Product";
-            //assign the data to the property 
-            AnOrder.ProductType = TestData;
-            //test to seee that the two values are the same 
-            Assert.AreEqual(AnOrder.ProductType, TestData);
-        }
-        [TestMethod]
-        public void ProductOK()
-        {
-            //create an instace of the class we want to create 
-            clsOrder AnOrder = new clsOrder();
-            //create some test data to assign to the property
-            string TestData = "Leicester";
-            //assign the data to the property 
-            AnOrder.Product = TestData;
-            //test to see that the two values are the same
-            Assert.AreEqual(AnOrder.Product, TestData);
-        }
-
-
-    }
-
-    class clsOrder
-    {
-        public bool Active { get; internal set; }
-        public DateTime DateAdded { get; internal set; }
-        public int OrderNo { get; internal set; }
-        public int ProductNo { get; internal set; }
-        public string StatusNo { get; internal set; }
-        public string OrderName { get; internal set; }
-        public string ProductType { get; internal set; }
-        public string Product { get; internal set; }
     }
 }
