@@ -8,28 +8,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <div>
-        </div>
-        <asp:ListBox ID="lstCustomers" runat="server" Height="383px" Width="496px"></asp:ListBox>
-        <p>
-            <asp:Label ID="lblPostCode" runat="server" Text="Please Enter a Post Code"></asp:Label>
-        </p>
-        <asp:TextBox ID="txtPostCode" runat="server" Height="26px" Width="258px"></asp:TextBox>
-        <p>
-            <asp:Button ID="btnApply" runat="server" Height="35px" Text="Apply" Width="156px" />
-            <asp:Button ID="btnDisplayAll" runat="server" Height="33px" Text="Display All" Width="158px" />
-        </p>
-        <p>
-            &nbsp;</p>
-        <p>
-            <asp:Button ID="btnAdd" runat="server" Text="Add Customer" />
-            <asp:Button ID="btnEdit" runat="server" Text="Edit Details" />
-            <asp:Button ID="btnDelete" runat="server" Height="23px" Text="Delete" Width="92px" />
-        </p>
-        <p>
-            &nbsp;</p>
-        <p>
-            &nbsp;</p>
+        
     </form>
 </body>
 </html>

@@ -8,65 +8,41 @@ using ClassLibrary;
 
 public partial class ACustomer : System.Web.UI.Page
 {
-    
+    Int32 CustomerID;
     protected void Page_Load(object sender, EventArgs e)
     {
-        
+        CustomerID = Convert.ToInt32(Session["CustomerID"]);
+        if (IsPostBack == false)
+        {
+            //DisplayCustomer();
+            if (CustomerID != -1)
+            {
+                DisplayCustomer();
+            }
+        }
+
     }
-    
+
+
     protected void btnOK_Click(object sender, EventArgs e)
     {
-        //create a new instance of clsCustomer
-        clsCustomer ACustomer = new clsCustomer();
-        //capture the First Name of the Customer
-        string CustomerFirstName = txtCustomerFirstName.Text;
-        //capture the Surname of the Customer
-        string CustomerSurname = txtCustomerSurname.Text;
-        //capture the Address of the Customer
-        string CustomerAddress = txtCustomerAddress.Text;
-        //capture the Post Code of the Customer
-        string CustomerPostCode = txtPostCode.Text;
-        //capture the Date Of Birth of the Customer
-        string CustomerDOB = txtCustomerDOB.Text;
-        //capture the Email of the Customer
-        string CustomerEmail = txtEmail.Text;
-        //capture the Mobile Number of the Customer
-        string CustomerMobileNumber = txtMobileNumber.Text;
-        //variable to store any error messages
-        string Error= "";
-        //validate the data 
-        Error = ACustomer.Valid(CustomerFirstName, CustomerSurname, CustomerAddress, CustomerPostCode, CustomerDOB, CustomerEmail,CustomerMobileNumber);
-        if (Error == "")
+        if (CustomerID == -1)
         {
-            //capture the First Name of the Customer
-            ACustomer.CustomerFirstName = txtCustomerFirstName.Text;
-            //capture the Surname of the Customer
-            ACustomer.CustomerSurname = txtCustomerSurname.Text;
-            //capture the Address of the Customer
-            ACustomer.CustomerAddress = txtCustomerAddress.Text;
-            //capture the Post Code of the Customer
-            ACustomer.CustomerPostCode = txtPostCode.Text;
-            //capture the Date Of Birth of the Customer
-            ACustomer.CustomerDOB = Convert.ToDateTime(txtCustomerDOB.Text);
-            //capture the Email of the Customer
-            ACustomer.CustomerEmail = txtEmail.Text;
-            //capture the Mobile Number of the Customer
-            ACustomer.CustomerMobileNumber = txtMobileNumber.Text;
-            //store the customer in the session object
-            Session["ACustomer"] = ACustomer;
-            //redirect to the viewer page 
-            Response.Redirect("CustomerViewer.aspx");
+            //add the new record
+            Add();
         }
         else
         {
-            //display the error message 
-            lblError.Text = Error;
+            //update the record
+            Update();
         }
+
+
     }
 
 
 
-protected void btnFind_Click(object sender, EventArgs e)
+    protected void btnFind_Click(object sender, EventArgs e)
     {
         //create an instance of the customer class
         clsCustomer ACustomer = new clsCustomer();
@@ -79,10 +55,10 @@ protected void btnFind_Click(object sender, EventArgs e)
         //find the record
         Found = ACustomer.Find(CustomerID);
         //if found
-        if (Found==true)
+        if (Found == true)
         {
             //display the values of the properties in the form
-           // txtCustomerID.Text = ACustomer.CustomerID;
+            //txtCustomerID.Text = Convert.ToInt32(ACustomer.CustomerID);
             txtCustomerFirstName.Text = ACustomer.CustomerFirstName;
             txtCustomerSurname.Text = ACustomer.CustomerSurname;
             txtCustomerDOB.Text = ACustomer.CustomerDOB.ToString();
@@ -91,6 +67,85 @@ protected void btnFind_Click(object sender, EventArgs e)
             txtMobileNumber.Text = ACustomer.CustomerMobileNumber;
             txtEmail.Text = ACustomer.CustomerEmail;
         }
-
     }
+    //function for adding new records
+    void Add()
+    {
+        //create an instance of the customer book
+        clsCustomerCollection CustomerBook = new clsCustomerCollection();
+        //validate the data on the web form
+        String Error = CustomerBook.ThisCustomer.Valid(txtCustomerFirstName.Text, txtCustomerSurname.Text, txtCustomerDOB.Text, txtCustomerAddress.Text, txtPostCode.Text, txtMobileNumber.Text, txtEmail.Text);
+        //if the data is OK then add it to the object
+        if (Error == "")
+        {
+            //get the data entered by the user
+            CustomerBook.ThisCustomer.CustomerFirstName = txtCustomerFirstName.Text;
+            CustomerBook.ThisCustomer.CustomerSurname = txtCustomerSurname.Text;
+            CustomerBook.ThisCustomer.CustomerDOB = Convert.ToDateTime(txtCustomerDOB.Text);
+            CustomerBook.ThisCustomer.CustomerAddress = txtCustomerAddress.Text;
+            CustomerBook.ThisCustomer.CustomerPostCode = txtPostCode.Text;
+            CustomerBook.ThisCustomer.CustomerMobileNumber = txtMobileNumber.Text;
+            CustomerBook.ThisCustomer.CustomerEmail = txtEmail.Text;
+            CustomerBook.ThisCustomer.Active = chkActive.Checked;
+            //add the record
+            CustomerBook.Add();
+            //all done so redirect back to the main page
+           // Response.Redirect("Default.aspx");
+        }
+        else
+        {
+            //report an error
+            lblError.Text = "There were problems with the data entered" + Error;
+        }
+    }
+
+    void DisplayCustomer()
+    {
+        clsCustomerCollection CustomerBook = new clsCustomerCollection();
+        //create an instance of the customers collection
+        CustomerBook.ThisCustomer.Find(CustomerID);
+        //display the data for this record
+        txtCustomerFirstName.Text = CustomerBook.ThisCustomer.CustomerFirstName;
+        txtCustomerSurname.Text = CustomerBook.ThisCustomer.CustomerSurname;
+        txtCustomerDOB.Text = CustomerBook.ThisCustomer.CustomerDOB.ToString();
+        txtCustomerAddress.Text = CustomerBook.ThisCustomer.CustomerAddress;
+        txtPostCode.Text = CustomerBook.ThisCustomer.CustomerPostCode;
+        txtMobileNumber.Text = CustomerBook.ThisCustomer.CustomerMobileNumber;
+        txtEmail.Text = CustomerBook.ThisCustomer.CustomerEmail;
+        chkActive.Checked = CustomerBook.ThisCustomer.Active;
+    }
+    void Update()
+        {
+            //create an instance of the customer book
+            ClassLibrary.clsCustomerCollection CustomerBook = new ClassLibrary.clsCustomerCollection();
+            //validate the data on the web form
+            String Error = CustomerBook.ThisCustomer.Valid(txtCustomerFirstName.Text, txtCustomerSurname.Text, txtCustomerDOB.Text, txtCustomerAddress.Text, txtPostCode.Text, txtMobileNumber.Text, txtEmail.Text);
+            //if the data is OK then add it to the object
+            if (Error == "")
+            {
+                //Find the record to update
+                CustomerBook.ThisCustomer.Find(CustomerID);
+                //get the data entered by the user
+                CustomerBook.ThisCustomer.CustomerFirstName = txtCustomerFirstName.Text;
+                CustomerBook.ThisCustomer.CustomerSurname = txtCustomerSurname.Text;
+                CustomerBook.ThisCustomer.CustomerDOB = Convert.ToDateTime(txtCustomerDOB.Text);
+                CustomerBook.ThisCustomer.CustomerAddress = txtCustomerAddress.Text;
+                CustomerBook.ThisCustomer.CustomerPostCode = txtPostCode.Text;
+                CustomerBook.ThisCustomer.CustomerMobileNumber = txtMobileNumber.Text;
+                CustomerBook.ThisCustomer.CustomerEmail = txtEmail.Text;
+                CustomerBook.ThisCustomer.Active = chkActive.Checked;
+                //add the record
+                CustomerBook.Update();
+                //all done so redirect back to the main page
+                Response.Redirect("CustomerDefault.aspx");
+            }
+            else
+            {
+                //report an error
+                lblError.Text = "There were problems with the data entered" + Error;
+            }
+
+        }
+   
+
 }

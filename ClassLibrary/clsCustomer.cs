@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace ClassLibrary
 {
-
     public class clsCustomer
     {
+        
         //customerID private member variable
         private Int32 mCustomerID;
         //CustomerID public property
@@ -25,7 +25,7 @@ namespace ClassLibrary
                 mCustomerID = value;
             }
         }
-
+        
         //CustomerDOB public property
         private DateTime mCustomerDOB;
         public DateTime CustomerDOB
@@ -185,26 +185,29 @@ namespace ClassLibrary
             }
         }
 
+     
+    
+
         public string Valid(string customerFirstName, string customerSurname, string customerMobileNumber, string customerDOB, string customerAddress, string customerEmail, string customerPostCode)
         {
 
-                //create a string variable to store the error
-                String Error = "";
-                //create a temporary variable to store date values
-                DateTime DateTemp;
+            //create a string variable to store the error
+            String Error = "";
+            //create a temporary variable to store date values
+            DateTime DateTemp;
 
-                //if the customers FirstName is blank
-                if (customerFirstName.Length == 0)
-                {
-                    //record the error
-                    Error = Error + "The Customer's FirstName may not be blank :";
-                }
+            //if the customers FirstName is blank
+            if (customerFirstName.Length == 0)
+            {
+                //record the error
+                Error = Error + "The Customer's FirstName may not be blank :";
+            }
             //if the customers FirstName More than 20
             if (customerFirstName.Length > 20)
-                {
-                    //record the error
-                    Error = Error + "The Customer's FirstName must be less than 20 characters :";
-                }
+            {
+                //record the error
+                Error = Error + "The Customer's FirstName must be less than 20 characters :";
+            }
             //if the customers Surname is blank
             if (customerSurname.Length == 0)
             {
@@ -288,22 +291,17 @@ namespace ClassLibrary
                 Error = Error + "The date was not a valid date : ";
             }
             //is the PostCode blank
-            if (customerPostCode.Length == 0)
-            {
-                //record the error
-                Error = Error + "The post code may not be blank : ";
-            }
-            //if the PostCode is more than 7
-            if (customerPostCode.Length > 7)
-            {
-                //record the error
-                Error = Error + "The post code must be less than 7 characters : ";
-            }
+          
             //return any error messages
             return Error;
-            }
         }
+    
+        
     }
+
+}
+      
+    
 
 
 
