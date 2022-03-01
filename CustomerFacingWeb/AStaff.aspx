@@ -10,29 +10,30 @@
     <form id="form1" runat="server">
         <div>
             <br />
-            <asp:Label ID="lblStaffID" runat="server" Text="StaffID"></asp:Label>
-&nbsp;<asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+            <asp:Label ID="lblStaffID" runat="server" Text="Staff ID"></asp:Label>
+&nbsp;<asp:TextBox ID="txtStaffID" runat="server"></asp:TextBox>
         </div>
         <p>
-            <asp:Label ID="lblStaffLastName" runat="server" Text="Last Name"></asp:Label>
-&nbsp;<asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
+&nbsp;<asp:Label ID="lblStaffFirstName" runat="server" Text="First Name"></asp:Label>
+            <asp:TextBox ID="txtStaffFirstName" runat="server"></asp:TextBox>
         </p>
         <p>
-            <asp:Label ID="lblStaffFirstName" runat="server" Text="First Name"></asp:Label>
-&nbsp;<asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
+&nbsp;<asp:Label ID="lblStaffLastName" runat="server" Text="Last Name"></asp:Label>
+            <asp:TextBox ID="txtStaffLastName" runat="server"></asp:TextBox>
         </p>
         <p>
             <asp:Label ID="lblStaffDOB" runat="server" Text="Date of Birth"></asp:Label>
-&nbsp;<asp:TextBox ID="TextBox4" runat="server"></asp:TextBox>
+&nbsp;<asp:TextBox ID="txtStaffDOB" runat="server"></asp:TextBox>
         </p>
         <p>
             <asp:Label ID="lblStaffContactNo" runat="server" Text="Contact No"></asp:Label>
-&nbsp;<asp:TextBox ID="TextBox5" runat="server"></asp:TextBox>
+&nbsp;<asp:TextBox ID="txtStaffContactNo" runat="server"></asp:TextBox>
         </p>
         <p>
             <asp:Label ID="lblStaffAddress" runat="server" Text="Address"></asp:Label>
-&nbsp;<asp:TextBox ID="TextBox6" runat="server" OnTextChanged="TextBox6_TextChanged"></asp:TextBox>
-&nbsp;</p>
+
+&nbsp;<asp:TextBox ID="txtStaffAddress" runat="server"></asp:TextBox>
+        </p>
         <p>
             &nbsp;</p>
         <p>
