@@ -81,7 +81,42 @@ namespace Jewellery_System_Testing
             Assert.AreEqual(AStaff.StaffID, TestData);
         }
 
+        [TestMethod]
+        public void FindMethodOK()
+        {
+            //create instance of class
+            clsStaff AStaff = new clsStaff();
+            //boolean variable to store the results of the validation 
+            Boolean Found = false;
+            //test data to use with the method
+            Int32 StaffID = 2618936;
+            //invoke the method
+            Found = AStaff.Find(StaffID);
+            //test to see if result is true
+            Assert.IsTrue(Found);
+        }
 
+        [TestMethod]
+        public void TestStaffIDFound()
+        {
+            //create instance of class
+            clsStaff AStaff = new clsStaff();
+            //boolean variable to store the results of the validation 
+            Boolean Found = false;
+            //boolean variable to record if data is OK 
+            Boolean OK = true;
+            //test data to use with the method
+            Int32 StaffID = 2618936;
+            //invoke the method
+            Found = AStaff.Find(StaffID);
+            //check staffID 
+            if (AStaff.StaffID != 2618936)
+            {
+                OK = false;
+            }
+            //test to see if result is true
+            Assert.IsTrue(OK);
+        }
     }
 
    
