@@ -196,14 +196,14 @@ namespace Jewellery_System_Testing
 
         }
         [TestMethod]
-        public void ReportByPostCodeNoneFoundOK()
+        public void ReportByPostCodeNoneFound()
         {
             //create an instance of the class containg unfiltered results
             //clsCustomerCollection AllCustomers = new clsCustomerCollection();
             //create an instance of the filtered data
             clsCustomerCollection FilteredCustomers = new clsCustomerCollection();
             //apply a blank string (should return all records
-            FilteredCustomers.ReportByPostCode("xxx xxx");
+            FilteredCustomers.ReportByPostCode("XXX XXX");
             //test to see that the two values are the same
             Assert.AreEqual(0, FilteredCustomers.Count);
 
@@ -216,9 +216,9 @@ namespace Jewellery_System_Testing
             //var to store outcome
             Boolean OK = true;
             //apply a blank string (should return all records
-            FilteredCustomers.ReportByPostCode("LE3 9DD");
+            FilteredCustomers.ReportByPostCode("LE4 2WW");
             //check that the correct number of records are found
-            if (FilteredCustomers.Count == 2)
+            if (FilteredCustomers.Count == 1)
             {
                 //check that the first record is ID36
                 if (FilteredCustomers.CustomersList[0].CustomerID != 1)

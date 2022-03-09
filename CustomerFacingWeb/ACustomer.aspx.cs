@@ -14,11 +14,15 @@ public partial class ACustomer : System.Web.UI.Page
         CustomerID = Convert.ToInt32(Session["CustomerID"]);
         if (IsPostBack == false)
         {
-            //DisplayCustomer();
+            DisplayCustomer();
             if (CustomerID != -1)
             {
                 DisplayCustomer();
             }
+            //else
+            //{
+            //    txtCustomerDOB.Text = DateTime.Today.Date.ToString("dd/MM/yyyy");
+            //}
         }
 
     }
@@ -30,6 +34,8 @@ public partial class ACustomer : System.Web.UI.Page
         {
             //add the new record
             Add();
+
+            Response.Redirect("CustomerDefault");
         }
         else
         {
@@ -37,12 +43,9 @@ public partial class ACustomer : System.Web.UI.Page
             Update();
         }
 
+    } 
 
-    }
-
-
-
-    protected void btnFind_Click(object sender, EventArgs e)
+protected void btnFind_Click(object sender, EventArgs e)
     {
         //create an instance of the customer class
         clsCustomer ACustomer = new clsCustomer();
@@ -90,7 +93,7 @@ public partial class ACustomer : System.Web.UI.Page
             //add the record
             CustomerBook.Add();
             //all done so redirect back to the main page
-           // Response.Redirect("Default.aspx");
+            Response.Redirect("CustomerDefault.aspx");
         }
         else
         {
@@ -107,7 +110,7 @@ public partial class ACustomer : System.Web.UI.Page
         //display the data for this record
         txtCustomerFirstName.Text = CustomerBook.ThisCustomer.CustomerFirstName;
         txtCustomerSurname.Text = CustomerBook.ThisCustomer.CustomerSurname;
-        txtCustomerDOB.Text = CustomerBook.ThisCustomer.CustomerDOB.ToString();
+        txtCustomerDOB.Text = CustomerBook.ThisCustomer.CustomerDOB.ToString("dd/MM/yyyy");
         txtCustomerAddress.Text = CustomerBook.ThisCustomer.CustomerAddress;
         txtPostCode.Text = CustomerBook.ThisCustomer.CustomerPostCode;
         txtMobileNumber.Text = CustomerBook.ThisCustomer.CustomerMobileNumber;
@@ -146,6 +149,4 @@ public partial class ACustomer : System.Web.UI.Page
             }
 
         }
-   
-
 }
