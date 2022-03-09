@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="CustomerDefault.aspx.cs" Inherits="_Default" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="CustomerDefault.aspx.cs" Inherits="CustomerDefault" %>
 
 <!DOCTYPE html>
 
@@ -8,9 +8,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <div>
-        </div>
-        <asp:ListBox ID="lstCustomers" runat="server" Height="383px" Width="496px"></asp:ListBox>
+         <asp:ListBox ID="lstCustomers" runat="server" Height="383px" Width="496px"></asp:ListBox>
         <p>
             <asp:Label ID="lblPostCode" runat="server" Text="Please Enter a Post Code"></asp:Label>
         </p>

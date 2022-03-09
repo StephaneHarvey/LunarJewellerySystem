@@ -290,7 +290,7 @@ namespace ClassLibrary
                 //record the error
                 Error = Error + "The date was not a valid date : ";
             }
-            //is the PostCode blank
+           
           
             //return any error messages
             return Error;
