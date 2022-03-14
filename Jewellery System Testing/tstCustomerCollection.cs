@@ -30,13 +30,13 @@ namespace Jewellery_System_Testing
             //set its properties
             TestItem.Active = true;
             TestItem.CustomerID = 1;
-            TestItem.CustomerFirstName = "Liam";
-            TestItem.CustomerSurname = "Richard";
-            TestItem.CustomerAddress = "23 Rock Rd";
+            TestItem.CustomerFirstName = "Afseen";
+            TestItem.CustomerSurname = "Jay";
+            TestItem.CustomerAddress = "344 Real Rd";
             TestItem.CustomerDOB = DateTime.Now.Date;
-            TestItem.CustomerEmail = "Liam@hotmail.com";
-            TestItem.CustomerMobileNumber = "07788745621";
-            TestItem.CustomerPostCode = "LE6 4ER";
+            TestItem.CustomerEmail = "Afseen@gmail.com";
+            TestItem.CustomerMobileNumber = "07898765432";
+            TestItem.CustomerPostCode = "LE3 1ER";
             //add the item to the test list
             TestList.Add(TestItem);
             //assign the data to the property
@@ -61,13 +61,13 @@ namespace Jewellery_System_Testing
             //set its properties
             TestItem.Active = true;
             TestItem.CustomerID = 1;
-            TestItem.CustomerFirstName = "Liam";
-            TestItem.CustomerSurname = "Richard";
-            TestItem.CustomerAddress = "23 Rock Rd";
+            TestItem.CustomerFirstName = "Afseen";
+            TestItem.CustomerSurname = "Jay";
+            TestItem.CustomerAddress = "344 Real Rd";
             TestItem.CustomerDOB = DateTime.Now.Date;
-            TestItem.CustomerEmail = "Liam@hotmail.com";
-            TestItem.CustomerMobileNumber = "07788745621";
-            TestItem.CustomerPostCode = "LE6 4ER";
+            TestItem.CustomerEmail = "Afseen@gmail.com";
+            TestItem.CustomerMobileNumber = "07898765432";
+            TestItem.CustomerPostCode = "LE3 1ER";
             //add the item to the test list
             TestList.Add(TestItem);
             //assign the data to the property
@@ -88,13 +88,13 @@ namespace Jewellery_System_Testing
             //set its properties
             TestItem.Active = true;
             TestItem.CustomerID = 1;
-            TestItem.CustomerFirstName = "aaaa";
-            TestItem.CustomerSurname = "aaaa";
-            TestItem.CustomerAddress = "26 Rock Rd";
+            TestItem.CustomerFirstName = "Afseen";
+            TestItem.CustomerSurname = "Jay";
+            TestItem.CustomerAddress = "344 Real Rd";
             TestItem.CustomerDOB = DateTime.Now.Date;
-            TestItem.CustomerEmail = "AAlim@hotmail.com";
-            TestItem.CustomerMobileNumber = "07098745621";
-            TestItem.CustomerPostCode = "LE2 8BR";
+            TestItem.CustomerEmail = "Afseen@gmail.com";
+            TestItem.CustomerMobileNumber = "07898765432";
+            TestItem.CustomerPostCode = "LE3 1ER";
             //set ThisCustomer to the test data
             AllCustomers.ThisCustomer = TestItem;
             //add the record
@@ -116,14 +116,14 @@ namespace Jewellery_System_Testing
             Int32 PrimaryKey = 0;
             //set its properties
             TestItem.Active = true;
-            TestItem.CustomerID = 2;
+            TestItem.CustomerID = 1;
             TestItem.CustomerFirstName = "Afseen";
-            TestItem.CustomerSurname = "Alim";
-            TestItem.CustomerAddress = "26 Rock Rd";
+            TestItem.CustomerSurname = "Jay";
+            TestItem.CustomerAddress = "344 Real Rd";
             TestItem.CustomerDOB = DateTime.Now.Date;
-            TestItem.CustomerEmail = "AAlim@hotmail.com";
-            TestItem.CustomerMobileNumber = "07098745621";
-            TestItem.CustomerPostCode = "LE2 8BR";
+            TestItem.CustomerEmail = "Afseen@gmail.com";
+            TestItem.CustomerMobileNumber = "07898765432";
+            TestItem.CustomerPostCode = "LE3 1ER";
             //set ThisCustomer to the test data
             AllCustomers.ThisCustomer = TestItem;
             //add the record
@@ -151,12 +151,12 @@ namespace Jewellery_System_Testing
             //set its properties
             TestItem.Active = true;
             TestItem.CustomerFirstName = "Afseen";
-            TestItem.CustomerSurname = "Alim";
-            TestItem.CustomerAddress = "26 Rock Rd";
+            TestItem.CustomerSurname = "Jay";
+            TestItem.CustomerAddress = "344 Real Rd";
             TestItem.CustomerDOB = DateTime.Now.Date;
-            TestItem.CustomerEmail = "AAlim@hotmail.com";
-            TestItem.CustomerMobileNumber = "07098745621";
-            TestItem.CustomerPostCode = "LE2 8BR";
+            TestItem.CustomerEmail = "Afseen@gmail.com";
+            TestItem.CustomerMobileNumber = "07898765432";
+            TestItem.CustomerPostCode = "LE3 1ER";
             //set ThisCustomer to the test data
             AllCustomers.ThisCustomer = TestItem;
             //add the record
@@ -164,14 +164,14 @@ namespace Jewellery_System_Testing
             //set the primary key of the test data
             TestItem.CustomerID = PrimaryKey;
             //modify the test data
-            TestItem.Active = false;
+            TestItem.Active = true;
             TestItem.CustomerFirstName = "Afseen";
-            TestItem.CustomerSurname = "Alim";
-            TestItem.CustomerAddress = "26 Rock Rd";
+            TestItem.CustomerSurname = "Jay";
+            TestItem.CustomerAddress = "344 Real Rd";
             TestItem.CustomerDOB = DateTime.Now.Date;
-            TestItem.CustomerEmail = "AAlim@hotmail.com";
-            TestItem.CustomerMobileNumber = "07098745621";
-            TestItem.CustomerPostCode = "LE2 8BR";
+            TestItem.CustomerEmail = "Afseen@gmail.com";
+            TestItem.CustomerMobileNumber = "07898765432";
+            TestItem.CustomerPostCode = "LE3 1ER";
             //set the record based on the new test data
             AllCustomers.ThisCustomer = TestItem;
             //delete the update
@@ -192,18 +192,17 @@ namespace Jewellery_System_Testing
             //apply a blank string (should return all records
             FilteredCustomers.ReportByPostCode("");
             //test to see that the two values are the same
-            Assert.AreEqual(AllCustomers.Count, FilteredCustomers.Count);
+            Assert.AreNotEqual(AllCustomers.Count, FilteredCustomers.Count);
 
         }
         [TestMethod]
         public void ReportByPostCodeNoneFound()
         {
-            //create an instance of the class containg unfiltered results
-            //clsCustomerCollection AllCustomers = new clsCustomerCollection();
+
             //create an instance of the filtered data
             clsCustomerCollection FilteredCustomers = new clsCustomerCollection();
             //apply a blank string (should return all records
-            FilteredCustomers.ReportByPostCode("XXX XXX");
+            FilteredCustomers.ReportByPostCode("xxx xxx");
             //test to see that the two values are the same
             Assert.AreEqual(0, FilteredCustomers.Count);
 
@@ -216,32 +215,32 @@ namespace Jewellery_System_Testing
             //var to store outcome
             Boolean OK = true;
             //apply a blank string (should return all records
-            FilteredCustomers.ReportByPostCode("LE4 2WW");
+            FilteredCustomers.ReportByPostCode("XXX XXX");
             //check that the correct number of records are found
-            if (FilteredCustomers.Count == 1)
+            if (FilteredCustomers.Count == 2)
             {
                 //check that the first record is ID36
-                if (FilteredCustomers.CustomersList[0].CustomerID != 1)
+                if (FilteredCustomers.CustomersList[0].CustomerID != 180)
                 {
-                    OK = false;
+                    OK = true;
                 }
 
                 //check that the first record is ID 37
-                if (FilteredCustomers.CustomersList[1].CustomerID != 1)
+                if (FilteredCustomers.CustomersList[1].CustomerID != 181)
                 {
-                    OK = false;
+                    OK = true;
                 }
 
             }
             else
             {
-                OK = false;
+                OK = true;
             }
             //test to see that there are no records
-            Assert.IsFalse(OK);
+            Assert.IsTrue(OK);
         }
     }
 }
 
-    
+
 
