@@ -115,26 +115,13 @@ namespace ClassLibrary
 
 
         }
-        public void ReportByPostCode(string CustomerPostCode)
-        {
-
-            // filters the records based ona full or partial post code
-            //connect to databasr
-            clsDataConnection DB = new clsDataConnection();
-            //send the postcode parameter to the databasr
-            DB.AddParameter("@CustomerPostCode", CustomerPostCode);
-            //execute the stored procedure
-            DB.Execute("sproc_tblCustomer_FilterByPostCode");
-            //populate the array list with the data table
-            PopulateArray(DB);
-        }
 
         void PopulateArray(clsDataConnection DB)
         {
             //var for the index
             Int32 Index = 0;
             //var to store the record count
-            Int32 RecordCount = 0;
+            Int32 RecordCount;
             //object for the data connection
             RecordCount = DB.Count;
             //execute the stroed procedure
@@ -161,8 +148,20 @@ namespace ClassLibrary
             }
         }
 
-        
+        public void ReportByPostCode(string CustomerPostCode)
+        {
+            // filters the records based ona full or partial post code
+            //connect to databasr
+            clsDataConnection DB = new clsDataConnection();
+            //send the postcode parameter to the databasr
+            DB.AddParameter("@CustomerPostCode", CustomerPostCode);
+            //execute the stored procedure
+            DB.Execute("sproc_tblCustomer_FilterByPostCode");
+            //populate the array list with the data table
+            PopulateArray(DB);
         }
     }
+}
+    
 
 
