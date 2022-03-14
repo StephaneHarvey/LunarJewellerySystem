@@ -12,14 +12,34 @@ namespace ClassLibrary
         //public string OrderName { get; set; }
         //public string OrderNo { get; set; }
 
-        public bool Find(int ProductNo)
+        public bool Find(int OrderNo)
         {
-            mOrderName = "Cross Ring";
-            mOrderNo = "012345";
-            mProductNo = 21;
-            mDateAdded = Convert.ToDateTime("16/8/2015");
-            //always return true
-            return true;
+            //create an instance of the data connection
+            clsDataConnection DB = new clsDataConnection();
+            //add the parameter for the orderno to search for 
+            DB.AddParameter("@OrderNo", OrderNo);
+            //execute the store procedure 
+            DB.Execute("sproc_tblOrderNo_FilterByOrderNo");
+            //if one record is found (there should be either one or zero!)
+            if (DB.Count == 1)
+            {
+                //copy the data from the database to the private data members
+                mOrderName = Convert.ToString(DB.DataTable.Rows[0]["OrderName"]);
+                mOrderNo = Convert.ToInt32(DB.DataTable.Rows[0]["OrderNo"]);
+                mProductNo = Convert.ToString(DB.DataTable.Rows[0]["ProductNo"]);
+                mDateAdded = Convert.ToDateTime(DB.DataTable.Rows[0]["DateAdded"]);
+                mActive = Convert.ToBoolean(DB.DataTable.Rows[0]["Active"]);
+                mStatus = Convert.ToString(DB.DataTable.Rows[0]["Status"]);
+                //always return true
+                return true;
+            }
+           //if no record was found 
+           else
+            {
+                //return false indicating a problem 
+                return false;
+            }
+            
         }
         private string mOrderName;
         public string OrderName
@@ -33,8 +53,8 @@ namespace ClassLibrary
                 mOrderName = value;
             }
         }
-        private string mOrderNo;
-        public string OrderNo
+        private Int32 mOrderNo;
+        public int OrderNo
         {
             get
             {
@@ -45,8 +65,8 @@ namespace ClassLibrary
                 mOrderNo = value;
             }
         }
-        private Int32 mProductNo;
-        public Int32 ProductNo
+        private string mProductNo;
+        public string ProductNo
         {
             get
             {
@@ -69,6 +89,34 @@ namespace ClassLibrary
             set
             {
                 mDateAdded = value;
+            }
+        }
+        private Boolean mActive;
+        public bool Active
+        {
+            get
+            {
+                //this line if code sends data out of the property 
+                return mActive;
+            }
+            set
+            {
+                //this line of code allows data into the property 
+                mActive = value;
+            }
+        }
+        private string mStatus;
+        public string Status
+        {
+            get
+            {
+                //this line if code sends data out of the property 
+                return mStatus;
+            }
+            set
+            {
+                //this line of code allows data into the property 
+                mStatus = value;
             }
         }
     }
