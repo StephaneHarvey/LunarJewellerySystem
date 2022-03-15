@@ -74,7 +74,7 @@ namespace Jewellery_System_Testing
             //create an instance of the class that we want to create
             clsStaff AStaff = new clsStaff();
             //create some test data to assign to property
-            Int32 TestData = 1;
+            Int32 TestData = 6;
             //assign the data to the property
             AStaff.StaffID = TestData;
             //test to see that it exists
@@ -89,7 +89,7 @@ namespace Jewellery_System_Testing
             //boolean variable to store the results of the validation 
             Boolean Found = false;
             //test data to use with the method
-            Int32 StaffID = 2618936;
+            Int32 StaffID = 6;
             //invoke the method
             Found = AStaff.Find(StaffID);
             //test to see if result is true
@@ -106,11 +106,11 @@ namespace Jewellery_System_Testing
             //boolean variable to record if data is OK 
             Boolean OK = true;
             //test data to use with the method
-            Int32 StaffID = 21;
+            Int32 StaffID = 6;
             //invoke the method
             Found = AStaff.Find(StaffID);
             //check staffID 
-            if (AStaff.StaffID != 21)
+            if (AStaff.StaffID != 6)
             {
                 OK = false;
             }
@@ -128,7 +128,7 @@ namespace Jewellery_System_Testing
             //boolean variable to record if data is OK 
             Boolean OK = true;
             //test data to use with the method
-            Int32 StaffID = 21;
+            Int32 StaffID = 6;
             //invoke the method
             Found = AStaff.Find(StaffID);
             //check staffFirstName 
@@ -150,7 +150,7 @@ namespace Jewellery_System_Testing
             //boolean variable to record if data is OK 
             Boolean OK = true;
             //test data to use with the method
-            Int32 StaffID = 21;
+            Int32 StaffID = 6;
             //invoke the method
             Found = AStaff.Find(StaffID);
             //check stafflasttName 
@@ -172,11 +172,11 @@ namespace Jewellery_System_Testing
             //boolean variable to record if data is OK 
             Boolean OK = true;
             //test data to use
-            Int32 StaffID = 21;
+            Int32 StaffID = 6;
             //invoke the method
             Found = AStaff.Find(StaffID);
             //check address 
-            if (AStaff.StaffAddress != "67 Cross Close")
+            if (AStaff.StaffAddress != "67 Cross Close, LE4 5RG")
             {
                 OK = false;
             }
@@ -194,7 +194,7 @@ namespace Jewellery_System_Testing
             //boolean variable to record if data is OK 
             Boolean OK = true;
             //test data to use
-            Int32 StaffID = 21;
+            Int32 StaffID = 6;
             //invoke the method
             Found = AStaff.Find(StaffID);
             //check contactno 
@@ -216,7 +216,7 @@ namespace Jewellery_System_Testing
             //boolean variable to record if data is OK 
             Boolean OK = true;
             //test data to use
-            Int32 StaffID = 21;
+            Int32 StaffID = 6;
             //invoke the method
             Found = AStaff.Find(StaffID);
             //check address 
