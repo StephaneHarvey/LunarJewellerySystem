@@ -13,7 +13,7 @@
         <asp:Label ID="Label1" runat="server" Text="Are You Sure You Would Like To Delete The Customer?"></asp:Label>
         <br />
         <br />
-        <asp:Button ID="btnYes" runat="server" OnClick="btnYes_Click" Text="Yes" />
+        <asp:Button ID="btnYes" runat="server"  Text="Yes" />
         <asp:Button ID="btnNo" runat="server" Text="No" />
     </form>
 </body>

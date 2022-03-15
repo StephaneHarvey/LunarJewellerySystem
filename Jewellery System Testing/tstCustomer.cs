@@ -1155,30 +1155,31 @@ namespace Jewellery_System_Testing
             //test to see that the result is correct
             Assert.AreNotEqual(Error, "");
         }
-        [TestMethod]
-        public void ThisCustomerPropertyOK()
-        {
-            //create an instance of the class we want to create
-            clsCustomerCollection AllCustomers = new clsCustomerCollection();
-            //create some test data to assign to the property
-            clsCustomer TestCustomer = new clsCustomer();
-            //set the properties of the test object
-            TestCustomer.Active = true;
-            TestCustomer.CustomerID = 1;
-            TestCustomer.CustomerFirstName = "Liam";
-            TestCustomer.CustomerSurname = "Richard";
-            TestCustomer.CustomerAddress = "23 Rock Rd";
-            TestCustomer.CustomerDOB = DateTime.Now.Date;
-            TestCustomer.CustomerEmail = "Liam@hotmail.com";
-            TestCustomer.CustomerMobileNumber = "07788745621";
-            TestCustomer.CustomerPostCode = "LE6 4ER";
-            //assign the data to the property
-            AllCustomers.ThisCustomer = TestCustomer;
-            //test to see that the two values are the same
-            Assert.AreEqual(AllCustomers.ThisCustomer, TestCustomer);
-        }
     }
 }
+        //[TestMethod]
+        //public void ThisCustomerPropertyOK()
+        //{
+        //    //create an instance of the class we want to create
+        //    clsCustomerCollection AllCustomers = new clsCustomerCollection();
+        //    //create some test data to assign to the property
+        //    clsCustomer TestCustomer = new clsCustomer();
+        //    //set the properties of the test object
+        //    TestCustomer.Active = true;
+        //    TestCustomer.CustomerID = 1;
+        //    TestCustomer.CustomerFirstName = "Liam";
+        //    TestCustomer.CustomerSurname = "Richard";
+        //    TestCustomer.CustomerAddress = "23 Rock Rd";
+        //    TestCustomer.CustomerDOB = DateTime.Now.Date;
+        //    TestCustomer.CustomerEmail = "Liam@hotmail.com";
+        //    TestCustomer.CustomerMobileNumber = "07788745621";
+        //    TestCustomer.CustomerPostCode = "LE6 4ER";
+        //    //assign the data to the property
+        //    AllCustomers.ThisCustomer = TestCustomer;
+        //    //test to see that the two values are the same
+        //    Assert.AreEqual(AllCustomers.ThisCustomer, TestCustomer);
+        
+
 
 
 

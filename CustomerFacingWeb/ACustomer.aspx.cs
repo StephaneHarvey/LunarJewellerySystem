@@ -14,7 +14,7 @@ public partial class ACustomer : System.Web.UI.Page
         CustomerID = Convert.ToInt32(Session["CustomerID"]);
         if (IsPostBack == false)
         {
-            DisplayCustomer();
+            //DisplayCustomer();
             if (CustomerID != -1)
             {
                 DisplayCustomer();
@@ -34,43 +34,42 @@ public partial class ACustomer : System.Web.UI.Page
         {
             //add the new record
             Add();
-
-            Response.Redirect("CustomerDefault");
         }
         else
         {
-            //update the record
+            //    //update the record
             Update();
         }
-
     }
+
+
 
     protected void btnFind_Click(object sender, EventArgs e)
     {
-        //create an instance of the customer class
-        clsCustomer ACustomer = new clsCustomer();
-        //variable to store the primary key
-        Int32 CustomerID;
-        //variable to store the result of the find operation
-        Boolean Found = false;
-        //get the primary key entered by user
-        CustomerID = Convert.ToInt32(txtCustomerID.Text);
-        //find the record
-        Found = ACustomer.Find(CustomerID);
-        //if found
-        if (Found == true)
-        {
-            //display the values of the properties in the form
-            //txtCustomerID.Text = Convert.ToInt32(ACustomer.CustomerID);
-            txtCustomerFirstName.Text = ACustomer.CustomerFirstName;
-            txtCustomerSurname.Text = ACustomer.CustomerSurname;
-            txtCustomerDOB.Text = ACustomer.CustomerDOB.ToString();
-            txtCustomerAddress.Text = ACustomer.CustomerAddress;
-            txtPostCode.Text = ACustomer.CustomerPostCode;
-            txtMobileNumber.Text = ACustomer.CustomerMobileNumber;
-            txtEmail.Text = ACustomer.CustomerEmail;
-        }
+        //        //create an instance of the customer class
+        //        clsCustomer ACustomer = new clsCustomer();
+        //        //variable to store the primary key
+        //        Int32 CustomerID;
+        //        //variable to store the result of the find operation
+        //        Boolean Found = false;
+        //        //get the primary key entered by user
+        //        CustomerID = Convert.ToInt32(txtCustomerID.Text);
+        //        //find the record
+        //        Found = ACustomer.Find(CustomerID);
+        //        //if found
+        //        if (Found == true)
+        //        {
+        //            //display the values of the properties in the form
+        //            //txtCustomerID.Text = Convert.ToInt32(ACustomer.CustomerID);
+        //            txtCustomerFirstName.Text = ACustomer.CustomerFirstName;
+        //            txtCustomerSurname.Text = ACustomer.CustomerSurname;
+        //            txtCustomerDOB.Text = ACustomer.CustomerDOB.ToString();
+        //            txtCustomerAddress.Text = ACustomer.CustomerAddress;
+        //            txtPostCode.Text = ACustomer.CustomerPostCode;
+        //            txtMobileNumber.Text = ACustomer.CustomerMobileNumber;
+        //            txtEmail.Text = ACustomer.CustomerEmail;
     }
+
     //function for adding new records
     void Add()
     {
@@ -101,22 +100,6 @@ public partial class ACustomer : System.Web.UI.Page
             lblError.Text = "There were problems with the data entered" + Error;
         }
     }
-
-    void DisplayCustomer()
-    {
-        clsCustomerCollection CustomerBook = new clsCustomerCollection();
-        //create an instance of the customers collection
-        CustomerBook.ThisCustomer.Find(CustomerID);
-        //display the data for this record
-        txtCustomerFirstName.Text = CustomerBook.ThisCustomer.CustomerFirstName;
-        txtCustomerSurname.Text = CustomerBook.ThisCustomer.CustomerSurname;
-        txtCustomerDOB.Text = CustomerBook.ThisCustomer.CustomerDOB.ToString("dd/MM/yyyy");
-        txtCustomerAddress.Text = CustomerBook.ThisCustomer.CustomerAddress;
-        txtPostCode.Text = CustomerBook.ThisCustomer.CustomerPostCode;
-        txtMobileNumber.Text = CustomerBook.ThisCustomer.CustomerMobileNumber;
-        txtEmail.Text = CustomerBook.ThisCustomer.CustomerEmail;
-        chkActive.Checked = CustomerBook.ThisCustomer.Active;
-    }
     void Update()
     {
         //create an instance of the customer book
@@ -126,7 +109,6 @@ public partial class ACustomer : System.Web.UI.Page
         //if the data is OK then add it to the object
         if (Error == "")
         {
-            //Find the record to update
             CustomerBook.ThisCustomer.Find(CustomerID);
             //get the data entered by the user
             CustomerBook.ThisCustomer.CustomerFirstName = txtCustomerFirstName.Text;
@@ -147,6 +129,21 @@ public partial class ACustomer : System.Web.UI.Page
             //report an error
             lblError.Text = "There were problems with the data entered" + Error;
         }
+    }
 
+    void DisplayCustomer()
+    {
+        clsCustomerCollection CustomerBook = new clsCustomerCollection();
+        //create an instance of the customers collection
+        CustomerBook.ThisCustomer.Find(CustomerID);
+        //display the data for this record
+        txtCustomerFirstName.Text = CustomerBook.ThisCustomer.CustomerFirstName;
+        txtCustomerSurname.Text = CustomerBook.ThisCustomer.CustomerSurname;
+        txtCustomerDOB.Text = CustomerBook.ThisCustomer.CustomerDOB.ToString("dd/MM/yyyy");
+        txtCustomerAddress.Text = CustomerBook.ThisCustomer.CustomerAddress;
+        txtPostCode.Text = CustomerBook.ThisCustomer.CustomerPostCode;
+        txtMobileNumber.Text = CustomerBook.ThisCustomer.CustomerMobileNumber;
+        txtEmail.Text = CustomerBook.ThisCustomer.CustomerEmail;
+        chkActive.Checked = CustomerBook.ThisCustomer.Active;
     }
 }

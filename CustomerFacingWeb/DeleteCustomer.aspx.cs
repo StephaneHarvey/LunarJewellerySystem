@@ -15,22 +15,23 @@ public partial class Delete : System.Web.UI.Page
         CustomerID = Convert.ToInt32(Session["CustomerID"]);
     }
 
-    void DeleteCustomer()
-    {
-        //function to delete the selected record
 
-        //create a new instance of the address book
-        clsCustomerCollection CustomerBook = new clsCustomerCollection();
-        //find the record to delete
-        CustomerBook.ThisCustomer.Find(CustomerID);
-        //delete the record
-        CustomerBook.Delete();
-    }
-    protected void btnYes_Click(object sender, EventArgs e)
-    {
-        //delete the record
-        DeleteCustomer();
-        //redirrect back to the main page
-        Response.Redirect("CustomerDefault.aspx");
-    }
+void DeleteCustomer()
+{
+    //function to delete the selected record
+
+    //create a new instance of the address book
+    clsCustomerCollection CustomerBook = new clsCustomerCollection();
+    //find the record to delete
+    CustomerBook.ThisCustomer.Find(CustomerID);
+    //delete the record
+    CustomerBook.Delete();
+}
+protected void btnYes_Click(object sender, EventArgs e)
+{
+    //delete the record
+    DeleteCustomer();
+    //redirrect back to the main page
+    Response.Redirect("CustomerDefault.aspx");
+}
 }

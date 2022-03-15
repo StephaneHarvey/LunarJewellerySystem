@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,49 +10,8 @@ namespace ClassLibrary
     {
         //private data member for the list
         List<clsCustomer> mCustomerList = new List<clsCustomer>();
-        //private data member thisCustomer
+        //private data member thiscustomer
         clsCustomer mThisCustomer = new clsCustomer();
-        public clsCustomerCollection()
-        {
-            //object for data connection
-            clsDataConnection DB = new clsDataConnection();
-            //execute the stored procedure
-            DB.Execute("sproc_tblCustomer_SelectAll");
-            //populate the array list with the data table
-            PopulateArray(DB);
-
-        }
-
-        //private data member for the list
-        List<clsCustomer> mCustomersList = new List<clsCustomer>();
-        public List<clsCustomer> CustomersList
-        {
-            get
-            {
-                //return the private data
-                return mCustomersList;
-            }
-            set
-            {
-                //set the private data
-                mCustomersList = value;
-            }
-        }
-
-        //public property for count
-        public int Count
-        {
-            get
-            {
-                //return the count of the list
-                return mCustomersList.Count;
-            }
-            set
-            {
-                //we shall worry about this later
-            }
-        }
-        //public property for ThisCustomer
         public clsCustomer ThisCustomer
         {
             get
@@ -66,6 +25,18 @@ namespace ClassLibrary
                 mThisCustomer = value;
             }
         }
+        //constructor for the class
+        public clsCustomerCollection()
+        {
+            //object for the data connection
+            clsDataConnection DB = new clsDataConnection();
+            //execute the stored procedure
+            DB.Execute("sproc_tblCustomer_SelectAll");
+            //populate the array list with the data table
+            PopulateArray(DB);
+        }
+
+
         public int Add()
         {
             //adds a new record to the database based on the values of mThisCustomer
@@ -82,9 +53,35 @@ namespace ClassLibrary
             DB.AddParameter("@Active", mThisCustomer.Active);
             //execute the query returning the primary key value
             return DB.Execute("sproc_tblCustomer_Insert");
-
-
         }
+        //public property for thiscustomer
+        public List<clsCustomer> CustomersList
+        {
+            get
+            {
+                //return the private data
+                return mCustomerList;
+            }
+            set
+            {
+                //set the private data
+                mCustomerList = value;
+            }
+        }
+        //public property for this customer
+        public int Count
+        {
+            get
+            {
+                //return the priavte data
+                return mCustomerList.Count;
+            }
+            set
+            {
+
+            }
+        }
+
         public void Delete()
         {
             //deletes the record pointed to by thisCustomer
@@ -95,6 +92,7 @@ namespace ClassLibrary
             //set the parameters for the stored procedure
             DB.Execute("sproc_tblCustomer_Delete");
         }
+
         public void Update()
         {
             //adds a new record to the database based on the values of mThisCustomer
@@ -112,10 +110,21 @@ namespace ClassLibrary
             DB.AddParameter("@Active", mThisCustomer.Active);
             //execute the query returning the primary key value
             DB.Execute("sproc_tblCustomer_Update");
-
-
         }
 
+        public void ReportByPostCode(string CustomerPostCode)
+        {
+            //filters the records based on a full/partial postcode
+            //connect to the database
+            clsDataConnection DB = new clsDataConnection();
+            //send the postcode parameter to the database
+            DB.AddParameter("@CustomerPostCode", CustomerPostCode);
+            //execute the stored procedure
+            DB.Execute("sproc_tblCustomer_FilterByPostCode");
+            //populate the array list with the data table
+            PopulateArray(DB);
+        }
+        
         void PopulateArray(clsDataConnection DB)
         {
             //var for the index
@@ -142,29 +151,12 @@ namespace ClassLibrary
                 ACustomer.CustomerEmail = Convert.ToString(DB.DataTable.Rows[Index]["CustomerEmail"]);
                 ACustomer.CustomerMobileNumber = Convert.ToString(DB.DataTable.Rows[Index]["CustomerMobileNumber"]);
                 //add the record to the private data member
-                mCustomersList.Add(ACustomer);
+                mCustomerList.Add(ACustomer);
                 //point at the next record
                 Index++;
             }
         }
-
-        public void ReportByPostCode(string CustomerPostCode)
-        {
-            // filters the records based ona full or partial post code
-            //connect to databasr
-            clsDataConnection DB = new clsDataConnection();
-            //send the postcode parameter to the databasr
-            DB.AddParameter("@CustomerPostCode", CustomerPostCode);
-            //execute the stored procedure
-            DB.Execute("sproc_tblCustomer_FilterByPostCode");
-           // populate the array list with the data table
-            PopulateArray(DB);
-        }
     }
-    }
-
-
-    
-
+}
 
 

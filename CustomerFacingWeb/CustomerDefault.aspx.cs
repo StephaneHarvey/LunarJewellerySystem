@@ -7,23 +7,35 @@ using System.Web.UI.WebControls;
 
 public partial class CustomerDefault : System.Web.UI.Page
 {
-    Int32 CustomerID;
+     Int32 CustomerID;
     protected void Page_Load(object sender, EventArgs e)
     {
         CustomerID = Convert.ToInt32(Session["CustomerID"]);
         //if this is the first time the page is displayed
         if (IsPostBack == false)
         {
-            //    //update the list above
+            //update the list above
             DisplayCustomers();
 
-            if (CustomerID != -1)
-            {
-                DisplayCustomers();
-            }
+            //    //if (CustomerID != -1)
+            //    //{
+            //    //   // DisplayCustomers();
+            //    //}
         }
     }
-
+    void DisplayCustomers()
+    {
+        //create an instance of the customer collection
+        ClassLibrary.clsCustomerCollection Customers = new ClassLibrary.clsCustomerCollection();
+        //set the data source to the list of customers in the collection
+        lstCustomers.DataSource = Customers.CustomersList;
+        //set the name of the primary key
+        lstCustomers.DataValueField = "CustomerID";
+        //se the data field to display
+        lstCustomers.DataTextField = "CustomerPostCode";
+        //bind the data to the list
+        lstCustomers.DataBind();
+    }
 
     protected void btnAdd_Click(object sender, EventArgs e)
     {
@@ -74,17 +86,7 @@ public partial class CustomerDefault : System.Web.UI.Page
             lblError.Text = "Please select a record to delete from the list";
         }
     }
-    void DisplayCustomers()
-    {
-        //create an instance of the customer collection
-        ClassLibrary.clsCustomerCollection Customers = new ClassLibrary.clsCustomerCollection();
-        //set the data source to the list of customers in the collection
-        lstCustomers.DataSource = Customers.CustomersList;
-        //set the name of the primary key
-        lstCustomers.DataValueField = "CustomerID";
-        //se the data field to display
-        lstCustomers.DataTextField = "CustomerID";
-        //bind the data to the list
-        lstCustomers.DataBind();
-    }
 }
+
+
+
