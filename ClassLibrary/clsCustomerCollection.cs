@@ -148,10 +148,6 @@ namespace ClassLibrary
             }
         }
 
-
-
-    }
-}
         public void ReportByPostCode(string CustomerPostCode)
         {
             // filters the records based ona full or partial post code
@@ -161,11 +157,13 @@ namespace ClassLibrary
             DB.AddParameter("@CustomerPostCode", CustomerPostCode);
             //execute the stored procedure
             DB.Execute("sproc_tblCustomer_FilterByPostCode");
-            //populate the array list with the data table
+           // populate the array list with the data table
             PopulateArray(DB);
         }
     }
-}
+    }
+
+
     
 
 
