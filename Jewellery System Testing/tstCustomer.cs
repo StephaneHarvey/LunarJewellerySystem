@@ -10,13 +10,13 @@ namespace Jewellery_System_Testing
 
         //good test data
         //create some test data to pass to the method
-        string CustomerFirstName = "Liam";
-        string CustomerSurname = "Richard";
-        string CustomerMobileNumber = "07788745621";
+        string CustomerFirstName = "Afseen";
+        string CustomerSurname = "Jay";
+        string CustomerMobileNumber = "07898765432";
         string CustomerDOB = DateTime.Now.Date.ToString();
-        string CustomerAddress = "23 Rock Rd";
-        string CustomerPostCode = "LE6 4ER";
-        string CustomerEmail = "Liam@hotmail.com";
+        string CustomerAddress = "334 Real Rd";
+        string CustomerPostCode = "LE3 1ER";
+        string CustomerEmail = "Afseen@gmail.com";
         [TestMethod]
         public void InstanceOK()
         {
@@ -55,7 +55,7 @@ namespace Jewellery_System_Testing
             //create an instance of the class we want to create
             clsCustomer ACustomer = new clsCustomer();
             //create some test data to assign to the property
-            Int32 TestData = 3;
+            Int32 TestData = 1;
             //assign the data to the property
             ACustomer.CustomerID = TestData;
             //test to see that the two values are the same
@@ -67,7 +67,7 @@ namespace Jewellery_System_Testing
             //create an instance of the class we want to create
             clsCustomer ACustomer = new clsCustomer();
             //create some test data to assign to the property
-            string TestData = "Liam";
+            string TestData = "Afseen";
             //assign the data to the property
             ACustomer.CustomerFirstName = TestData;
             //test to see that the two values are the same
@@ -79,7 +79,7 @@ namespace Jewellery_System_Testing
             //create an instance of the class we want to create
             clsCustomer ACustomer = new clsCustomer();
             //create some test data to assign to the property
-            string TestData = "Richard";
+            string TestData = "Jay";
             //assign the data to the property
             ACustomer.CustomerSurname = TestData;
             //test to see that the two values are the same
@@ -91,7 +91,7 @@ namespace Jewellery_System_Testing
             //create an instance of the class we want to create
             clsCustomer ACustomer = new clsCustomer();
             //create some test data to assign to the property
-            string TestData = "23 Rock Road";
+            string TestData = "334 Real Road";
             //assign the data to the property
             ACustomer.CustomerAddress = TestData;
             //test to see that the two values are the same
@@ -103,7 +103,7 @@ namespace Jewellery_System_Testing
             //create an instance of the class we want to create
             clsCustomer ACustomer = new clsCustomer();
             //create some test data to assign to the property
-            string TestData = "LE6 4ER";
+            string TestData = "LE3 1ER";
             //assign the data to the property
             ACustomer.CustomerPostCode = TestData;
             //test to see that the two values are the same
@@ -115,7 +115,7 @@ namespace Jewellery_System_Testing
             //create an instance of the class we want to create
             clsCustomer ACustomer = new clsCustomer();
             //create some test data to assign to the property
-            string TestData = "07788745621";
+            string TestData = "07898765432";
             //assign the data to the property
             ACustomer.CustomerMobileNumber = TestData;
             //test to see that the two values are the same
@@ -127,7 +127,7 @@ namespace Jewellery_System_Testing
             //create an instance of the class we want to create
             clsCustomer ACustomer = new clsCustomer();
             //create some test data to assign to the property
-            string TestData = "Liam@hotmail.com";
+            string TestData = "Afseen@gmail.com";
             //assign the data to the property
             ACustomer.CustomerEmail = TestData;
             //test to see that the two values are the same
@@ -159,11 +159,11 @@ namespace Jewellery_System_Testing
             //boolean variable to record if data is ok (assume it is)
             Boolean OK = true;
             //create some tesr data to use with the method
-            Int32 CustomerID = 3;
+            Int32 CustomerID = 1;
             //invoke the method
             Found = ACustomer.Find(CustomerID);
             //check the customer id
-            if (ACustomer.CustomerID != 3)
+            if (ACustomer.CustomerID != 1)
             {
                 OK = true;
             }
@@ -181,11 +181,11 @@ namespace Jewellery_System_Testing
             //boolean variable to record if data is ok (assume it is)
             Boolean OK = true;
             //create some tesr data to use with the method
-            Int32 CustomerID = 3;
+            Int32 CustomerID = 1;
             //invoke the method
             Found = ACustomer.Find(CustomerID);
             //check the customer id
-            if (ACustomer.CustomerDOB != Convert.ToDateTime("25/03/2002"))
+            if (ACustomer.CustomerDOB != Convert.ToDateTime("14/03/2022"))
             {
                 OK = true;
             }
@@ -217,11 +217,11 @@ namespace Jewellery_System_Testing
             //boolean variable to record if data is OK (assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 CustomerID = 3;
+            Int32 CustomerID = 1;
             //invoke the method
             Found = ACustomer.Find(CustomerID);
             //check the property
-            if (ACustomer.CustomerFirstName != "Liam")
+            if (ACustomer.CustomerFirstName != "Afseen")
             {
                 OK = true;
             }
@@ -238,11 +238,11 @@ namespace Jewellery_System_Testing
             //boolean variable to record if data is OK (assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 CustomerID = 3;
+            Int32 CustomerID = 1;
             //invoke the method
             Found = ACustomer.Find(CustomerID);
             //check the property
-            if (ACustomer.CustomerMobileNumber != "07788745621")
+            if (ACustomer.CustomerMobileNumber != "07898765432")
             {
                 OK = true;
             }
@@ -259,11 +259,11 @@ namespace Jewellery_System_Testing
             //boolean variable to record if data is OK (assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 CustomerID = 3;
+            Int32 CustomerID = 1;
             //invoke the method
             Found = ACustomer.Find(CustomerID);
             //check the property
-            if (ACustomer.CustomerEmail != "Liam@hotmail.com")
+            if (ACustomer.CustomerEmail != "Afseen@gmail.com")
             {
                 OK = true;
             }
@@ -280,11 +280,11 @@ namespace Jewellery_System_Testing
             //boolean variable to record if data is OK (assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 CustomerID = 3;
+            Int32 CustomerID = 1;
             //invoke the method
             Found = ACustomer.Find(CustomerID);
             //check the property
-            if (ACustomer.CustomerSurname != "Richard")
+            if (ACustomer.CustomerSurname != "Jay")
             {
                 OK = true;
             }
@@ -302,11 +302,11 @@ namespace Jewellery_System_Testing
             //boolean variable to record if data is OK (assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 CustomerID = 3;
+            Int32 CustomerID = 1;
             //invoke the method
             Found = ACustomer.Find(CustomerID);
             //check the property
-            if (ACustomer.CustomerAddress != "23 Rock Rd")
+            if (ACustomer.CustomerAddress != "334 Real Rd")
             {
                 OK = true;
             }
@@ -324,7 +324,7 @@ namespace Jewellery_System_Testing
             //boolean variable to record if data is OK (assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 CustomerID = 3;
+            Int32 CustomerID = 1;
             //invoke the method
             Found = ACustomer.Find(CustomerID);
             //check the property
@@ -1155,28 +1155,8 @@ namespace Jewellery_System_Testing
             //test to see that the result is correct
             Assert.AreNotEqual(Error, "");
         }
-        [TestMethod]
-        public void ThisCustomerPropertyOK()
-        {
-            //create an instance of the class we want to create
-            clsCustomerCollection AllCustomers = new clsCustomerCollection();
-            //create some test data to assign to the property
-            clsCustomer TestCustomer = new clsCustomer();
-            //set the properties of the test object
-            TestCustomer.Active = true;
-            TestCustomer.CustomerID = 1;
-            TestCustomer.CustomerFirstName = "Liam";
-            TestCustomer.CustomerSurname = "Richard";
-            TestCustomer.CustomerAddress = "23 Rock Rd";
-            TestCustomer.CustomerDOB = DateTime.Now.Date;
-            TestCustomer.CustomerEmail = "Liam@hotmail.com";
-            TestCustomer.CustomerMobileNumber = "07788745621";
-            TestCustomer.CustomerPostCode = "LE6 4ER";
-            //assign the data to the property
-            AllCustomers.ThisCustomer = TestCustomer;
-            //test to see that the two values are the same
-            Assert.AreEqual(AllCustomers.ThisCustomer, TestCustomer);
-        }
+     
+
     }
 }
 

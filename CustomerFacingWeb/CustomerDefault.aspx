@@ -22,8 +22,8 @@
         </p>
         <p>
             <asp:Button ID="btnAdd" runat="server" Text="Add Customer" OnClick="btnAdd_Click" />
-            <asp:Button ID="btnEdit" runat="server" Text="Edit Details" OnClick="btnEdit_Click" />
-            <asp:Button ID="btnDelete" runat="server" Height="23px" Text="Delete" Width="92px" OnClick="btnDelete_Click" />
+            <asp:Button ID="btnEdit" runat="server" Text="Edit Details" OnClick="btnEdit_Click"  />
+            <asp:Button ID="btnDelete" runat="server" Height="23px" Text="Delete" Width="92px" OnClick="btnDelete_Click"  />
         </p>
         <p>
             &nbsp;</p>
