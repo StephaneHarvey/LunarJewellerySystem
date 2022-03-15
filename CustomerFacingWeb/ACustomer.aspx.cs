@@ -43,9 +43,9 @@ public partial class ACustomer : System.Web.UI.Page
             Update();
         }
 
-    } 
+    }
 
-protected void btnFind_Click(object sender, EventArgs e)
+    protected void btnFind_Click(object sender, EventArgs e)
     {
         //create an instance of the customer class
         clsCustomer ACustomer = new clsCustomer();
@@ -118,35 +118,35 @@ protected void btnFind_Click(object sender, EventArgs e)
         chkActive.Checked = CustomerBook.ThisCustomer.Active;
     }
     void Update()
+    {
+        //create an instance of the customer book
+        ClassLibrary.clsCustomerCollection CustomerBook = new ClassLibrary.clsCustomerCollection();
+        //validate the data on the web form
+        String Error = CustomerBook.ThisCustomer.Valid(txtCustomerFirstName.Text, txtCustomerSurname.Text, txtCustomerDOB.Text, txtCustomerAddress.Text, txtPostCode.Text, txtMobileNumber.Text, txtEmail.Text);
+        //if the data is OK then add it to the object
+        if (Error == "")
         {
-            //create an instance of the customer book
-            ClassLibrary.clsCustomerCollection CustomerBook = new ClassLibrary.clsCustomerCollection();
-            //validate the data on the web form
-            String Error = CustomerBook.ThisCustomer.Valid(txtCustomerFirstName.Text, txtCustomerSurname.Text, txtCustomerDOB.Text, txtCustomerAddress.Text, txtPostCode.Text, txtMobileNumber.Text, txtEmail.Text);
-            //if the data is OK then add it to the object
-            if (Error == "")
-            {
-                //Find the record to update
-                CustomerBook.ThisCustomer.Find(CustomerID);
-                //get the data entered by the user
-                CustomerBook.ThisCustomer.CustomerFirstName = txtCustomerFirstName.Text;
-                CustomerBook.ThisCustomer.CustomerSurname = txtCustomerSurname.Text;
-                CustomerBook.ThisCustomer.CustomerDOB = Convert.ToDateTime(txtCustomerDOB.Text);
-                CustomerBook.ThisCustomer.CustomerAddress = txtCustomerAddress.Text;
-                CustomerBook.ThisCustomer.CustomerPostCode = txtPostCode.Text;
-                CustomerBook.ThisCustomer.CustomerMobileNumber = txtMobileNumber.Text;
-                CustomerBook.ThisCustomer.CustomerEmail = txtEmail.Text;
-                CustomerBook.ThisCustomer.Active = chkActive.Checked;
-                //add the record
-                CustomerBook.Update();
-                //all done so redirect back to the main page
-                Response.Redirect("CustomerDefault.aspx");
-            }
-            else
-            {
-                //report an error
-                lblError.Text = "There were problems with the data entered" + Error;
-            }
-
+            //Find the record to update
+            CustomerBook.ThisCustomer.Find(CustomerID);
+            //get the data entered by the user
+            CustomerBook.ThisCustomer.CustomerFirstName = txtCustomerFirstName.Text;
+            CustomerBook.ThisCustomer.CustomerSurname = txtCustomerSurname.Text;
+            CustomerBook.ThisCustomer.CustomerDOB = Convert.ToDateTime(txtCustomerDOB.Text);
+            CustomerBook.ThisCustomer.CustomerAddress = txtCustomerAddress.Text;
+            CustomerBook.ThisCustomer.CustomerPostCode = txtPostCode.Text;
+            CustomerBook.ThisCustomer.CustomerMobileNumber = txtMobileNumber.Text;
+            CustomerBook.ThisCustomer.CustomerEmail = txtEmail.Text;
+            CustomerBook.ThisCustomer.Active = chkActive.Checked;
+            //add the record
+            CustomerBook.Update();
+            //all done so redirect back to the main page
+            Response.Redirect("CustomerDefault.aspx");
         }
+        else
+        {
+            //report an error
+            lblError.Text = "There were problems with the data entered" + Error;
+        }
+
+    }
 }
