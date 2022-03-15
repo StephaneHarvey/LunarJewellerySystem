@@ -243,5 +243,3 @@ namespace Jewellery_System_Testing
     }
 }
 
-    
-
