@@ -100,15 +100,39 @@ namespace ClassLibrary
 
         public bool Find(int staffID)
         {
-            //set private data members to the test data value
-            mStaffID = 21;
-            mStaffFirstName = "Gwenyth";
-            mStaffLastName = "Paltrow";
-            mStaffAddress = "67 Cross Close";
-            mStaffContactNo = "07763890134";
-            mStaffDOB = Convert.ToDateTime("10/10/1999");
-            //return true
-            return true;
+            //create an instance of the data connection
+            clsDataConnection DB = new clsDataConnection();
+            //add parameter for StaffID to search for
+            DB.AddParameter("@StaffID", StaffID);
+            //execute sproc
+            DB.Execute("sproc_tblStaff_FilterByStaffID");
+            //if one record is found
+            if (DB.Count == 1)
+            {
+                //copy the data from the db to the private data member
+                mStaffID = Convert.ToInt32(DB.DataTable.Rows[0]["StaffID"]);
+                mStaffFirstName = Convert.ToString(DB.DataTable.Rows[0]["StaffFirstName"]); 
+                mStaffLastName = Convert.ToString(DB.DataTable.Rows[0]["StaffLastName"]);
+                mStaffAddress = Convert.ToString(DB.DataTable.Rows[0]["StaffAddress"]);
+                mStaffContactNo = Convert.ToString(DB.DataTable.Rows[0]["StaffContactNo"]);
+                mStaffDOB = Convert.ToDateTime(DB.DataTable.Rows[0]["StaffDOB"]);
+                //return that everything worked
+                return true;
+            }
+                            //set private data members to the test data value
+                            //mStaffID = 6;
+                            //mStaffFirstName = "Gwenyth";
+                            //mStaffLastName = "Paltrow";
+                            //mStaffAddress = "67 Cross Close, LE4 5RG";
+                            //mStaffContactNo = "07763890134";
+                            //mStaffDOB = Convert.ToDateTime("10/10/1999");
+                            //return true
+            //if no record was found
+            else
+            {
+                //return false so we know there is an issue
+                return false;
+            }
         }
     }
 
