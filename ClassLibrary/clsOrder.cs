@@ -8,6 +8,11 @@ namespace ClassLibrary
 {
     public class clsOrder
     {
+        //public string Valid (string orderName,
+        //                     string productNo,
+        //                     string status,
+        //                     string dateAdded)
+        
         public string StatusNo { get; set; }
         //public string OrderName { get; set; }
         //public string OrderNo { get; set; }
@@ -119,6 +124,77 @@ namespace ClassLibrary
                 mStatus = value;
             }
         }
+
+        public string Valid(string productNo, string orderName, string status, string dateAdded)
+        {
+            //create a string variable to store the error 
+            String Error = "";
+            //create a temporary variable to store date values 
+            DateTime DateTemp;
+            //if the ProductNo is blank
+            if (productNo.Length == 0)
+            {
+                //record the error 
+                Error = Error + "The product no may not be blank : ";
+            }
+            //if the product no is greater than 6 characters 
+            if (productNo.Length > 6)
+            {
+                //record the error 
+                Error = Error + "The product no must be less than 6 characters :";
+            }
+            try
+            {
+                //copy the dateAdded value to the DateTemp variable 
+                DateTemp = Convert.ToDateTime(dateAdded);
+                if (DateTemp < DateTime.Now.Date)
+                {
+                    //record the error 
+                    Error = Error + "The date cannot be in the past: ";
+                }
+                //check to see if the date is greater than today's date 
+                if (DateTemp > DateTime.Now.Date)
+                {
+                    //record the error 
+                    Error = Error + "The date cannot be in the future: ";
+                }
+            }
+            catch
+            {
+                //record the error 
+                Error = Error + "The date was not a valid date : ";
+            }
+            //is the product no blank 
+            if (orderName.Length == 0)
+            {
+                //record the error 
+                Error = Error + "The order name may not be blank :";
+            }
+            //if the product no is too long 
+            if (orderName.Length > 50)
+            {
+                //record the error 
+                Error = Error + "The order name must be less than 50 characters : ";
+            }
+            //is the status blank 
+            if (status.Length == 0)
+            {
+                //record the error 
+                Error = Error + "The status may not be blank :";
+            }
+            //if the status is too long 
+            if (status.Length > 50)
+            {
+                //record the error 
+                Error = Error + "The status must be less than 50 characters : ";
+
+            }
+                
+           
+            //return any error messages
+            return Error;
+        }
+       
     }
        
 
