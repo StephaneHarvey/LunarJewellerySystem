@@ -17,13 +17,35 @@ public partial class AnOrder : System.Web.UI.Page
     {
         //create a new instance of clsOrder
         clsOrder AnOrder = new clsOrder();
+        //capture the order name
+        string OrderName = txtOrderName.Text;
+        //capture the product no 
+        string ProductNo = txtProductNo.Text;
+        //capture the date added
+        string DateAdded = txtDateAdded.Text;
         //capture the statusno
-        AnOrder.StatusNo = txtStatus.Text;
-        //store the order in the session object 
-        Session["AnOrder"] = AnOrder;
-        //redirect to the viewer page
-        Response.Redirect("OrderViewer.aspx");
-
+        string Status = txtStatus.Text;
+        string Error = "";
+        //validate the data 
+        Error = AnOrder.Valid(ProductNo, OrderName, Status, DateAdded);
+        if (Error == "")
+        {
+            //capture the order name 
+            AnOrder.OrderName = OrderName;
+            //capture the product  no
+            AnOrder.ProductNo = ProductNo;
+            //capture the date added 
+            AnOrder.DateAdded = Convert.ToDateTime(DateAdded);
+            //store the order in the session object 
+            Session["AnOrder"] = AnOrder;
+            //redirect to the viewer page
+            Response.Redirect("OrderViewer.aspx");
+        }
+        else
+        {
+            //display the error message 
+            lblError.Text = Error;
+        }
     }
 
 

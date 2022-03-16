@@ -100,7 +100,7 @@ namespace Jewellery_System_Testing
             //create an instance of the class we want to create
             clsOrder AOrder = new clsOrder();
             //Boolean variable to store the results of the validation 
-            Boolean Found = false;
+            Boolean Found = true;
             //create some test data to use with the method
             Int32 OrderNo = 1;
             //invoke the method
@@ -122,7 +122,7 @@ namespace Jewellery_System_Testing
             //invoke the method
             Found = AOrder.Find(OrderNo);
             //check the orderno
-            if (AOrder.OrderNo != 1)
+            if (AOrder.OrderNo != 21)
             {
                 OK = true;
             }
@@ -156,7 +156,7 @@ namespace Jewellery_System_Testing
             //create an instance of the class we want to create
             clsOrder AOrder = new clsOrder();
             //boolean variable to store the result of the search
-            Boolean Found = true;
+            Boolean Found = false;
             //boolean variable to record if data is OK (assume it is)
             Boolean OK = true;
             //create some test data to use with the method
@@ -166,7 +166,7 @@ namespace Jewellery_System_Testing
             //check the property
             if (AOrder.Active != true)
             {
-                OK = true;
+                OK = false;
             }
             //test to see that the result is correct
             Assert.IsTrue(OK);
@@ -202,7 +202,7 @@ namespace Jewellery_System_Testing
             //boolean variable to record if data is OK (assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 OrderNo = 21;
+            Int32 OrderNo = 3;
             //invoke the method
             Found = AOrder.Find(OrderNo);
             //check the property
