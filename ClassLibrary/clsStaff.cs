@@ -144,18 +144,29 @@ namespace ClassLibrary
                 Error = Error + "The First Name may not be more than 50 characters : ";
             }
 
+            //if last name is empty, return error message
+            if (staffLastName.Length == 0)
+            {
+                Error = Error + "The Last Name may not be blank : ";
+            }
+            //if last name is above limit, return error message
+            if (staffLastName.Length > 50)
+            {
+                Error = Error + "The Last Name may not be more than 50 characters : ";
+            }
+
             try
             {
                 //copy the DOB value to the DateTemp variable
                 DateTemp = Convert.ToDateTime(staffDOB);
-                if (DateTemp < DateTime.Now.Date)
+                if (DateTemp < DateTime.Now.Date.AddYears(-100))
                 {
 
                     //record the error
                     Error = Error + "Staff age may not be over 100 : ";
                 }
                 //check to see if the date is greater than
-                if (DateTemp > DateTime.Now.Date)
+                if (DateTemp > DateTime.Now.Date.AddYears(-16))
                 {
                     //record error
                     Error = Error + "Staff age may not be younger than 16 : ";
