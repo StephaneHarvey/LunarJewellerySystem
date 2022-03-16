@@ -98,7 +98,7 @@ namespace ClassLibrary
 
 
 
-        public bool Find(int staffID)
+        public bool Find(int StaffID)
         {
             //create an instance of the data connection
             clsDataConnection DB = new clsDataConnection();
@@ -119,15 +119,7 @@ namespace ClassLibrary
                 //return that everything worked
                 return true;
             }
-                            //set private data members to the test data value
-                            //mStaffID = 6;
-                            //mStaffFirstName = "Gwenyth";
-                            //mStaffLastName = "Paltrow";
-                            //mStaffAddress = "67 Cross Close, LE4 5RG";
-                            //mStaffContactNo = "07763890134";
-                            //mStaffDOB = Convert.ToDateTime("10/10/1999");
-                            //return true
-            //if no record was found
+            //if record can't be found     
             else
             {
                 //return false so we know there is an issue

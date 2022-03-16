@@ -22,7 +22,7 @@ namespace Jewellery_System_Testing
             //create an instance of the class that we want to create
             clsStaff AStaff = new clsStaff();
             //create some test data to assign to property
-            string TestData = "67 Cross Close";
+            string TestData = "67 Cross Close, LE4 5RG";
             //assign the data to the property
             AStaff.StaffAddress = TestData;
             //test to see that it exists
@@ -61,11 +61,24 @@ namespace Jewellery_System_Testing
             //create an instance of the class that we want to create
             clsStaff AStaff = new clsStaff();
             //create some test data to assign to property
-            string TestData = "Chandler";
+            string TestData = "Gwenyth";
             //assign the data to the property
             AStaff.StaffFirstName = TestData;
             //test to see that it exists
             Assert.AreEqual(AStaff.StaffFirstName, TestData);
+        }
+
+        [TestMethod]
+        public void StaffLastNamePropertyOK()
+        {
+            //create an instance of the class that we want to create
+            clsStaff AStaff = new clsStaff();
+            //create some test data to assign to property
+            string TestData = "Paltrow";
+            //assign the data to the property
+            AStaff.StaffLastName = TestData;
+            //test to see that it exists
+            Assert.AreEqual(AStaff.StaffLastName, TestData);
         }
 
         [TestMethod]
