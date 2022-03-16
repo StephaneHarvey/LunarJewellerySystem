@@ -126,7 +126,54 @@ namespace ClassLibrary
                 return false;
             }
         }
+
+        public string Valid(string staffFirstName, string staffLastName, string staffAddress, string staffContactNo, string staffDOB)
+        {
+            string Error = "";
+            //create a temporary variable to store date values
+            DateTime DateTemp;
+
+            //if first name is empty, return error message
+            if (staffFirstName.Length == 0)
+            {
+                Error = Error + "The First Name may not be blank : ";
+            }
+            //if first name is above limit, return error message
+            if (staffFirstName.Length > 50)
+            {
+                Error = Error + "The First Name may not be more than 50 characters : ";
+            }
+
+            try
+            {
+                //copy the DOB value to the DateTemp variable
+                DateTemp = Convert.ToDateTime(staffDOB);
+                if (DateTemp < DateTime.Now.Date)
+                {
+
+                    //record the error
+                    Error = Error + "Staff age may not be over 100 : ";
+                }
+                //check to see if the date is greater than
+                if (DateTemp > DateTime.Now.Date)
+                {
+                    //record error
+                    Error = Error + "Staff age may not be younger than 16 : ";
+                }
+            }
+            catch
+            {
+                //record error
+                Error = Error + "The characters used cannot be accepted for 'Date of Birth', please insert a valid date. E.g. 23/09/1974 : ";
+            }
+                //return any error messages
+                return Error;
+            
+        } 
+
+
+        }
     }
-}
+
 
     
