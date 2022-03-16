@@ -111,7 +111,7 @@ namespace ClassLibrary
             {
                 //copy the data from the db to the private data member
                 mStaffID = Convert.ToInt32(DB.DataTable.Rows[0]["StaffID"]);
-                mStaffFirstName = Convert.ToString(DB.DataTable.Rows[0]["StaffFirstName"]); 
+                mStaffFirstName = Convert.ToString(DB.DataTable.Rows[0]["StaffFirstName"]);
                 mStaffLastName = Convert.ToString(DB.DataTable.Rows[0]["StaffLastName"]);
                 mStaffAddress = Convert.ToString(DB.DataTable.Rows[0]["StaffAddress"]);
                 mStaffContactNo = Convert.ToString(DB.DataTable.Rows[0]["StaffContactNo"]);
@@ -127,8 +127,6 @@ namespace ClassLibrary
             }
         }
     }
-
-    public class clsStock
-    {
-    }
 }
+
+    
