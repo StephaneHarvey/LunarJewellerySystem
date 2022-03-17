@@ -13,7 +13,7 @@ namespace ClassLibrary
         private string mStockItem;
         private DateTime mStockDate;
         private Int32 mStockQuantity;
-
+        private Boolean mActive;
 
         //stockID public property
         public Int32 StockID
@@ -78,6 +78,22 @@ namespace ClassLibrary
                 mStockDate = value;
             }
         }
+        //stockItem public property
+        public bool Active
+        {
+            get
+            {
+                //this line of code sends data out of the property
+                return mActive;
+
+            }
+            set
+            {
+                //this loine of the code allows daa into the property 
+                mActive = value;
+            }
+        }
+        
 
         public bool Find(int stockID)
         {
