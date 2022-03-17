@@ -30,4 +30,29 @@ public partial class AStaff : System.Web.UI.Page
     {
 
     }
+
+    protected void btnStaffFind_Click(object sender, EventArgs e)
+    {
+        //create a new instance of cls staff
+        clsStaff AStaff = new clsStaff();
+        //variable to store PK
+        Int32 StaffID;
+        //variable to store result of find
+        Boolean Found = false;
+        //get PK entered by user
+        StaffID = Convert.ToInt32(txtStaffID.Text);
+        //find record
+        Found = AStaff.Find(StaffID);
+        //if found
+        if (Found == true)
+        {
+            //display the values of the properties in the form 
+            txtStaffFirstName.Text = AStaff.StaffFirstName;
+            txtStaffLastName.Text = AStaff.StaffLastName;
+            txtStaffAddress.Text = AStaff.StaffAddress;
+            txtStaffContactNo.Text = AStaff.StaffContactNo;
+            txtStaffDOB.Text = AStaff.StaffDOB.ToString();
+        }
+
+    }
 }

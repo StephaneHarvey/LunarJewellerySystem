@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -98,7 +98,7 @@ namespace ClassLibrary
 
 
 
-        public bool Find(int staffID)
+        public bool Find(int StaffID)
         {
             //create an instance of the data connection
             clsDataConnection DB = new clsDataConnection();
@@ -111,7 +111,7 @@ namespace ClassLibrary
             {
                 //copy the data from the db to the private data member
                 mStaffID = Convert.ToInt32(DB.DataTable.Rows[0]["StaffID"]);
-                mStaffFirstName = Convert.ToString(DB.DataTable.Rows[0]["StaffFirstName"]); 
+                mStaffFirstName = Convert.ToString(DB.DataTable.Rows[0]["StaffFirstName"]);
                 mStaffLastName = Convert.ToString(DB.DataTable.Rows[0]["StaffLastName"]);
                 mStaffAddress = Convert.ToString(DB.DataTable.Rows[0]["StaffAddress"]);
                 mStaffContactNo = Convert.ToString(DB.DataTable.Rows[0]["StaffContactNo"]);
@@ -119,22 +119,70 @@ namespace ClassLibrary
                 //return that everything worked
                 return true;
             }
-                            //set private data members to the test data value
-                            //mStaffID = 6;
-                            //mStaffFirstName = "Gwenyth";
-                            //mStaffLastName = "Paltrow";
-                            //mStaffAddress = "67 Cross Close, LE4 5RG";
-                            //mStaffContactNo = "07763890134";
-                            //mStaffDOB = Convert.ToDateTime("10/10/1999");
-                            //return true
-            //if no record was found
+            //if record can't be found     
             else
             {
                 //return false so we know there is an issue
                 return false;
             }
         }
-    }
+       public string Valid(string staffFirstName, string staffLastName, string staffAddress, string staffContactNo, string staffDOB)
+        {
+            string Error = "";
+            //create a temporary variable to store date values
+            DateTime DateTemp;
 
-    
+            //if first name is empty, return error message
+            if (staffFirstName.Length == 0)
+            {
+                Error = Error + "The First Name may not be blank : ";
+            }
+            //if first name is above limit, return error message
+            if (staffFirstName.Length > 50)
+            {
+                Error = Error + "The First Name may not be more than 50 characters : ";
+            }
+
+            //if last name is empty, return error message
+            if (staffLastName.Length == 0)
+            {
+                Error = Error + "The Last Name may not be blank : ";
+            }
+            //if last name is above limit, return error message
+            if (staffLastName.Length > 50)
+            {
+                Error = Error + "The Last Name may not be more than 50 characters : ";
+            }
+
+            try
+            {
+                //copy the DOB value to the DateTemp variable
+                DateTemp = Convert.ToDateTime(staffDOB);
+                if (DateTemp < DateTime.Now.Date.AddYears(-100))
+                {
+
+                    //record the error
+                    Error = Error + "Staff age may not be over 100 : ";
+                }
+                //check to see if the date is greater than
+                if (DateTemp > DateTime.Now.Date.AddYears(-16))
+                {
+                    //record error
+                    Error = Error + "Staff age may not be younger than 16 : ";
+                }
+            }
+            catch
+            {
+                //record error
+                Error = Error + "The characters used cannot be accepted for 'Date of Birth', please insert a valid date. E.g. 23/09/1974 : ";
+            }
+                //return any error messages
+                return Error;
+            
+        } 
+
+
+        }
 }
+    
+
