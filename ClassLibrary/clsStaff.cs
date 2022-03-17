@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -126,8 +126,7 @@ namespace ClassLibrary
                 return false;
             }
         }
-
-        public string Valid(string staffFirstName, string staffLastName, string staffAddress, string staffContactNo, string staffDOB)
+       public string Valid(string staffFirstName, string staffLastName, string staffAddress, string staffContactNo, string staffDOB)
         {
             string Error = "";
             //create a temporary variable to store date values
@@ -184,7 +183,6 @@ namespace ClassLibrary
 
 
         }
-    }
-
-
+}
     
+
