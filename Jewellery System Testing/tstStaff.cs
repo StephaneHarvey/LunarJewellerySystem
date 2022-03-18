@@ -592,6 +592,7 @@ namespace Jewellery_System_Testing
             Assert.AreEqual(Error, "");
         }
 
+        [TestMethod]
         public void StaffLastNameMaxLessOne()
         {
             //instance of class
@@ -660,7 +661,250 @@ namespace Jewellery_System_Testing
             String Error = "";
             // test data
             string StaffFirstName = "";
-            StaffLastName = StaffFirstName.PadRight(800, 'a'); //should fail
+            StaffLastName = StaffLastName.PadRight(800, 'a'); //should fail
+            //invoke the method
+            Error = AStaff.Valid(StaffFirstName, StaffLastName, StaffAddress, StaffContactNo, StaffDOB);
+            //test to see if result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+
+        [TestMethod]
+        public void StaffAddressMinLessOne()
+        {
+            //instance of class
+            clsStaff AStaff = new clsStaff();
+            //string variable to store error message
+            String Error = "";
+            //test data
+            string StaffAddress = ""; // should give error
+            //invoke the method 
+            Error = AStaff.Valid(StaffFirstName, StaffLastName, StaffAddress, StaffContactNo, StaffDOB);
+            //test to see if result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void StaffAddressMin()
+        {
+            //instance of class
+            clsStaff AStaff = new clsStaff();
+            //string to store error msg
+            String Error = "";
+            // test data
+            string StaffAddress = "A";
+            //invoke the method
+            Error = AStaff.Valid(StaffFirstName, StaffLastName, StaffAddress, StaffContactNo, StaffDOB);
+            //test to see if result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void StaffAddressMinPlusOne()
+        {
+            //instance of class
+            clsStaff AStaff = new clsStaff();
+            //string to store error msg
+            String Error = "";
+            // test data
+            string StaffAddress = "An";
+            //invoke the method
+            Error = AStaff.Valid(StaffFirstName, StaffLastName, StaffAddress, StaffContactNo, StaffDOB);
+            //test to see if result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void StaffAddressMaxLessOne()
+        {
+            //instance of class
+            clsStaff AStaff = new clsStaff();
+            //string to store error msg
+            String Error = "";
+            // test data
+            string StaffAddress = "mynameisanneannawayilikecheeseverymuchindubitablymynameisanneannawayilikecheeseverymuchindubitablyf";
+            //invoke the method
+            Error = AStaff.Valid(StaffFirstName, StaffLastName, StaffAddress, StaffContactNo, StaffDOB);
+            //test to see if result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void StaffAddressMax()
+        {
+            //instance of class
+            clsStaff AStaff = new clsStaff();
+            //string to store error msg
+            String Error = "";
+            // test data
+            string StaffAddress = "mynameisanneannawayilikecheeseverymuchindubitablymynameisanneannawayilikecheeseverymuchindubitablyfg";
+            //invoke the method
+            Error = AStaff.Valid(StaffFirstName, StaffLastName, StaffAddress, StaffContactNo, StaffDOB);
+            //test to see if result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void StaffAddressMid()
+        {
+            //instance of class
+            clsStaff AStaff = new clsStaff();
+            //string to store error msg
+            String Error = "";
+            // test data
+            string StaffAddress = "mynameisanneannawayilikecheesesverymuchindubitably";
+            //invoke the method
+            Error = AStaff.Valid(StaffFirstName, StaffLastName, StaffAddress, StaffContactNo, StaffDOB);
+            //test to see if result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void StaffAddressMaxPlusOne()
+        {
+            //instance of class
+            clsStaff AStaff = new clsStaff();
+            //string to store error msg
+            String Error = "";
+            // test data
+            string StaffAddress = "mynameisanneannawayilikecheeseverymuchindubitablymynameisanneannawayilikecheeseverymuchindubitablyfgd"; // should give error
+            //invoke the method
+            Error = AStaff.Valid(StaffFirstName, StaffLastName, StaffAddress, StaffContactNo, StaffDOB);
+            //test to see if result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void StaffAddressExtremeMax()
+        {
+            //instance of class
+            clsStaff AStaff = new clsStaff();
+            //string to store error msg
+            String Error = "";
+            // test data
+            string StaffFirstName = "";
+            StaffAddress = StaffAddress.PadRight(800, 'a'); //should fail
+            //invoke the method
+            Error = AStaff.Valid(StaffFirstName, StaffLastName, StaffAddress, StaffContactNo, StaffDOB);
+            //test to see if result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void StaffContactNoMinLessOne()
+        {
+            //instance of class
+            clsStaff AStaff = new clsStaff();
+            //string variable to store error message
+            String Error = "";
+            //test data
+            string StaffContactNo = ""; // should give error
+            //invoke the method 
+            Error = AStaff.Valid(StaffFirstName, StaffLastName, StaffAddress, StaffContactNo, StaffDOB);
+            //test to see if result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void StaffContactNoMin()
+        {
+            //instance of class
+            clsStaff AStaff = new clsStaff();
+            //string to store error msg
+            String Error = "";
+            // test data
+            string StaffContactNo = "6";
+            //invoke the method
+            Error = AStaff.Valid(StaffFirstName, StaffLastName, StaffAddress, StaffContactNo, StaffDOB);
+            //test to see if result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void StaffContactNoMinPlusOne()
+        {
+            //instance of class
+            clsStaff AStaff = new clsStaff();
+            //string to store error msg
+            String Error = "";
+            // test data
+            string StaffContactNo = "45";
+            //invoke the method
+            Error = AStaff.Valid(StaffFirstName, StaffLastName, StaffAddress, StaffContactNo, StaffDOB);
+            //test to see if result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void StaffContactNoMaxLessOne()
+        {
+            //instance of class
+            clsStaff AStaff = new clsStaff();
+            //string to store error msg
+            String Error = "";
+            // test data
+            string StaffContactNo = "1234567890";
+            //invoke the method
+            Error = AStaff.Valid(StaffFirstName, StaffLastName, StaffAddress, StaffContactNo, StaffDOB);
+            //test to see if result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void StaffContactNoMax()
+        {
+            //instance of class
+            clsStaff AStaff = new clsStaff();
+            //string to store error msg
+            String Error = "";
+            // test data
+            string StaffContactNo = "12345678901";
+            //invoke the method
+            Error = AStaff.Valid(StaffFirstName, StaffLastName, StaffAddress, StaffContactNo, StaffDOB);
+            //test to see if result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void StaffContactNoMid()
+        {
+            //instance of class
+            clsStaff AStaff = new clsStaff();
+            //string to store error msg
+            String Error = "";
+            // test data
+            string StaffContactNo = "12345";
+            //invoke the method
+            Error = AStaff.Valid(StaffFirstName, StaffLastName, StaffAddress, StaffContactNo, StaffDOB);
+            //test to see if result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void StaffContactNoMaxPlusOne()
+        {
+            //instance of class
+            clsStaff AStaff = new clsStaff();
+            //string to store error msg
+            String Error = "";
+            // test data
+            string StaffContactNo = "123456789012"; // should give error
+            //invoke the method
+            Error = AStaff.Valid(StaffFirstName, StaffLastName, StaffAddress, StaffContactNo, StaffDOB);
+            //test to see if result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void StaffContactNoExtremeMax()
+        {
+            //instance of class
+            clsStaff AStaff = new clsStaff();
+            //string to store error msg
+            String Error = "";
+            // test data
+            string StaffFirstName = "";
+            StaffContactNo = StaffContactNo.PadRight(800, '5'); //should fail
             //invoke the method
             Error = AStaff.Valid(StaffFirstName, StaffLastName, StaffAddress, StaffContactNo, StaffDOB);
             //test to see if result is correct
