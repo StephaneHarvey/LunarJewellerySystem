@@ -154,6 +154,28 @@ namespace ClassLibrary
                 Error = Error + "The Last Name may not be more than 50 characters : ";
             }
 
+            //if address is empty, return error message
+            if (staffAddress.Length == 0)
+            {
+                Error = Error + "Address may not be blank : ";
+            }
+            //if address is above limit, return error message
+            if (staffAddress.Length > 100)
+            {
+                Error = Error + "Address may not be more than 100 characters : ";
+            }
+
+            //if ContactNo empty, return error message
+            if (staffContactNo.Length == 0)
+            {
+                Error = Error + "Contact Number may not be blank : ";
+            }
+            //if ContactNo is above limit, return error message
+            if (staffContactNo.Length > 100)
+            {
+                Error = Error + "Contact Number may not be more than 100 characters : ";
+            }
+
             try
             {
                 //copy the DOB value to the DateTemp variable
