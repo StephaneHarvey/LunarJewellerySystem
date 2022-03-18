@@ -93,19 +93,44 @@ namespace ClassLibrary
                 mActive = value;
             }
         }
-        
+
 
         public bool Find(int stockID)
         {
-            //set the private data members to the test data value
-            mStockID = 1;
-            mStockDate = Convert.ToDateTime("14/01/2020");
-            //always return true 
-            return true;
+            //create an instance of the data connection
+            clsDataConnection DB = new clsDataConnection();
+            //add the parameter for the stock id to search for
+            DB.AddParameter("@StockID", StockID);
+            //execute the stored procedure
+            DB.Execute("sproc_tblStock_FilterByStockID");
+            //IF ONBE RECORD IS FOUND (THERESHOULD BE EITHER ONE OR ZERO!)
+            if (DB.Count == 1)
+            {
+                //copy the data from the database to the private data members
+                mStockID = Convert.ToInt32(DB.DataTable.Rows[0]["StockID"]);
+                mStockItem = Convert.ToString(DB.DataTable.Rows[0]["StockItem"]);
+                mStockDate = Convert.ToDateTime(DB.DataTable.Rows[0]["StockDate"]);
+                mStockQuantity = Convert.ToInt32(DB.DataTable.Rows[0]["StockQuantity"]);
+                mActive = Convert.ToBoolean(DB.DataTable.Rows[0]["Active"]);
+                // return that everything worked OK
+                return true;
+            }
+            //if no record was found
+            else
+            {
+                //return false indicting a problem
+                return false;
+            }
+
+
+
+
         }
-
-
-
-
     }
 }
+
+
+
+
+
+

@@ -22,7 +22,7 @@
         </p>
         <asp:CheckBox ID="chkActive" runat="server" Text="Active" />
         <p>
-            <asp:Button ID="btnOk" runat="server" style="margin-bottom: 0px" Text="Ok" />
+            <asp:Button ID="btnOk" runat="server" style="margin-bottom: 0px; width: 31px;" Text="Ok" OnClick="btnOk_Click" />
             <asp:Button ID="btnCancel" runat="server" Text="Cancel" />
         </p>
     </form>

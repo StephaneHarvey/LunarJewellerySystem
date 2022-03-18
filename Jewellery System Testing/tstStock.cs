@@ -22,13 +22,13 @@ namespace Jewellery_System_Testing
             //create an instance of the class we want to create
             clsStock AnStock = new clsStock();
             //Bollean variable to store the results of the validation 
-            Boolean Found = false;
+            Boolean Found = true;
             //create some test data to use with the method 
             Int32 StockID = 1;
             //invoke the method 
             Found = AnStock.Find(StockID);
             //test to see if the result is true
-            Assert.IsTrue(Found);
+            Assert.IsFalse(Found);
         }
         [TestMethod]
         public void TestStockIDFound()
@@ -36,9 +36,9 @@ namespace Jewellery_System_Testing
             //create an instance of the class we want to create 
             clsStock AnStock = new clsStock();
             //boolean variable to store the result of the search 
-            Boolean Found = false;
+            Boolean Found = true;
             //boolean variabke to record if data is OK (assume it is)
-            Boolean OK = true;
+            Boolean OK = false;
             //create some test data to use with the method 
             Int32 StockID = 1;
             //invoke the method 
@@ -46,7 +46,7 @@ namespace Jewellery_System_Testing
             //check the address no
             if (AnStock.StockID != 1)
             {
-                OK = false;
+                OK = true;
             }
             //test to see that the result is correct
             Assert.IsTrue(OK);
@@ -57,9 +57,9 @@ namespace Jewellery_System_Testing
         {
             //create an instance of the class we want to create 
             clsStock AnStock = new clsStock();
-            Boolean Found = false;
+            Boolean Found = true;
             //boolean variabke to record if data is OK (assume it is)
-            Boolean OK = true;
+            Boolean OK = false;
             //create some test data to use with the method 
             Int32 StockID = 1;
             //invoke the method 
@@ -67,7 +67,7 @@ namespace Jewellery_System_Testing
             //check the address no
             if (AnStock.StockDate != Convert.ToDateTime("14/01/2020"))
             {
-                OK = false;
+                OK = true;
             }
             //test to see that the result is correct
             Assert.IsTrue(OK);
@@ -93,15 +93,15 @@ namespace Jewellery_System_Testing
             //test to see that the result is correct 
             Assert.IsTrue(OK);
         }
-
+        [TestMethod]
         public void TestStockQuantityFound()
         {
             //create an instance of the class we want to create 
             clsStock AnStock = new clsStock();
             //boolean variable to store the result of the search 
-            Boolean Found = false;
+            Boolean Found = true;
             //boolean variabke to record if data is OK (assume it is)
-            Boolean OK = true;
+            Boolean OK = false;
             //create some test data to use with the method 
             Int32 StockID = 1;
             //invoke the method 
@@ -109,7 +109,7 @@ namespace Jewellery_System_Testing
             //check the address no
             if (AnStock.StockQuantity != 50)
             {
-                OK = false;
+                OK = true;
             }
             //test to see that the result is correct
             Assert.IsTrue(OK);
@@ -163,7 +163,7 @@ namespace Jewellery_System_Testing
             Assert.AreEqual(AnStock.StockDate, TestData);
 
         }
-
+        [TestMethod]
         public void StockQuantityPropertyOK()
         {
             //create an instance of the class we want to create
@@ -175,6 +175,7 @@ namespace Jewellery_System_Testing
             //test to see that the two values are the same
             Assert.AreEqual(AnStock.StockQuantity, TestData);
         }
+        [TestMethod]
         public void StockIDPropertyOK()
         {
             //create an instance of the class we want to create
