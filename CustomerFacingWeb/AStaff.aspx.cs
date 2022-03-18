@@ -18,11 +18,49 @@ public partial class AStaff : System.Web.UI.Page
         //create new instance of cls Staff
         clsStaff AStaff = new clsStaff();
         //capture StaffFirstName
-        AStaff.StaffFirstName = txtStaffFirstName.Text;
+        string StaffFirstName = txtStaffFirstName.Text;
+        //capture lastname
+        string StaffLastName = txtStaffLastName.Text;
+        //capture DOB
+        string StaffDOB = txtStaffDOB.Text;
+        //capture contactno
+        string StaffContactNo = txtStaffContactNo.Text;
+        //capture address
+        string StaffAddress = txtStaffAddress.Text;
+        //variable to store error message 
+        string Error = "";
+        //validate data
+        Error = AStaff.Valid(StaffFirstName, StaffLastName, StaffAddress, StaffContactNo, StaffDOB);
+        if (Error == "")
+        {
+            //Capture first name 
+            AStaff.StaffFirstName = StaffFirstName;
+            //capture last name
+            AStaff.StaffLastName = StaffLastName;
+            //capture address
+            AStaff.StaffAddress = StaffAddress;
+            //capture contact no
+            AStaff.StaffContactNo = StaffContactNo;
+            //capture dob
+            AStaff.StaffDOB = Convert.ToDateTime(StaffDOB);
+            //Store staff in session object
+            Session["AStaff"] = AStaff;
+            //redirect to viewer page
+            Response.Write("AddressViewer.aspx");
+        }
+
+        else
+        {
+            //display error
+            lblError.Text = Error;
+        }
+
+
         //store staffID in session object
         Session["AStaff"] = AStaff;
         //redirect to the viewer page
-        Response.Redirect("StaffViewer.aspx");
+        Response.Write("StaffViewer.aspx");
+
 
     }
 

@@ -888,7 +888,7 @@ namespace Jewellery_System_Testing
             //string to store error msg
             String Error = "";
             // test data
-            string StaffContactNo = "123456789012"; // should give error
+            string StaffContactNo = "1234567890123"; // should give error
             //invoke the method
             Error = AStaff.Valid(StaffFirstName, StaffLastName, StaffAddress, StaffContactNo, StaffDOB);
             //test to see if result is correct
