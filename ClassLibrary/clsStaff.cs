@@ -171,9 +171,9 @@ namespace ClassLibrary
                 Error = Error + "Contact Number may not be blank : ";
             }
             //if ContactNo is above limit, return error message
-            if (staffContactNo.Length > 100)
+            if (staffContactNo.Length > 12)
             {
-                Error = Error + "Contact Number may not be more than 100 characters : ";
+                Error = Error + "Contact Number may not be more than 12 characters : ";
             }
 
             try
