@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ClassLibrary;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -86,7 +87,54 @@ public partial class CustomerDefault : System.Web.UI.Page
             lblError.Text = "Please select a record to delete from the list";
         }
     }
+        Int32 DisplayCustomer(string PostCodeFilter)
+        {
+            //declare the varibales 
+            Int32 CustomerID;
+            string CustomerFirstName;
+            string CustomerAddress;
+            string CustomerPostCode;
+
+            //create a new instance of the clsAddress
+            clsCustomerCollection CustomerBook = new clsCustomerCollection();
+            CustomerBook.ReportByPostCode(PostCodeFilter);
+            //var to store the count of records
+            Int32 RecordCount;
+            Int32 Index = 0;
+            RecordCount = CustomerBook.Count; //get the count of records from the tblcustomer table
+            lstCustomers.Items.Clear();
+            while (Index < RecordCount) //while there are records to process
+            {
+                CustomerID = CustomerBook.CustomersList[Index].CustomerID; // get the customer id 
+                CustomerFirstName = CustomerBook.CustomersList[Index].CustomerFirstName; //get the firstname
+                CustomerAddress = CustomerBook.CustomersList[Index].CustomerAddress; //get the address
+                CustomerPostCode = CustomerBook.CustomersList[Index].CustomerPostCode; //get the postcode
+
+                //create the new enetry for the list box
+                ListItem NewEntry = new ListItem(CustomerFirstName + " " + CustomerAddress + " " + CustomerPostCode, CustomerID.ToString());
+                lstCustomers.Items.Add(NewEntry); //add customer to the list
+                Index++; //move the index to the next record
+            }
+            return RecordCount; //return the count of records found 
+        }
+
+
+    protected void btnApply_Click(object sender, EventArgs e)
+    {
+        Int32 RecordCount;
+        RecordCount = DisplayCustomer(txtPostCode.Text);
+        lblError.Text = RecordCount + "records found";
+    }
+
+    protected void btnDisplayAll_Click(object sender, EventArgs e)
+    {
+        Int32 RecordCount;
+        RecordCount = DisplayCustomer("");
+        lblError.Text = RecordCount + "records in the database";
+        txtPostCode.Text = "";
+    }
 }
+
 
 
 
