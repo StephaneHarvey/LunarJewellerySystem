@@ -14,8 +14,8 @@
         </p>
         <asp:TextBox ID="txtPostCode" runat="server" Height="26px" Width="258px"></asp:TextBox>
         <p>
-            <asp:Button ID="btnApply" runat="server" Height="35px" Text="Apply" Width="156px" />
-            <asp:Button ID="btnDisplayAll" runat="server" Height="33px" Text="Display All" Width="158px" />
+            <asp:Button ID="btnApply" runat="server" Height="35px" Text="Apply" Width="156px" OnClick="btnApply_Click" />
+            <asp:Button ID="btnDisplayAll" runat="server" Height="33px" Text="Display All" Width="158px" OnClick="btnDisplayAll_Click" />
         </p>
         <p>
             <asp:Label ID="lblError" runat="server"></asp:Label>
