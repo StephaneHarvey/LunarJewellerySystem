@@ -121,14 +121,46 @@ namespace ClassLibrary
                 //return false indicting a problem
                 return false;
             }
-
-
-
-
         }
+
+        public string Valid(string stockItem, string stockDate)
+        {
+            //create a string variable to store the error
+            String Error = "";
+            DateTime DateTemp;
+            if (stockItem.Length ==0)
+            {
+                //record the error
+                Error = Error + "The Stock Item may not be blank :";
+            }
+            try
+            {
+                //copy the dateAdded value to the DateTemp varibale 
+                DateTemp = Convert.ToDateTime(stockDate);
+                if (DateTemp <DateTime.Now.Date)
+                {
+                    //record the error
+                    Error = Error + "The date cannot be in the past:";
+                }
+                //check to see if the date is greater than today's date 
+                if (DateTemp > DateTime.Now.Date)
+                {
+                    //record the error
+                    Error = Error + "The date cannot be in the future: ";
+                }
+            }
+            catch
+            {
+                //record the error 
+                Error = Error + "The date was not a valid date: ";
+            }
+            //return any eeor messages
+            return Error;
+        }
+
+    
     }
 }
-
 
 
 
