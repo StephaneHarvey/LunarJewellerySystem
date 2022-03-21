@@ -47,13 +47,71 @@ namespace Jewellery_System_Testing
             // create an istance for the class we want to create 
             clsStockCollection AllStocks = new clsStockCollection();
             //create some test data  assign to the property 
-            Int32 SomeCount = 0;
+            Int32 SomeCount = 2;
             //assign the data to the property
             AllStocks.Count = SomeCount;
             //test to see that 2 values are the same
             Assert.AreEqual(AllStocks.Count, SomeCount);
 
         }
+        [TestMethod]
+        public void ThisStockPropertyOK()
+        {
+            //create an instance of the property we want ot create 
+            clsStockCollection AllStocks = new clsStockCollection();
+            //create some test data to assign to the property
+            clsStock TestStock = new clsStock();
+            //set teh properties of the test object 
+            TestStock.Active = true;
+            TestStock.StockID = 1;
+            TestStock.StockQuantity = 50;
+            TestStock.StockItem = "Mens SunGlasses";
+            TestStock.StockDate = DateTime.Now.Date;
+            //assign thr data to the property 
+            AllStocks.ThisStock = TestStock;
+            //test to see that two values are the same 
+            Assert.AreEqual(AllStocks.ThisStock, TestStock);
+
+        }
+        [TestMethod]
+        public void ListAndCountOK()
+        {
+            //create an instance of the class we want to create
+            clsStockCollection AllStocks = new clsStockCollection();
+            //create some test data to assign to the property
+            //in this case the data needs to be list of objects
+            List<clsStock> TestList = new List<clsStock>();
+            //add an item to the list
+            //create the item of the test data
+            clsStock TestStock = new clsStock();
+            //set teh properties of the test object 
+            TestStock.Active = true;
+            TestStock.StockID = 1;
+            TestStock.StockQuantity = 50;
+            TestStock.StockItem = "Mens SunGlasses";
+            TestStock.StockDate = DateTime.Now.Date;
+            //add the item to the test list
+            TestList.Add(TestStock);
+            //assign the data to the property
+            AllStocks.StockList = TestList;
+            //test to see that the two values are the same
+            Assert.AreEqual(AllStocks.Count, TestList.Count);
+        }
+        [TestMethod]
+        public void TwoRecordPresent()
+        {
+            clsStockCollection AllStock = new clsStockCollection();
+            Assert.AreEqual(AllStock.Count, 2);
+        }
+        [TestMethod]
+        public void CountPropertyOK()
+        {
+            clsStockCollection AllStock = new clsStockCollection();
+            Int32 SomeCount = 2;
+            AllStock.Count = SomeCount;
+            Assert.AreEqual(AllStock.Count, SomeCount);
+        }
     }
 
 }
+
