@@ -16,10 +16,39 @@ public partial class AnStock : System.Web.UI.Page
         //create a new instance of clsStock
         clsStock AnStock = new clsStock();
         //get the data from the session object
-        AnStock.StockItem= txtStockID.Text;
-        Session["AnStock"] = AnStock;
+        ////  AnStock.StockItem= txtStockID.Text;
+        //////  Session["AnStock"] = AnStock;
         //display the house number for this entry
-        Response.Redirect("StockViewer.aspx");
+        /// Response.Redirect("StockViewer.aspx");
+
+        //capture the StockItem
+        string StockItem = txtStockItem.Text;
+        //capture the Quantity
+        string StockQuantity = txtStockQuantity.Text;
+        //Capture the StockDate
+        string StockDate = txtStockDate.Text;
+        //Variable to store any error messages 
+        string Error = "";
+        //valdiate the data
+        Error = AnStock.Valid(StockItem, StockDate);
+        if (Error =="")
+        {
+            //capture the Stock item 
+            AnStock.StockItem = StockItem;
+
+            //capture the stockdate
+            AnStock.StockDate = Convert.ToDateTime(StockDate);
+            //store the stock in the session object 
+            Session["AnStock"] = AnStock;
+            //redirect to the viewer page 
+            Response.Write("StockViewer.aspx");
+        }
+        else
+        {
+            //display the error message 
+            lblError.Text = Error;
+        }
+
     }
 
     protected void btnFind_Click(object sender, EventArgs e)
