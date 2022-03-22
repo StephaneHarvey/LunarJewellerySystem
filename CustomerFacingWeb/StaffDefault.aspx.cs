@@ -32,7 +32,7 @@ public partial class StaffDefault : System.Web.UI.Page
             //store the data int he session object
             Session["StaffID"] = StaffID;
             //redirect to delete page
-            Response.Redirect("Delete.aspx");
+            Response.Redirect("StaffDelete.aspx");
         }
         else //if no record has been selected
         {

@@ -149,5 +149,45 @@ namespace Jewellery_System_Testing
             Assert.IsFalse(Found);
 
         }
+
+        [TestMethod]
+        public void UpdateMethodOK()
+        {
+            //create an instance of the class that we want to create
+            clsStaffCollection AllStaff = new clsStaffCollection();
+            //create the item of test data
+            clsStaff TestItem = new clsStaff();
+            //var to store pk
+            Int32 PrimaryKey = 0;
+            //set its properties
+            TestItem.StaffID = 6;
+            TestItem.StaffFirstName = "Sam";
+            TestItem.StaffLastName = "Smith";
+            TestItem.StaffAddress = "628 Crack Close, LE27 2JG";
+            TestItem.StaffContactNo = "07912600134";
+            TestItem.StaffDOB = Convert.ToDateTime("09/04/2020");
+            //set ThisStaff to test data
+            AllStaff.ThisStaff = TestItem;
+            //add record
+            PrimaryKey = AllStaff.Add();
+            //set the pk of the test data
+            TestItem.StaffID = PrimaryKey;
+            //modify the test data
+            TestItem.StaffID = 2;
+            TestItem.StaffFirstName = "Samuel";
+            TestItem.StaffLastName = "Smithereens";
+            TestItem.StaffAddress = "628 Crackhead Close, LE27 2JG";
+            TestItem.StaffContactNo = "07912609134";
+            TestItem.StaffDOB = Convert.ToDateTime("09/02/2020");
+            //set recors based on new test data
+            AllStaff.ThisStaff = TestItem;
+            //update record
+            AllStaff.Update();
+            //find the record
+            AllStaff.ThisStaff.Find(PrimaryKey);
+            //Test to see that ThisStaff matches the test data
+            Assert.AreEqual(AllStaff.ThisStaff, TestItem);
+
+        }
     }
 }

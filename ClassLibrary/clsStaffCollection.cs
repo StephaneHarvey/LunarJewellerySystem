@@ -109,5 +109,10 @@ namespace ClassLibrary
             //execute sproc
             DB.Execute("sproc_tblStaff_Delete");
         }
+
+        public void Update()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
