@@ -23,9 +23,9 @@
             <asp:Label ID="lblError" runat="server" Text="[lblError]"></asp:Label>
         </p>
         <p>
-            <asp:Button ID="btnAddOrder" runat="server" Text="Add Order" />
-            <asp:Button ID="btnEditOrder" runat="server" Text="Edit Order" />
-            <asp:Button ID="btnCancelOrder" runat="server" Text="Cancel Order" />
+            <asp:Button ID="btnAddOrder" runat="server" Text="Add Order" OnClick="btnAddOrder_Click" />
+            <asp:Button ID="btnEditOrder" runat="server" Text="Edit Order" OnClick="btnEditOrder_Click" />
+            <asp:Button ID="btnCancelOrder" runat="server" Text="Cancel Order" OnClick="btnCancelOrder_Click" />
         </p>
         <p>
             &nbsp;</p>

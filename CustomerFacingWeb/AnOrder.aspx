@@ -31,11 +31,11 @@
             <asp:Label ID="lblDateAdded" runat="server" Text="Date Added"></asp:Label>
             <asp:TextBox ID="txtDateAdded" runat="server"></asp:TextBox>
         </p>
-        <asp:CheckBox ID="Active" runat="server" />
+        <asp:CheckBox ID="chkActive" runat="server" />
         <p>
             <asp:Label ID="lblError" runat="server" Text="[lblError]"></asp:Label>
         </p>
-        <asp:Button ID="btnOK" runat="server" OnClick="btnOK_Click" Text="OK" />
+        <asp:Button ID="btnOK" runat="server" OnClick="btnOK_Click" Text="OK" style="height: 26px" />
         <asp:Button ID="btnCancel" runat="server" Text="Cancel" />
     </form>
 </body>
