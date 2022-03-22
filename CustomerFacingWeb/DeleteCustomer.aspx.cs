@@ -27,11 +27,18 @@ void DeleteCustomer()
     //delete the record
     CustomerBook.Delete();
 }
-protected void btnYes_Click(object sender, EventArgs e)
-{
-    //delete the record
-    DeleteCustomer();
-    //redirrect back to the main page
-    Response.Redirect("CustomerDefault.aspx");
-}
+
+    protected void btnYes_Click1(object sender, EventArgs e)
+    {
+        //delete the record
+        DeleteCustomer();
+        //redirrect back to the main page
+        Response.Redirect("CustomerDefault.aspx");
+    }
+
+    protected void btnNo_Click(object sender, EventArgs e)
+    {
+        //redirrect back to the main page
+        Response.Redirect("CustomerDefault.aspx");
+    }
 }

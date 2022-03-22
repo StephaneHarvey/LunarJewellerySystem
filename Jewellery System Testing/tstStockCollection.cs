@@ -47,7 +47,7 @@ namespace Jewellery_System_Testing
             // create an istance for the class we want to create 
             clsStockCollection AllStocks = new clsStockCollection();
             //create some test data  assign to the property 
-            Int32 SomeCount = 2;
+            Int32 SomeCount = 1;
             //assign the data to the property
             AllStocks.Count = SomeCount;
             //test to see that 2 values are the same
@@ -97,20 +97,15 @@ namespace Jewellery_System_Testing
             //test to see that the two values are the same
             Assert.AreEqual(AllStocks.Count, TestList.Count);
         }
-        [TestMethod]
-        public void TwoRecordPresent()
-        {
-            clsStockCollection AllStock = new clsStockCollection();
-            Assert.AreEqual(AllStock.Count, 2);
-        }
-        [TestMethod]
-        public void CountPropertyOK()
-        {
-            clsStockCollection AllStock = new clsStockCollection();
-            Int32 SomeCount = 2;
-            AllStock.Count = SomeCount;
-            Assert.AreEqual(AllStock.Count, SomeCount);
-        }
+
+        //[TestMethod]
+        //public void CountPropertyOK()
+        //{
+        //    clsStockCollection AllStock = new clsStockCollection();
+        //    Int32 SomeCount = 2;
+        //    AllStock.Count = SomeCount;
+        //    Assert.AreEqual(AllStock.Count, SomeCount);
+        //}
     }
 
 }
