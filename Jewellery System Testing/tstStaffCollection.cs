@@ -160,7 +160,7 @@ namespace Jewellery_System_Testing
             //var to store pk
             Int32 PrimaryKey = 0;
             //set its properties
-            TestItem.StaffID = 6;
+            //TestItem.StaffID = 6;
             TestItem.StaffFirstName = "Sam";
             TestItem.StaffLastName = "Smith";
             TestItem.StaffAddress = "628 Crack Close, LE27 2JG";
@@ -173,7 +173,7 @@ namespace Jewellery_System_Testing
             //set the pk of the test data
             TestItem.StaffID = PrimaryKey;
             //modify the test data
-            TestItem.StaffID = 2;
+            //TestItem.StaffID = 2;
             TestItem.StaffFirstName = "Samuel";
             TestItem.StaffLastName = "Smithereens";
             TestItem.StaffAddress = "628 Crackhead Close, LE27 2JG";

@@ -5,50 +5,54 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
+    <style type="text/css">
+        .auto-style1 {
+            margin-left: 320px;
+        }
+    </style>
 </head>
 <body>
     <form id="form1" runat="server">
-        <div>
-        </div>
-        <asp:Label ID="Label1" runat="server" Text="CustomerID"></asp:Label>
-        <asp:TextBox ID="txtCustomerID" runat="server"></asp:TextBox>
-        <p>
-            <asp:Label ID="Label2" runat="server" Text="CustomerFirstName"></asp:Label>
-            <asp:TextBox ID="txtCustomerFirstName" runat="server"></asp:TextBox>
+        <link href="StyleSheet/Customer.css" rel="stylesheet" />
+        <div style="text-align: center"><asp:Label ID="Label1" runat="server" Text="CustomerID" Font-Names="Akzidenz-Grotesk Pro Bold" ForeColor="Aqua" Font-Bold="True" Font-Italic="True" Font-Size="Large"></asp:Label>
+        <asp:TextBox ID="txtCustomerID" runat="server" Font-Size="Large"></asp:TextBox>
+        <p class="auto-style1">
+            <asp:Label ID="Label2" runat="server" Text="CustomerFirstName" Font-Names="Akzidenz-Grotesk Pro Bold" ForeColor="Aqua" Font-Bold="True" Font-Italic="True" Font-Size="Large"></asp:Label>
+            <asp:TextBox ID="txtCustomerFirstName" runat="server" Font-Size="Large"></asp:TextBox>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:Button ID="btnFind" runat="server" OnClick="btnFind_Click" Text="Find" />
+            <asp:Button ID="btnFind" runat="server" OnClick="btnFind_Click" Text="Find" Height="49px" Width="204px" BackColor="#66CCFF" Font-Bold="True" Font-Italic="True" Font-Names="Akzidenz-Grotesk Pro Bold" ForeColor="White" />
         </p>
-        <asp:Label ID="Label3" runat="server" Text="CustomerSurname"></asp:Label>
-        <asp:TextBox ID="txtCustomerSurname" runat="server"></asp:TextBox>
+        <asp:Label ID="Label3" runat="server" Text="CustomerSurname" Font-Names="Akzidenz-Grotesk Pro Bold" ForeColor="Aqua" Font-Bold="True" Font-Italic="True" Font-Size="Large"></asp:Label>
+        <asp:TextBox ID="txtCustomerSurname" runat="server" Font-Size="Large"></asp:TextBox>
         <p>
-            <asp:Label ID="Label4" runat="server" Text="CustomerDOB"></asp:Label>
-            <asp:TextBox ID="txtCustomerDOB" runat="server"></asp:TextBox>
+            <asp:Label ID="Label4" runat="server" Text="CustomerDOB" Font-Names="Akzidenz-Grotesk Pro Bold" ForeColor="Aqua" Font-Bold="True" Font-Italic="True" Font-Size="Large"></asp:Label>
+            <asp:TextBox ID="txtCustomerDOB" runat="server" Font-Size="Large"></asp:TextBox>
         </p>
-        <asp:Label ID="Label5" runat="server" Text="CustomerAddress"></asp:Label>
-        <asp:TextBox ID="txtCustomerAddress" runat="server"></asp:TextBox>
+        <asp:Label ID="Label5" runat="server" Text="CustomerAddress" Font-Names="Akzidenz-Grotesk Pro Bold" ForeColor="Aqua" Font-Bold="True" Font-Italic="True" Font-Size="Large"></asp:Label>
+        <asp:TextBox ID="txtCustomerAddress" runat="server" Font-Size="Large"></asp:TextBox>
         <br />
         <br />
-        <asp:Label ID="Label6" runat="server" Text="CustomerPostCode"></asp:Label>
-        <asp:TextBox ID="txtPostCode" runat="server"></asp:TextBox>
+        <asp:Label ID="Label6" runat="server" Text="CustomerPostCode" Font-Names="Akzidenz-Grotesk Pro Bold" ForeColor="Aqua" Font-Bold="True" Font-Italic="True" Font-Size="Large"></asp:Label>
+        <asp:TextBox ID="txtPostCode" runat="server" Font-Size="Large"></asp:TextBox>
         <br />
         <br />
-        <asp:Label ID="Label7" runat="server" Text="CustomerEmail"></asp:Label>
-        <asp:TextBox ID="txtEmail" runat="server"></asp:TextBox>
+        <asp:Label ID="Label7" runat="server" Text="CustomerEmail" Font-Names="Akzidenz-Grotesk Pro Bold" ForeColor="Aqua" Font-Bold="True" Font-Italic="True" Font-Size="Large"></asp:Label>
+        <asp:TextBox ID="txtEmail" runat="server" Font-Size="Large"></asp:TextBox>
         <br />
         <br />
-        <asp:Label ID="Label8" runat="server" Text="CustomerMobileNumber"></asp:Label>
-        <asp:TextBox ID="txtMobileNumber" runat="server"></asp:TextBox>
+        <asp:Label ID="Label8" runat="server" Text="CustomerMobileNumber" Font-Names="Akzidenz-Grotesk Pro Bold" ForeColor="Aqua" Font-Bold="True" Font-Italic="True" Font-Size="Large"></asp:Label>
+        <asp:TextBox ID="txtMobileNumber" runat="server" Font-Size="Large"></asp:TextBox>
         <br />
         <p>
-            <asp:CheckBox ID="chkActive" runat="server" Text="Active" />
-        </p>
-        <p>
-            <asp:Label ID="lblError" runat="server"></asp:Label>
+            <asp:CheckBox ID="chkActive" runat="server" Text="Active" Font-Names="Akzidenz-Grotesk Pro Bold" ForeColor="Aqua" Font-Bold="True" Font-Italic="True" Font-Size="Large" />
         </p>
         <p>
-            <asp:Button ID="btnOK" runat="server" OnClick="btnOK_Click" Text="OK" />
-            <asp:Button ID="btnCancel" runat="server" Text="Cancel" />
+            <asp:Label ID="lblError" runat="server" Font-Names="Akzidenz-Grotesk Pro Bold" ForeColor="Aqua" Font-Bold="True" Font-Italic="True" Font-Size="Large"></asp:Label>
         </p>
+        <p>
+            <asp:Button ID="btnOK" runat="server" OnClick="btnOK_Click" Text="OK" Height="49px" Width="204px" BackColor="#66CCFF" Font-Bold="True" Font-Italic="True" Font-Names="Akzidenz-Grotesk Pro Bold" ForeColor="White" />
+            <asp:Button ID="btnCancel" runat="server" Text="Cancel" Height="49px" Width="204px" BackColor="#66CCFF" Font-Bold="True" Font-Italic="True" Font-Names="Akzidenz-Grotesk Pro Bold" ForeColor="White" OnClick="btnCancel_Click" />
+       </div>
     </form>
 </body>
 </html>

@@ -116,6 +116,7 @@ namespace ClassLibrary
             //connect to db
             clsDataConnection DB = new clsDataConnection();
             //set thee parameters for sproc
+            DB.AddParameter("@StaffID", mThisStaff.StaffID);
             DB.AddParameter("@StaffFirstName", mThisStaff.StaffFirstName);
             DB.AddParameter("@StaffLastName", mThisStaff.StaffLastName);
             DB.AddParameter("@StaffDOB", mThisStaff.StaffDOB);

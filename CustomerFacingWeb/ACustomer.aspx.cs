@@ -147,4 +147,9 @@ public partial class ACustomer : System.Web.UI.Page
         txtEmail.Text = CustomerBook.ThisCustomer.CustomerEmail;
         chkActive.Checked = CustomerBook.ThisCustomer.Active;
     }
+
+    protected void btnCancel_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("CustomerDefault.aspx");
+    }
 }

@@ -58,7 +58,7 @@ public partial class AnStock : System.Web.UI.Page
         //variable to store the primary key 
         Int32 StockID;
         //variable o store the result of the find operation 
-        Boolean Found = true;
+        Boolean Found = false;
         //get the primary key entered by the user 
         StockID = Convert.ToInt32(txtStockID.Text);
         //Find the record 
