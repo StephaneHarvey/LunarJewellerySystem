@@ -188,7 +188,7 @@ namespace ClassLibrary
      
     
 
-        public string Valid(string customerFirstName, string customerSurname, string customerMobileNumber, string customerDOB, string customerAddress, string customerEmail, string customerPostCode)
+        public string Valid(string customerFirstName, string customerSurname,string customerDOB, string customerAddress,string customerPostCode, string customerMobileNumber, string customerEmail)
         {
 
             //create a string variable to store the error
@@ -220,6 +220,27 @@ namespace ClassLibrary
                 //record the error
                 Error = Error + "The Customer's Surname must be less than 50 characters :";
             }
+            try
+            {
+                //copy the dateAdded value to the DateTemp variable
+                DateTemp = Convert.ToDateTime(customerDOB);
+                if (DateTemp < DateTime.Now.Date)
+                {
+                    //record the error
+                    Error = Error + "The date cannot be in the past : ";
+                }
+                //check to see if the date is greater than today's date
+                if (DateTemp > DateTime.Now.Date)
+                {
+                    // record the error
+                    Error = Error + "The date cannot be in the future : ";
+                }
+            }
+            catch
+            {
+                //record the error
+                Error = Error + "The date was not a valid date : ";
+            }
             //if the customers Address is blank
             if (customerAddress.Length == 0)
             {
@@ -244,18 +265,6 @@ namespace ClassLibrary
                 //record the error
                 Error = Error + "The Customer's PostCode must be less than 7 characters :";
             }
-            //if the customers Email is blank
-            if (customerEmail.Length == 0)
-            {
-                //record the error
-                Error = Error + "The Customer's Email may not be blank :";
-            }
-            //if the customers Email is more than 50
-            if (customerEmail.Length > 50)
-            {
-                //record the error
-                Error = Error + "The Customer's Email must be less than 50 characters :";
-            }
             //if the customers MobileNumber is blank
             if (customerMobileNumber.Length == 0)
             {
@@ -268,28 +277,21 @@ namespace ClassLibrary
                 //record the error
                 Error = Error + "The Customer's Mobile Number must be less than 11 characters :";
             }
-
-            try
-            {
-                //copy the dateAdded value to the DateTemp variable
-                DateTemp = Convert.ToDateTime(customerDOB);
-                if (DateTemp < DateTime.Now.Date)
-                {
-                    //record the error
-                    Error = Error + "The date cannot be in the past : ";
-                }
-                //check to see if the date is greater than today's date
-                if (DateTemp > DateTime.Now.Date)
-                {
-                    // record the error
-                    Error = Error + "The date cannot be in the future : ";
-                }
-            }
-            catch
+            //if the customers Email is blank
+            if (customerEmail.Length == 0)
             {
                 //record the error
-                Error = Error + "The date was not a valid date : ";
+                Error = Error + "The Customer's Email may not be blank :";
             }
+            //if the customers Email is more than 50
+            if (customerEmail.Length > 50)
+            {
+                //record the error
+                Error = Error + "The Customer's Email must be less than 50 characters :";
+            }
+          
+
+           
            
           
             //return any error messages
