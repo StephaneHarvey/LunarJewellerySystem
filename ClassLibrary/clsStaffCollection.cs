@@ -89,11 +89,11 @@ namespace ClassLibrary
             //connect to db
             clsDataConnection DB = new clsDataConnection();
             //set thee parameters for sproc
-            DB.AddParameter("StaffFirstName", mThisStaff.StaffFirstName);
-            DB.AddParameter("StaffLastName", mThisStaff.StaffLastName);
-            DB.AddParameter("StaffDOB", mThisStaff.StaffDOB);
-            DB.AddParameter("StaffContactNo", mThisStaff.StaffContactNo);
-            DB.AddParameter("StaffAddress", mThisStaff.StaffAddress);
+            DB.AddParameter("@StaffFirstName", mThisStaff.StaffFirstName);
+            DB.AddParameter("@StaffLastName", mThisStaff.StaffLastName);
+            DB.AddParameter("@StaffDOB", mThisStaff.StaffDOB);
+            DB.AddParameter("@StaffContactNo", mThisStaff.StaffContactNo);
+            DB.AddParameter("@StaffAddress", mThisStaff.StaffAddress);
             //execute sproc returning the pk value
             return DB.Execute("sproc_tblStaff_Insert");
 
@@ -112,7 +112,18 @@ namespace ClassLibrary
 
         public void Update()
         {
-            throw new NotImplementedException();
+            //update exisitng records
+            //connect to db
+            clsDataConnection DB = new clsDataConnection();
+            //set thee parameters for sproc
+            DB.AddParameter("@StaffFirstName", mThisStaff.StaffFirstName);
+            DB.AddParameter("@StaffLastName", mThisStaff.StaffLastName);
+            DB.AddParameter("@StaffDOB", mThisStaff.StaffDOB);
+            DB.AddParameter("@StaffContactNo", mThisStaff.StaffContactNo);
+            DB.AddParameter("@StaffAddress", mThisStaff.StaffAddress);
+            //execute sproc
+            DB.Execute("sproc_tblStaff_Update");
+
         }
     }
 }

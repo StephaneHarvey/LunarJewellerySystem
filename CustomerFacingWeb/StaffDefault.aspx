@@ -27,7 +27,7 @@
 &nbsp;
         <asp:Button ID="btnAdd" runat="server" BackColor="#93E395" BorderColor="White" BorderStyle="Ridge" OnClick="btnAdd_Click" Text="Add" Width="63px" />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:Button ID="btnEdit" runat="server" BackColor="#FAEC9A" BorderColor="White" BorderStyle="Ridge" Text="Edit" Width="63px" />
+        <asp:Button ID="btnEdit" runat="server" BackColor="#FAEC9A" BorderColor="White" BorderStyle="Ridge" Text="Edit" Width="63px" OnClick="btnEdit_Click" />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <asp:Button ID="btnDelete" runat="server" BackColor="#EA8C8A" BorderColor="White" BorderStyle="Ridge" Text="Delete" Width="63px" OnClick="btnDelete_Click" />
         <br />
