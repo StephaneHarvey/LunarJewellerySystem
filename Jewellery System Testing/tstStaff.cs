@@ -4,7 +4,7 @@ using System;
 
 namespace Jewellery_System_Testing
 {
-    
+
     [TestClass]
     public class tstStaff
     {
@@ -15,7 +15,7 @@ namespace Jewellery_System_Testing
         string StaffLastName = "Paltrow";
         string StaffAddress = "67 Cross Close, LE4 5RG";
         string StaffContactNo = "07763890134";
-        string StaffDOB ="10/10/1999";
+        string StaffDOB = "10/10/1999";
 
         [TestMethod]
         public void InstanceOK()
