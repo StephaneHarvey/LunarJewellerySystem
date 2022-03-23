@@ -10,18 +10,24 @@
     <form id="form1" runat="server">
         <div>
         </div>
-        <asp:ListBox ID="lstStaff" runat="server" BackColor="#CADDEC" Height="299px" Width="482px"></asp:ListBox>
+        <br />
+        <asp:Image ID="Image1" runat="server" Height="98px" ImageAlign="Top" ImageUrl="~/StyleSheet/LunarJewelleryLogo.png" Width="96px" />
+        <br />
+        <br />
+        <asp:ListBox ID="lstStaff" runat="server" BackColor="#DFF4F1" Height="299px" Width="482px"></asp:ListBox>
         <p>
             <asp:Label ID="LblPlsFirstName" runat="server" Text="Please Enter a First Name"></asp:Label>
         </p>
-        <asp:TextBox ID="txtFirstName" runat="server"></asp:TextBox>
+        
+        <asp:TextBox ID="txtFName" runat="server"></asp:TextBox>
+        
         <br />
         <asp:Label ID="lblError" runat="server" ForeColor="Red"></asp:Label>
         <br />
         <br />
-        <asp:Button ID="btnApply" runat="server" BackColor="#A0C2DE" Text="Apply" Width="100px" OnClick="btnApply_Click" />
+        <asp:Button ID="btnApply" runat="server" BackColor="#A2E1D8" Text="Apply" Width="100px" OnClick="btnApply_Click" />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:Button ID="btnDisplayAll" runat="server" BackColor="#A0C2DE" Text="Display All" Width="100px" OnClick="btnDisplayAll_Click" />
+        <asp:Button ID="btnDisplayAll" runat="server" BackColor="#A2E1D8" Text="Display All" Width="100px" OnClick="btnDisplayAll_Click" />
         <br />
         <br />
         <br />

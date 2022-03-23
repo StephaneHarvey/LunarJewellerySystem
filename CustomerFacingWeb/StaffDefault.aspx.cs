@@ -41,40 +41,40 @@ public partial class StaffDefault : System.Web.UI.Page
 
     }
 
-    //Int32 DisplayStaff(string FirstNameFilter)
-    //{
-    //    //declare variables
-    //    Int32 StaffID;
-    //    string StaffFirstName;
-    //    string StaffLastName;
-    //    DateTime StaffDOB;
-    //    string StaffContactNo;
-    //    string StaffAddress;
+    Int32 DisplayStaff(string FirstNameFilter)
+    {
+        //declare variables
+        Int32 StaffID;
+        string StaffFirstName;
+        string StaffLastName;
+        DateTime StaffDOB;
+        string StaffContactNo;
+        string StaffAddress;
 
-    //    //instance of clsStaff
-    //    clsStaffCollection JewellerySystem = new clsStaffCollection();
-    //    JewellerySystem.ReportByStaffFirstName(FirstNameFilter);
-    //    //var to store record count
-    //    Int32 RecordCount;
-    //    Int32 Index = 0;
-    //    RecordCount = JewellerySystem.Count; //get the count of records from the tblstaff table
-    //    lstStaff.Items.Clear();
-    //    while (Index < RecordCount) //while there are records to process
-    //    {
-    //        //get these attributes
-    //        StaffID = JewellerySystem.StaffList[Index].StaffID; 
-    //        StaffFirstName = JewellerySystem.StaffList[Index].StaffFirstName; 
-    //        StaffLastName = JewellerySystem.StaffList[Index].StaffLastName; 
-    //        StaffDOB = Convert.ToDateTime(JewellerySystem.StaffList[Index].StaffDOB); 
-    //        StaffContactNo = JewellerySystem.StaffList[Index].StaffContactNo; 
-    //        StaffAddress = JewellerySystem.StaffList[Index].StaffAddress; 
-    //        //create the new entry for the list box
-    //        ListItem NewEntry = new ListItem(StaffFirstName + " " + StaffLastName + " " + StaffDOB + " " + StaffContactNo + " " + StaffAddress, StaffID.ToString());
-    //        lstStaff.Items.Add(NewEntry); //add staff to the list
-    //        Index++; //move the index to the next record
-    //    }
-
-    //}
+        //instance of clsStaff
+        clsStaffCollection JewellerySystem = new clsStaffCollection();
+        JewellerySystem.ReportByStaffFirstName(FirstNameFilter);
+        //var to store record count
+        Int32 RecordCount;
+        Int32 Index = 0;
+        RecordCount = JewellerySystem.Count; //get the count of records from the tblstaff table
+        lstStaff.Items.Clear();
+        while (Index < RecordCount) //while there are records to process
+        {
+            //get these attributes
+            StaffID = JewellerySystem.StaffList[Index].StaffID;
+            StaffFirstName = JewellerySystem.StaffList[Index].StaffFirstName;
+            StaffLastName = JewellerySystem.StaffList[Index].StaffLastName;
+            StaffDOB = Convert.ToDateTime(JewellerySystem.StaffList[Index].StaffDOB);
+            StaffContactNo = JewellerySystem.StaffList[Index].StaffContactNo;
+            StaffAddress = JewellerySystem.StaffList[Index].StaffAddress;
+            //create the new entry for the list box
+            ListItem NewEntry = new ListItem(StaffFirstName + " " + StaffLastName + " " + StaffDOB + " " + StaffContactNo + " " + StaffAddress, StaffID.ToString());
+            lstStaff.Items.Add(NewEntry); //add staff to the list
+            Index++; //move the index to the next record
+        }
+        return RecordCount;
+    }
 
     protected void btnAdd_Click(object sender, EventArgs e)
     {
@@ -129,18 +129,20 @@ public partial class StaffDefault : System.Web.UI.Page
 
 
 
-    //protected void btnApply_Click(object sender, EventArgs e)
-    //{
-    //    Int32 RecordCount;
-    //    RecordCount = DisplayStaff(txtFirstName.Text);
-    //    lblError.Text = RecordCount + "records found";
-    //}
+    protected void btnApply_Click(object sender, EventArgs e)
+    {
+        Int32 RecordCount;
+        RecordCount = DisplayStaff(txtFName.Text);
+        lblError.Text = RecordCount + " staff members found";
+    }
 
-    //protected void btnDisplayAll_Click(object sender, EventArgs e)
-    //{
-    //    Int32 RecordCount;
-    //    RecordCount = DisplayStaff("");
-    //    lblError.Text = RecordCount + "records in the database";
-    //    txtFirstName.Text = "";
-    //}
+    protected void btnDisplayAll_Click(object sender, EventArgs e)
+    {
+        Int32 RecordCount;
+        RecordCount = DisplayStaff("");
+        lblError.Text = RecordCount + "records in the database";
+        txtFName.Text = "";
+    }
+
+  
 }
