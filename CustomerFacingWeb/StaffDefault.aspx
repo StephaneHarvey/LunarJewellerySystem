@@ -15,12 +15,13 @@
             <asp:Label ID="LblPlsFirstName" runat="server" Text="Please Enter a First Name"></asp:Label>
         </p>
         <asp:TextBox ID="txtFirstName" runat="server"></asp:TextBox>
+        <br />
         <asp:Label ID="lblError" runat="server" ForeColor="Red"></asp:Label>
         <br />
         <br />
-        <asp:Button ID="btnApply" runat="server" BackColor="#A0C2DE" Text="Apply" Width="100px" />
+        <asp:Button ID="btnApply" runat="server" BackColor="#A0C2DE" Text="Apply" Width="100px" OnClick="btnApply_Click" />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:Button ID="btnDisplayAll" runat="server" BackColor="#A0C2DE" Text="Display All" Width="100px" />
+        <asp:Button ID="btnDisplayAll" runat="server" BackColor="#A0C2DE" Text="Display All" Width="100px" OnClick="btnDisplayAll_Click" />
         <br />
         <br />
         <br />

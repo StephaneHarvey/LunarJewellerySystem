@@ -12,32 +12,12 @@ namespace ClassLibrary
 
         public clsStaffCollection()
         {
-            //var for the index
-            Int32 Index = 0;
-            //var to store the record count
-            Int32 RecordCount = 0;
             //object for data connection
             clsDataConnection DB = new clsDataConnection();
             //execute the stores proc
             DB.Execute("sproc_tblStaff_SelectAll");
-            //get the count of records
-            RecordCount = DB.Count;
-            //while there are records to process
-            while (Index < RecordCount)
-            {
-                //create a blank address
-                clsStaff AStaff = new clsStaff();
-                AStaff.StaffID = Convert.ToInt32(DB.DataTable.Rows[Index]["StaffID"]);
-                AStaff.StaffFirstName = Convert.ToString(DB.DataTable.Rows[Index]["StaffFirstName"]);
-                AStaff.StaffLastName = Convert.ToString(DB.DataTable.Rows[Index]["StaffLastName"]);
-                AStaff.StaffAddress = Convert.ToString(DB.DataTable.Rows[Index]["StaffAddress"]);
-                AStaff.StaffContactNo = Convert.ToString(DB.DataTable.Rows[Index]["StaffContactNo"]);
-                AStaff.StaffDOB = Convert.ToDateTime(DB.DataTable.Rows[Index]["StaffDOB"]);
-                //add record to the private data member 
-                mStaffList.Add(AStaff);
-                //point at the next record 
-                Index++;
-            }
+            //populate array list 
+            PopulateArray(DB);  
         }
 
         public List<clsStaff> StaffList
@@ -125,6 +105,50 @@ namespace ClassLibrary
             //execute sproc
             DB.Execute("sproc_tblStaff_Update");
 
+        }
+
+        public void ReportByStaffFirstName(string StaffFirstName)
+        {
+            //filters records based on full or partial first name
+            //connect to db
+            clsDataConnection DB = new clsDataConnection();
+            //send postcode param to the db
+            DB.AddParameter("@StaffFirstName", StaffFirstName);
+            //execute sproc
+            DB.Execute("sproc_tblStaff_FilterByFirstName");
+            //populate array list
+            PopulateArray(DB);
+        }
+
+        void PopulateArray(clsDataConnection DB)
+        {
+            //var for index 
+            Int32 Index = 0;
+            //var to store record count
+            Int32 RecordCount;
+            //get the count of the records
+            RecordCount = DB.Count;
+            //clear the private array list
+            mStaffList = new List<clsStaff>();
+            //WHILE THERE ARE RECORDS TO PROCESS
+            while (Index < RecordCount)
+            {
+                //create a blank staff
+                clsStaff AStaff = new clsStaff();
+                //read in the fields from the cyurrent record
+                AStaff.StaffID = Convert.ToInt32(DB.DataTable.Rows[Index]["StaffID"]);
+                AStaff.StaffFirstName = Convert.ToString(DB.DataTable.Rows[Index]["StaffFirstName"]);
+                AStaff.StaffLastName = Convert.ToString(DB.DataTable.Rows[Index]["StaffLastName"]);
+                AStaff.StaffAddress = Convert.ToString(DB.DataTable.Rows[Index]["StaffAddress"]);
+                AStaff.StaffContactNo = Convert.ToString(DB.DataTable.Rows[Index]["StaffContactNo"]);
+                AStaff.StaffDOB = Convert.ToDateTime(DB.DataTable.Rows[Index]["StaffDOB"]);
+                //add the record to the private member
+                mStaffList.Add(AStaff);
+                //point to next record
+                Index++;
+            }
+                
+            
         }
     }
 }
