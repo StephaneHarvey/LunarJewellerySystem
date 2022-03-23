@@ -96,7 +96,7 @@ namespace ClassLibrary
             }
         }
 
-
+        public int Count { get; set; }
 
         public bool Find(int StaffID)
         {
@@ -201,10 +201,10 @@ namespace ClassLibrary
                 //return any error messages
                 return Error;
             
-        } 
-
-
         }
+
+       
+    }
 }
     
 

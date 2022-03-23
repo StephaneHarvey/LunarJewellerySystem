@@ -189,5 +189,60 @@ namespace Jewellery_System_Testing
             Assert.AreEqual(AllStaff.ThisStaff, TestItem);
 
         }
+
+        [TestMethod]
+        public void ReportByStaffFirstNameMethodOK()
+        {
+            //create an instance of the class that we want to create
+            clsStaffCollection AllStaff = new clsStaffCollection();
+            //create an instance of filtered data
+            clsStaffCollection FilteredStaff = new clsStaffCollection();
+            //apply blank string (should return all records)
+            FilteredStaff.ReportByStaffFirstName("");
+            //test to see that 2 values are the same
+            Assert.AreEqual(AllStaff.Count, FilteredStaff.Count);
+
+        }
+
+        [TestMethod]
+        public void ReportByStaffFirstNameNoneFound()
+        {
+            //create an instance of the class containing unfiltered results
+            clsStaffCollection FilteredStaff = new clsStaffCollection();
+            //apply blank string that doesnt exist 
+            FilteredStaff.ReportByStaffFirstName("xxxxxxx");
+            //test to see that there are no records
+            Assert.AreEqual(0, FilteredStaff.Count);
+
+        }
+
+        [TestMethod]
+        public void ReportByStaffFirstNameTestDataFound()
+        {
+            //create an instance of the filtered data
+            clsStaffCollection FilteredStaff = new clsStaffCollection();
+            //var to store outcome
+            Boolean OK = true;
+            //apply a first name that doesnt exist
+            FilteredStaff.ReportByStaffFirstName("Chloe");
+            //check that the correct number of records found
+            if (FilteredStaff.Count == 2)
+            {
+                if (FilteredStaff.StaffList[0].StaffID != 3)
+                {
+                    OK = false;
+                }
+                if (FilteredStaff.StaffList[1].StaffID != 61)
+                {
+                    OK = false;
+                }
+            }
+            else
+            {
+                OK = false;
+            }
+            //test to see that there are no records
+            Assert.IsTrue(OK);
+        }
     }
 }
