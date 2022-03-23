@@ -36,65 +36,66 @@ public partial class AStaff : System.Web.UI.Page
         {
             Update();
         }
-        //create new instance of cls Staff
-        clsStaff AStaff = new clsStaff();
-        //capture StaffFirstName
-        string StaffFirstName = txtStaffFirstName.Text;
-        //capture lastname
-        string StaffLastName = txtStaffLastName.Text;
-        //capture DOB
-        string StaffDOB = txtStaffDOB.Text;
-        //capture contactno
-        string StaffContactNo = txtStaffContactNo.Text;
-        //capture address
-        string StaffAddress = txtStaffAddress.Text;
-        //variable to store error message 
-        string Error = "";
-        //validate data
-        Error = AStaff.Valid(StaffFirstName, StaffLastName, StaffDOB, StaffContactNo, StaffAddress);
-        if (Error == "")
-        {
-            //Capture first name 
-            AStaff.StaffFirstName = StaffFirstName;
-            //capture last name
-            AStaff.StaffLastName = StaffLastName;
-            //capture address
-            AStaff.StaffAddress = StaffAddress;
-            //capture contact no
-            AStaff.StaffContactNo = StaffContactNo;
-            //capture dob
-            AStaff.StaffDOB = Convert.ToDateTime(StaffDOB);
-            //Store staff in session object
-            Session["AStaff"] = AStaff;
-            //redirect to viewer page
-            Response.Write("AddressViewer.aspx");
-        }
+        ////create new instance of cls Staff
+        //clsStaff AStaff = new clsStaff();
+        ////capture StaffFirstName
+        //string StaffFirstName = txtStaffFirstName.Text;
+        ////capture lastname
+        //string StaffLastName = txtStaffLastName.Text;
+        ////capture DOB
+        //string StaffDOB = txtStaffDOB.Text;
+        ////capture contactno
+        //string StaffContactNo = txtStaffContactNo.Text;
+        ////capture address
+        //string StaffAddress = txtStaffAddress.Text;
+        ////variable to store error message 
+        //string Error = "";
+        ////validate data
+        //Error = AStaff.Valid(StaffFirstName, StaffLastName, StaffDOB, StaffContactNo, StaffAddress);
+        //if (Error == "")
+        //{
+        //    //Capture first name 
+        //    AStaff.StaffFirstName = StaffFirstName;
+        //    //capture last name
+        //    AStaff.StaffLastName = StaffLastName;
+        //    //capture address
+        //    AStaff.StaffAddress = StaffAddress;
+        //    //capture contact no
+        //    AStaff.StaffContactNo = StaffContactNo;
+        //    //capture dob
+        //    AStaff.StaffDOB = Convert.ToDateTime(StaffDOB);
+        //    //Store staff in session object
+        //    Session["AStaff"] = AStaff;
+        //    //redirect to viewer page
+        //    Response.Write("AddressViewer.aspx");
+        //}
 
-        else
-        {
-            //display error
-            lblError.Text = Error;
-        }
+        //else
+        //{
+        //    //display error
+        //    lblError.Text = Error;
+        //}
 
 
 
-        //store staffID in session object
-        Session["AStaff"] = AStaff;
-        //redirect to the viewer page
-        Response.Write("StaffViewer.aspx");
+        ////store staffID in session object
+        //Session["AStaff"] = AStaff;
+        ////redirect to the viewer page
+        //Response.Write("StaffViewer.aspx");
 
         
 
-        //add new record
-        Add();
-        //redirect back to main page
-        Response.Redirect("StaffDefault.aspx");
+        ////add new record
+        //Add();
+        ////redirect back to main page
+        //Response.Redirect("StaffDefault.aspx");
 
     }
 
     protected void btnCancel_Click(object sender, EventArgs e)
     {
-
+        //rediect to default page
+        Response.Redirect("StaffDefault.aspx");
     }
 
     protected void btnStaffFind_Click(object sender, EventArgs e)
@@ -189,7 +190,7 @@ public partial class AStaff : System.Web.UI.Page
             //display data for this record
             txtStaffFirstName.Text = Staff.ThisStaff.StaffFirstName;
             txtStaffLastName.Text = Staff.ThisStaff.StaffLastName;
-            txtStaffDOB.Text = Staff.ThisStaff.StaffDOB.ToString();
+            txtStaffDOB.Text = Staff.ThisStaff.StaffDOB.ToString("dd/mm/yyyy");
             txtStaffContactNo.Text = Staff.ThisStaff.StaffContactNo;
             txtStaffAddress.Text = Staff.ThisStaff.StaffAddress;
         }
