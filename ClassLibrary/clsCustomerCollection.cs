@@ -45,7 +45,7 @@ namespace ClassLibrary
             //set the parameters for the stored procedure
             DB.AddParameter("@CustomerFirstName", mThisCustomer.CustomerFirstName);
             DB.AddParameter("@CustomerSurname", mThisCustomer.CustomerSurname);
-            DB.AddParameter("@CustomerDOB", mThisCustomer.CustomerDOB);
+            DB.AddParameter("@CustomerDateAdded", mThisCustomer.CustomerDateAdded);
             DB.AddParameter("@CustomerAddress", mThisCustomer.CustomerAddress);
             DB.AddParameter("@CustomerPostCode", mThisCustomer.CustomerPostCode);
             DB.AddParameter("@CustomerMobileNumber", mThisCustomer.CustomerMobileNumber);
@@ -102,7 +102,7 @@ namespace ClassLibrary
             DB.AddParameter("@CustomerID", mThisCustomer.CustomerID);
             DB.AddParameter("@CustomerFirstName", mThisCustomer.CustomerFirstName);
             DB.AddParameter("@CustomerSurname", mThisCustomer.CustomerSurname);
-            DB.AddParameter("@CustomerDOB", mThisCustomer.CustomerDOB);
+            DB.AddParameter("@CustomerDateAdded", mThisCustomer.CustomerDateAdded);
             DB.AddParameter("@CustomerAddress", mThisCustomer.CustomerAddress);
             DB.AddParameter("@CustomerPostCode", mThisCustomer.CustomerPostCode);
             DB.AddParameter("@CustomerMobileNumber", mThisCustomer.CustomerMobileNumber);
@@ -124,7 +124,7 @@ namespace ClassLibrary
             //populate the array list with the data table
             PopulateArray(DB);
         }
-        
+
         void PopulateArray(clsDataConnection DB)
         {
             //var for the index
@@ -147,7 +147,7 @@ namespace ClassLibrary
                 ACustomer.CustomerSurname = Convert.ToString(DB.DataTable.Rows[Index]["CustomerSurname"]);
                 ACustomer.CustomerAddress = Convert.ToString(DB.DataTable.Rows[Index]["CustomerAddress"]);
                 ACustomer.CustomerPostCode = Convert.ToString(DB.DataTable.Rows[Index]["CustomerPostCode"]);
-                ACustomer.CustomerDOB = Convert.ToDateTime(DB.DataTable.Rows[Index]["CustomerDOB"]);
+                ACustomer.CustomerDateAdded = Convert.ToDateTime(DB.DataTable.Rows[Index]["CustomerDateAdded"]);
                 ACustomer.CustomerEmail = Convert.ToString(DB.DataTable.Rows[Index]["CustomerEmail"]);
                 ACustomer.CustomerMobileNumber = Convert.ToString(DB.DataTable.Rows[Index]["CustomerMobileNumber"]);
                 //add the record to the private data member
@@ -158,5 +158,9 @@ namespace ClassLibrary
         }
     }
 }
+       
+  
+    
+
 
 

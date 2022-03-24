@@ -8,7 +8,7 @@ namespace ClassLibrary
 {
     public class clsCustomer
     {
-        
+
         //customerID private member variable
         private Int32 mCustomerID;
         //CustomerID public property
@@ -25,20 +25,20 @@ namespace ClassLibrary
                 mCustomerID = value;
             }
         }
-        
+
         //CustomerDOB public property
-        private DateTime mCustomerDOB;
-        public DateTime CustomerDOB
+        private DateTime mCustomerDateAdded;
+        public DateTime CustomerDateAdded
         {
             get
             {
                 //this line of code send data out of the property
-                return mCustomerDOB;
+                return mCustomerDateAdded;
             }
             set
             {
                 //this line of code allows data into the property
-                mCustomerDOB = value;
+                mCustomerDateAdded = value;
             }
         }
         private Boolean mActive;
@@ -168,7 +168,7 @@ namespace ClassLibrary
                 mCustomerID = Convert.ToInt32(DB.DataTable.Rows[0]["CustomerID"]);
                 mCustomerFirstName = Convert.ToString(DB.DataTable.Rows[0]["CustomerFirstName"]);
                 mCustomerSurname = Convert.ToString(DB.DataTable.Rows[0]["CustomerSurname"]);
-                mCustomerDOB = Convert.ToDateTime(DB.DataTable.Rows[0]["CustomerDOB"]);
+                mCustomerDateAdded = Convert.ToDateTime(DB.DataTable.Rows[0]["CustomerDateAdded"]);
                 mActive = Convert.ToBoolean(DB.DataTable.Rows[0]["Active"]);
                 mCustomerAddress = Convert.ToString(DB.DataTable.Rows[0]["CustomerAddress"]);
                 mCustomerMobileNumber = Convert.ToString(DB.DataTable.Rows[0]["CustomerMobileNumber"]);
@@ -185,12 +185,8 @@ namespace ClassLibrary
             }
         }
 
-     
-    
-
-        public string Valid(string customerFirstName, string customerSurname,string customerDOB, string customerAddress,string customerPostCode, string customerMobileNumber, string customerEmail)
+        public string Valid(string customerFirstName, string customerSurname, string customerDateAdded, string customerAddress, string customerPostCode, string customerMobileNumber, string customerEmail)
         {
-
             //create a string variable to store the error
             String Error = "";
             //create a temporary variable to store date values
@@ -223,7 +219,7 @@ namespace ClassLibrary
             try
             {
                 //copy the dateAdded value to the DateTemp variable
-                DateTemp = Convert.ToDateTime(customerDOB);
+                DateTemp = Convert.ToDateTime(customerDateAdded);
                 if (DateTemp < DateTime.Now.Date)
                 {
                     //record the error
@@ -289,19 +285,17 @@ namespace ClassLibrary
                 //record the error
                 Error = Error + "The Customer's Email must be less than 50 characters :";
             }
-          
 
-           
-           
-          
+
+
+
+
             //return any error messages
             return Error;
         }
-    
-        
     }
-
-}
+    }
+    
       
     
 

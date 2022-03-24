@@ -13,7 +13,7 @@ namespace Jewellery_System_Testing
         string CustomerFirstName = "Liam";
         string CustomerSurname = "Richard";
         string CustomerMobileNumber = "07788745621";
-        string CustomerDOB = DateTime.Now.Date.ToString();
+        string CustomerDateAdded = DateTime.Now.Date.ToString();
         string CustomerAddress = "23 Rock Rd";
         string CustomerPostCode = "LE6 4ER";
         string CustomerEmail = "Liam@hotmail.com";
@@ -38,16 +38,16 @@ namespace Jewellery_System_Testing
             //test to see that it exists
             Assert.AreEqual(ACustomer.Active, TestData);
         }
-        public void CustomerDOBOK()
+        public void CustomerDateAddedOK()
         {
             //create an instance of the class we want to create
             clsCustomer ACustomer = new clsCustomer();
             //create some test data to assign to the property
             DateTime TestData = DateTime.Now.Date;
             //assign the data to the property
-            ACustomer.CustomerDOB = TestData;
+            ACustomer.CustomerDateAdded = TestData;
             //test to see that it exists
-            Assert.AreEqual(ACustomer.CustomerDOB, TestData);
+            Assert.AreEqual(ACustomer.CustomerDateAdded, TestData);
         }
         [TestMethod]
         public void CustomerIDOK()
@@ -172,7 +172,7 @@ namespace Jewellery_System_Testing
 
         }
         [TestMethod]
-        public void TestCustomerDOBFound()
+        public void TestCustomerDateAddedFound()
         {
             //create an instance of the class we want to create
             clsCustomer ACustomer = new clsCustomer();
@@ -185,7 +185,7 @@ namespace Jewellery_System_Testing
             //invoke the method
             Found = ACustomer.Find(CustomerID);
             //check the customer id
-            if (ACustomer.CustomerDOB != Convert.ToDateTime("25/03/2002"))
+            if (ACustomer.CustomerDateAdded != Convert.ToDateTime("25/03/2002"))
             {
                 OK = true;
             }
@@ -343,7 +343,7 @@ namespace Jewellery_System_Testing
             //string variable to store any error message
             String Error = "";
             //invoke the method
-            Error = ACustomer.Valid(CustomerFirstName, CustomerSurname,CustomerDOB,CustomerAddress,CustomerPostCode, CustomerMobileNumber, CustomerEmail);
+            Error = ACustomer.Valid(CustomerFirstName, CustomerSurname,CustomerDateAdded,CustomerAddress,CustomerPostCode, CustomerMobileNumber, CustomerEmail);
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
@@ -357,7 +357,7 @@ namespace Jewellery_System_Testing
             //this should pass
             string CustomerFirstName = "a"; //this should trigger an error
              //invoke the method 
-            Error = ACustomer.Valid(CustomerFirstName, CustomerSurname, CustomerDOB, CustomerAddress, CustomerPostCode, CustomerMobileNumber, CustomerEmail);
+            Error = ACustomer.Valid(CustomerFirstName, CustomerSurname, CustomerDateAdded, CustomerAddress, CustomerPostCode, CustomerMobileNumber, CustomerEmail);
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
@@ -371,7 +371,7 @@ namespace Jewellery_System_Testing
             //create some test data to pass to the method 
             string CustomerFirstName = ""; //this should trigger an error
             //invoke the method 
-            Error = ACustomer.Valid(CustomerFirstName, CustomerSurname, CustomerDOB, CustomerAddress, CustomerPostCode, CustomerMobileNumber, CustomerEmail);            //test to see that the result is correct
+            Error = ACustomer.Valid(CustomerFirstName, CustomerSurname, CustomerDateAdded, CustomerAddress, CustomerPostCode, CustomerMobileNumber, CustomerEmail);          //test to see that the result is correct
             Assert.AreNotEqual(Error, "");
         }
 
@@ -384,8 +384,8 @@ namespace Jewellery_System_Testing
             String Error = "";
             //this should pass
             string CustomerFirstName = "AA"; //this should trigger an error
-            //invoke the method 
-            Error = ACustomer.Valid(CustomerFirstName, CustomerSurname, CustomerDOB, CustomerAddress, CustomerPostCode, CustomerMobileNumber, CustomerEmail);            //test to see that the result is correct
+                                             //invoke the method 
+            Error = ACustomer.Valid(CustomerFirstName, CustomerSurname, CustomerDateAdded, CustomerAddress, CustomerPostCode, CustomerMobileNumber, CustomerEmail);           //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
         [TestMethod]
@@ -398,7 +398,7 @@ namespace Jewellery_System_Testing
             //this should pass
             string CustomerFirstName = "AAAAAAAAAAAAAAAAAAAA"; //this should trigger an error
             //invoke the method
-            Error = ACustomer.Valid(CustomerFirstName, CustomerSurname, CustomerDOB, CustomerAddress, CustomerPostCode, CustomerMobileNumber, CustomerEmail);            //test to see that the result is correct
+            Error = ACustomer.Valid(CustomerFirstName, CustomerSurname, CustomerDateAdded, CustomerAddress, CustomerPostCode, CustomerMobileNumber, CustomerEmail);            //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
         [TestMethod]
@@ -411,7 +411,7 @@ namespace Jewellery_System_Testing
             //this should fail 
             string CustomerFirstName = "AAAAAAAAAAAAAAAAAAAAA";
             //invoke the method 
-            Error = ACustomer.Valid(CustomerFirstName, CustomerSurname, CustomerDOB, CustomerAddress, CustomerPostCode, CustomerMobileNumber, CustomerEmail);            //test to see that the result is correct
+            Error = ACustomer.Valid(CustomerFirstName, CustomerSurname, CustomerDateAdded, CustomerAddress, CustomerPostCode, CustomerMobileNumber, CustomerEmail);            //test to see that the result is correct
             Assert.AreNotEqual(Error, "");
         }
 
@@ -425,7 +425,7 @@ namespace Jewellery_System_Testing
             //this should pass
             string CustomerFirstName = "AAAAAAAAAAAAAAAAAAA"; //this should trigger an error
             //invoke the method 
-            Error = ACustomer.Valid(CustomerFirstName, CustomerSurname, CustomerDOB, CustomerAddress, CustomerPostCode, CustomerMobileNumber, CustomerEmail);            //test to see that the result is correct
+            Error = ACustomer.Valid(CustomerFirstName, CustomerSurname, CustomerDateAdded, CustomerAddress, CustomerPostCode, CustomerMobileNumber, CustomerEmail);            //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
 
@@ -439,7 +439,7 @@ namespace Jewellery_System_Testing
             //this should pass
             string CustomerFirstName = "AAAAAAAAAA";
             //invoke the method 
-            Error = ACustomer.Valid(CustomerFirstName, CustomerSurname, CustomerDOB, CustomerAddress, CustomerPostCode, CustomerMobileNumber, CustomerEmail);            //test to see that the result is correct
+            Error = ACustomer.Valid(CustomerFirstName, CustomerSurname, CustomerDateAdded, CustomerAddress, CustomerPostCode, CustomerMobileNumber, CustomerEmail);            //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
 
@@ -455,7 +455,7 @@ namespace Jewellery_System_Testing
             string CustomerFirstName = "";
             CustomerFirstName = CustomerFirstName.PadRight(150, 'a');
             //invoke the method 
-            Error = ACustomer.Valid(CustomerFirstName, CustomerSurname, CustomerDOB, CustomerAddress, CustomerPostCode, CustomerMobileNumber, CustomerEmail);            //test to see that the result is correct
+            Error = ACustomer.Valid(CustomerFirstName, CustomerSurname, CustomerDateAdded, CustomerAddress, CustomerPostCode, CustomerMobileNumber, CustomerEmail);            //test to see that the result is correct
             Assert.AreNotEqual(Error, "");
         }
         [TestMethod]
@@ -468,7 +468,7 @@ namespace Jewellery_System_Testing
             //Test data to pass to the method 
             string CustomerSurname = "A";
             //invoke the method 
-            Error = ACustomer.Valid(CustomerFirstName, CustomerSurname, CustomerDOB, CustomerAddress, CustomerPostCode, CustomerMobileNumber, CustomerEmail);            //test to see that the result is correct
+            Error = ACustomer.Valid(CustomerFirstName, CustomerSurname, CustomerDateAdded, CustomerAddress, CustomerPostCode, CustomerMobileNumber, CustomerEmail);            //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
         [TestMethod]
@@ -481,7 +481,7 @@ namespace Jewellery_System_Testing
             //Test data to pass to the method 
             string CustomerSurname = "";
             //invoke the method 
-            Error = ACustomer.Valid(CustomerFirstName, CustomerSurname, CustomerDOB, CustomerAddress, CustomerPostCode, CustomerMobileNumber, CustomerEmail);            //test to see that the result is correct
+            Error = ACustomer.Valid(CustomerFirstName, CustomerSurname, CustomerDateAdded, CustomerAddress, CustomerPostCode, CustomerMobileNumber, CustomerEmail);            //test to see that the result is correct
             Assert.AreNotEqual(Error, "");
         }
 
@@ -495,7 +495,7 @@ namespace Jewellery_System_Testing
             //Test data to pass to the method 
             string CustomerSurname = "AA";
             //invoke the method 
-            Error = ACustomer.Valid(CustomerFirstName, CustomerSurname, CustomerDOB, CustomerAddress, CustomerPostCode, CustomerMobileNumber, CustomerEmail);            //test to see that the result is correct
+            Error = ACustomer.Valid(CustomerFirstName, CustomerSurname, CustomerDateAdded, CustomerAddress, CustomerPostCode, CustomerMobileNumber, CustomerEmail);            //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
         [TestMethod]
@@ -508,7 +508,7 @@ namespace Jewellery_System_Testing
             //test data to pass to the method  
             string CustomerSurname = "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA";
             //invoke the method 
-            Error = ACustomer.Valid(CustomerFirstName, CustomerSurname, CustomerDOB, CustomerAddress, CustomerPostCode, CustomerMobileNumber, CustomerEmail);            //test to see that the result is correct
+            Error = ACustomer.Valid(CustomerFirstName, CustomerSurname, CustomerDateAdded, CustomerAddress, CustomerPostCode, CustomerMobileNumber, CustomerEmail);            //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
         [TestMethod]
@@ -521,7 +521,7 @@ namespace Jewellery_System_Testing
             //test data to pass to the method  
             string CustomerSurname = "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA";
             //invoke the method 
-            Error = ACustomer.Valid(CustomerFirstName, CustomerSurname, CustomerDOB, CustomerAddress, CustomerPostCode, CustomerMobileNumber, CustomerEmail);            //test to see that the result is correct
+            Error = ACustomer.Valid(CustomerFirstName, CustomerSurname, CustomerDateAdded, CustomerAddress, CustomerPostCode, CustomerMobileNumber, CustomerEmail);            //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
         [TestMethod]
@@ -534,7 +534,7 @@ namespace Jewellery_System_Testing
             //test data to pass to the method 
             string CustomerSurname = "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA";
             //invoke the method 
-            Error = ACustomer.Valid(CustomerFirstName, CustomerSurname, CustomerDOB, CustomerAddress, CustomerPostCode, CustomerMobileNumber, CustomerEmail);            //test to see that the result is correct
+            Error = ACustomer.Valid(CustomerFirstName, CustomerSurname, CustomerDateAdded, CustomerAddress, CustomerPostCode, CustomerMobileNumber, CustomerEmail);            //test to see that the result is correct
             Assert.AreNotEqual(Error, "");
         }
         [TestMethod]
@@ -547,7 +547,7 @@ namespace Jewellery_System_Testing
             //test data to pass to the method 
             string CustomerSurname = "AAAAAAAAAAAAAAAAAAAAAAAAA";
             //invoke the method 
-            Error = ACustomer.Valid(CustomerFirstName, CustomerSurname, CustomerDOB, CustomerAddress, CustomerPostCode, CustomerMobileNumber, CustomerEmail);            //test to see that the result is correct
+            Error = ACustomer.Valid(CustomerFirstName, CustomerSurname, CustomerDateAdded, CustomerAddress, CustomerPostCode, CustomerMobileNumber, CustomerEmail);            //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
 
@@ -563,7 +563,7 @@ namespace Jewellery_System_Testing
             string CustomerSurname = "";
             CustomerSurname = CustomerSurname.PadRight(150, 'A');
             //invoke the method 
-            Error = ACustomer.Valid(CustomerFirstName, CustomerSurname, CustomerDOB, CustomerAddress, CustomerPostCode, CustomerMobileNumber, CustomerEmail);            //test to see that the result is correct
+            Error = ACustomer.Valid(CustomerFirstName, CustomerSurname, CustomerDateAdded, CustomerAddress, CustomerPostCode, CustomerMobileNumber, CustomerEmail);            //test to see that the result is correct
             Assert.AreNotEqual(Error, "");
         }
         [TestMethod]
@@ -576,7 +576,7 @@ namespace Jewellery_System_Testing
             //create some test data to pass to the method 
             string CustomerAddress = "A"; //this should trigger an error
             //invoke the method 
-            Error = ACustomer.Valid(CustomerFirstName, CustomerSurname, CustomerDOB, CustomerAddress, CustomerPostCode, CustomerMobileNumber, CustomerEmail);            //test to see that the result is correct
+            Error = ACustomer.Valid(CustomerFirstName, CustomerSurname, CustomerDateAdded, CustomerAddress, CustomerPostCode, CustomerMobileNumber, CustomerEmail);            //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
         [TestMethod]
@@ -589,7 +589,7 @@ namespace Jewellery_System_Testing
             //test data to pass to the method 
             string CustomerAddress = "";
             //invoke the method 
-            Error = ACustomer.Valid(CustomerFirstName, CustomerSurname, CustomerDOB, CustomerAddress, CustomerPostCode, CustomerMobileNumber, CustomerEmail);            //test to see that the result is correct
+            Error = ACustomer.Valid(CustomerFirstName, CustomerSurname, CustomerDateAdded, CustomerAddress, CustomerPostCode, CustomerMobileNumber, CustomerEmail);            //test to see that the result is correct
             Assert.AreNotEqual(Error, "");
         }
         [TestMethod]
@@ -602,7 +602,7 @@ namespace Jewellery_System_Testing
             //test data to pass to the method 
             string CustomerAddress = "AA";
             //invoke the method 
-            Error = ACustomer.Valid(CustomerFirstName, CustomerSurname, CustomerDOB, CustomerAddress, CustomerPostCode, CustomerMobileNumber, CustomerEmail);            //test to see that the result is correct
+            Error = ACustomer.Valid(CustomerFirstName, CustomerSurname, CustomerDateAdded, CustomerAddress, CustomerPostCode, CustomerMobileNumber, CustomerEmail);            //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
         [TestMethod]
@@ -615,7 +615,7 @@ namespace Jewellery_System_Testing
             //Test data to pass to the method 
             string CustomerAddress = "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA";
             //invoke the method 
-            Error = ACustomer.Valid(CustomerFirstName, CustomerSurname, CustomerDOB, CustomerAddress, CustomerPostCode, CustomerMobileNumber, CustomerEmail);            //test to see that the result is correct
+            Error = ACustomer.Valid(CustomerFirstName, CustomerSurname, CustomerDateAdded, CustomerAddress, CustomerPostCode, CustomerMobileNumber, CustomerEmail);            //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
         [TestMethod]
@@ -628,7 +628,7 @@ namespace Jewellery_System_Testing
             //test data to pass to the method 
             string CustomerAddress = "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA";
             //invoke the method 
-            Error = ACustomer.Valid(CustomerFirstName, CustomerSurname, CustomerDOB, CustomerAddress, CustomerPostCode, CustomerMobileNumber, CustomerEmail);            //test to see that the result is correct
+            Error = ACustomer.Valid(CustomerFirstName, CustomerSurname, CustomerDateAdded, CustomerAddress, CustomerPostCode, CustomerMobileNumber, CustomerEmail);            //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
 
@@ -642,7 +642,7 @@ namespace Jewellery_System_Testing
             //Test data to pass to the method 
             string CustomerAddress = "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"; //this should fail
             //invoke the method 
-            Error = ACustomer.Valid(CustomerFirstName, CustomerSurname, CustomerDOB, CustomerAddress, CustomerPostCode, CustomerMobileNumber, CustomerEmail);            //test to see that the result is correct
+            Error = ACustomer.Valid(CustomerFirstName, CustomerSurname, CustomerDateAdded, CustomerAddress, CustomerPostCode, CustomerMobileNumber, CustomerEmail);            //test to see that the result is correct
             Assert.AreNotEqual(Error, "");
         }
         [TestMethod]
@@ -655,7 +655,7 @@ namespace Jewellery_System_Testing
             //Test data to pass to the method 
             string CustomerAddress = "AAAAAAAAAAAAAAAAAAAAAAAAA";
             //invoke the method 
-            Error = ACustomer.Valid(CustomerFirstName, CustomerSurname, CustomerDOB, CustomerAddress, CustomerPostCode, CustomerMobileNumber, CustomerEmail);            //test to see that the result is correct
+            Error = ACustomer.Valid(CustomerFirstName, CustomerSurname, CustomerDateAdded, CustomerAddress, CustomerPostCode, CustomerMobileNumber, CustomerEmail);            //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
 
@@ -670,7 +670,7 @@ namespace Jewellery_System_Testing
             string CustomerAddress = "";
             CustomerAddress = CustomerAddress.PadRight(150, 'A');
             //invoke the method 
-            Error = ACustomer.Valid(CustomerFirstName, CustomerSurname, CustomerDOB, CustomerAddress, CustomerPostCode, CustomerMobileNumber, CustomerEmail);            //test to see that the result is correct
+            Error = ACustomer.Valid(CustomerFirstName, CustomerSurname, CustomerDateAdded, CustomerAddress, CustomerPostCode, CustomerMobileNumber, CustomerEmail);            //test to see that the result is correct
             Assert.AreNotEqual(Error, "");
         }
 
@@ -684,7 +684,7 @@ namespace Jewellery_System_Testing
             //Test data to pass to the method 
             string CustomerEmail = "A";
             //invoke the method 
-            Error = ACustomer.Valid(CustomerFirstName, CustomerSurname, CustomerDOB, CustomerAddress, CustomerPostCode, CustomerMobileNumber, CustomerEmail);            //test to see that the result is correct
+            Error = ACustomer.Valid(CustomerFirstName, CustomerSurname, CustomerDateAdded, CustomerAddress, CustomerPostCode, CustomerMobileNumber, CustomerEmail);            //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
 
@@ -698,7 +698,7 @@ namespace Jewellery_System_Testing
             //Test data to pass to the method 
             string CustomerEmail = "";
             //invoke the method 
-            Error = ACustomer.Valid(CustomerFirstName, CustomerSurname, CustomerDOB, CustomerAddress, CustomerPostCode, CustomerMobileNumber, CustomerEmail);            //test to see that the result is correct
+            Error = ACustomer.Valid(CustomerFirstName, CustomerSurname, CustomerDateAdded, CustomerAddress, CustomerPostCode, CustomerMobileNumber, CustomerEmail);            //test to see that the result is correct
             Assert.AreNotEqual(Error, "");
         }
         [TestMethod]
@@ -711,7 +711,7 @@ namespace Jewellery_System_Testing
             //test data to pass to the method 
             string CustomerEmail = "AA";
             //invoke the method 
-            Error = ACustomer.Valid(CustomerFirstName, CustomerSurname, CustomerDOB, CustomerAddress, CustomerPostCode, CustomerMobileNumber, CustomerEmail);            //test to see that the result is correct
+            Error = ACustomer.Valid(CustomerFirstName, CustomerSurname, CustomerDateAdded, CustomerAddress, CustomerPostCode, CustomerMobileNumber, CustomerEmail);            //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
 
@@ -725,7 +725,7 @@ namespace Jewellery_System_Testing
             //test data to pass to the method 
             string CustomerEmail = "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA";
             //invoke the method 
-            Error = ACustomer.Valid(CustomerFirstName, CustomerSurname, CustomerDOB, CustomerAddress, CustomerPostCode, CustomerMobileNumber, CustomerEmail);            //test to see that the result is correct
+            Error = ACustomer.Valid(CustomerFirstName, CustomerSurname, CustomerDateAdded, CustomerAddress, CustomerPostCode, CustomerMobileNumber, CustomerEmail);            //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
         [TestMethod]
@@ -738,7 +738,7 @@ namespace Jewellery_System_Testing
             //test data to pass to the method 
             string CustomerEmail = "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA";
             //invoke the method 
-            Error = ACustomer.Valid(CustomerFirstName, CustomerSurname, CustomerDOB, CustomerAddress, CustomerPostCode, CustomerMobileNumber, CustomerEmail);            //test to see that the result is correct
+            Error = ACustomer.Valid(CustomerFirstName, CustomerSurname, CustomerDateAdded, CustomerAddress, CustomerPostCode, CustomerMobileNumber, CustomerEmail);            //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
         [TestMethod]
@@ -751,7 +751,7 @@ namespace Jewellery_System_Testing
             //test data to pass to the method 
             string CustomerEmail = "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA";
             //invoke the method 
-            Error = ACustomer.Valid(CustomerFirstName, CustomerSurname, CustomerDOB, CustomerAddress, CustomerPostCode, CustomerMobileNumber, CustomerEmail);            //test to see that the result is correct
+            Error = ACustomer.Valid(CustomerFirstName, CustomerSurname, CustomerDateAdded, CustomerAddress, CustomerPostCode, CustomerMobileNumber, CustomerEmail);            //test to see that the result is correct
             Assert.AreNotEqual(Error, "");
         }
         [TestMethod]
@@ -765,7 +765,7 @@ namespace Jewellery_System_Testing
             string CustomerEmail = "AAAAAAAAAAAAAAAAAAAAAAAAA";
             CustomerEmail = CustomerEmail.PadRight(60, 'A');
             //invoke the method 
-            Error = ACustomer.Valid(CustomerFirstName, CustomerSurname, CustomerDOB, CustomerAddress, CustomerPostCode, CustomerMobileNumber, CustomerEmail);            //test to see that the result is correct
+            Error = ACustomer.Valid(CustomerFirstName, CustomerSurname, CustomerDateAdded, CustomerAddress, CustomerPostCode, CustomerMobileNumber, CustomerEmail);            //test to see that the result is correct
             Assert.AreNotEqual(Error, "");
         }
 
@@ -780,7 +780,7 @@ namespace Jewellery_System_Testing
             string CustomerEmail = "";
             CustomerEmail = CustomerEmail.PadRight(200, 'c');
             //invoke the method 
-            Error = ACustomer.Valid(CustomerFirstName, CustomerSurname, CustomerDOB, CustomerAddress, CustomerPostCode, CustomerMobileNumber, CustomerEmail);            //test to see that the result is correct
+            Error = ACustomer.Valid(CustomerFirstName, CustomerSurname, CustomerDateAdded, CustomerAddress, CustomerPostCode, CustomerMobileNumber, CustomerEmail);            //test to see that the result is correct
             Assert.AreNotEqual(Error, "");
         }
         [TestMethod]
@@ -793,7 +793,7 @@ namespace Jewellery_System_Testing
             //test data to pass to the method 
             string CustomerPostCode = "A";
             //invoke the method 
-            Error = ACustomer.Valid(CustomerFirstName, CustomerSurname, CustomerDOB, CustomerAddress, CustomerPostCode, CustomerMobileNumber, CustomerEmail);            //test to see that the result is correct
+            Error = ACustomer.Valid(CustomerFirstName, CustomerSurname, CustomerDateAdded, CustomerAddress, CustomerPostCode, CustomerMobileNumber, CustomerEmail);            //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
         [TestMethod]
@@ -806,7 +806,7 @@ namespace Jewellery_System_Testing
             //test data to pass to the method 
             string CustomerPostCode = "AA";
             //invoke the method 
-            Error = ACustomer.Valid(CustomerFirstName, CustomerSurname, CustomerDOB, CustomerAddress, CustomerPostCode, CustomerMobileNumber, CustomerEmail);            //test to see that the result is correct
+            Error = ACustomer.Valid(CustomerFirstName, CustomerSurname, CustomerDateAdded, CustomerAddress, CustomerPostCode, CustomerMobileNumber, CustomerEmail);            //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
         [TestMethod]
@@ -819,7 +819,7 @@ namespace Jewellery_System_Testing
             //test data to pass to the method 
             string CustomerPostCode = "";
             //invoke the method 
-            Error = ACustomer.Valid(CustomerFirstName, CustomerSurname, CustomerDOB, CustomerAddress, CustomerPostCode, CustomerMobileNumber, CustomerEmail);            //test to see that the result is correct
+            Error = ACustomer.Valid(CustomerFirstName, CustomerSurname, CustomerDateAdded, CustomerAddress, CustomerPostCode, CustomerMobileNumber, CustomerEmail);            //test to see that the result is correct
             Assert.AreNotEqual(Error, "");
         }
         [TestMethod]
@@ -832,7 +832,7 @@ namespace Jewellery_System_Testing
             //test data to pass to the method 
             string CustomerPostCode = "AAAAAAA";
             //invoke the method 
-            Error = ACustomer.Valid(CustomerFirstName, CustomerSurname, CustomerDOB, CustomerAddress, CustomerPostCode, CustomerMobileNumber, CustomerEmail);            //test to see that the result is correct
+            Error = ACustomer.Valid(CustomerFirstName, CustomerSurname, CustomerDateAdded, CustomerAddress, CustomerPostCode, CustomerMobileNumber, CustomerEmail);            //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
         [TestMethod]
@@ -845,7 +845,7 @@ namespace Jewellery_System_Testing
             //test data to pass to the method 
             string CustomerPostCode = "AAAAAA";
             //invoke the method 
-            Error = ACustomer.Valid(CustomerFirstName, CustomerSurname, CustomerDOB, CustomerAddress, CustomerPostCode, CustomerMobileNumber, CustomerEmail);            //test to see that the result is correct
+            Error = ACustomer.Valid(CustomerFirstName, CustomerSurname, CustomerDateAdded, CustomerAddress, CustomerPostCode, CustomerMobileNumber, CustomerEmail);            //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
 
@@ -859,7 +859,7 @@ namespace Jewellery_System_Testing
             //test data to pass to the method 
             string CustomerPostCode = "AAAAAAAA";
             //invoke the method 
-            Error = ACustomer.Valid(CustomerFirstName, CustomerSurname, CustomerDOB, CustomerAddress, CustomerPostCode, CustomerMobileNumber, CustomerEmail);            //test to see that the result is correct
+            Error = ACustomer.Valid(CustomerFirstName, CustomerSurname, CustomerDateAdded, CustomerAddress, CustomerPostCode, CustomerMobileNumber, CustomerEmail);            //test to see that the result is correct
             Assert.AreNotEqual(Error, "");
         }
         [TestMethod]
@@ -872,7 +872,7 @@ namespace Jewellery_System_Testing
             //test data to pass to the method 
             string CustomerPostCode = "AAAA";
             //invoke the method 
-            Error = ACustomer.Valid(CustomerFirstName, CustomerSurname, CustomerDOB, CustomerAddress, CustomerPostCode, CustomerMobileNumber, CustomerEmail);            //test to see that the result is correct
+            Error = ACustomer.Valid(CustomerFirstName, CustomerSurname, CustomerDateAdded, CustomerAddress, CustomerPostCode, CustomerMobileNumber, CustomerEmail);            //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
         [TestMethod]
@@ -886,7 +886,7 @@ namespace Jewellery_System_Testing
             string CustomerPostCode = "";
             CustomerPostCode = CustomerPostCode.PadRight(50, 'A');
             //invoke the method 
-            Error = ACustomer.Valid(CustomerFirstName, CustomerSurname, CustomerDOB, CustomerAddress, CustomerPostCode, CustomerMobileNumber, CustomerEmail);            //test to see that the result is correct
+            Error = ACustomer.Valid(CustomerFirstName, CustomerSurname, CustomerDateAdded, CustomerAddress, CustomerPostCode, CustomerMobileNumber, CustomerEmail);            //test to see that the result is correct
             Assert.AreNotEqual(Error, "");
         }
         [TestMethod]
@@ -899,7 +899,7 @@ namespace Jewellery_System_Testing
             //test data to pass to the method  
             string CustomerMobileNumber = "0";
             //invoke the method 
-            Error = ACustomer.Valid(CustomerFirstName, CustomerSurname, CustomerDOB, CustomerAddress, CustomerPostCode, CustomerMobileNumber, CustomerEmail);            //test to see that the result is correct
+            Error = ACustomer.Valid(CustomerFirstName, CustomerSurname, CustomerDateAdded, CustomerAddress, CustomerPostCode, CustomerMobileNumber, CustomerEmail);            //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
         [TestMethod]
@@ -912,7 +912,7 @@ namespace Jewellery_System_Testing
             //test data to pass to the method 
             string CustomerMobileNumber = "";
             //invoke the method 
-            Error = ACustomer.Valid(CustomerFirstName, CustomerSurname, CustomerDOB, CustomerAddress, CustomerPostCode, CustomerMobileNumber, CustomerEmail);            //test to see that the result is correct
+            Error = ACustomer.Valid(CustomerFirstName, CustomerSurname, CustomerDateAdded, CustomerAddress, CustomerPostCode, CustomerMobileNumber, CustomerEmail);            //test to see that the result is correct
             Assert.AreNotEqual(Error, "");
         }
 
@@ -926,7 +926,7 @@ namespace Jewellery_System_Testing
             //test data to pass to the method 
             string CustomerMobileNumber = "01";
             //invoke the method 
-            Error = ACustomer.Valid(CustomerFirstName, CustomerSurname, CustomerDOB, CustomerAddress, CustomerPostCode, CustomerMobileNumber, CustomerEmail);            //test to see that the result is correct
+            Error = ACustomer.Valid(CustomerFirstName, CustomerSurname, CustomerDateAdded, CustomerAddress, CustomerPostCode, CustomerMobileNumber, CustomerEmail);            //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
         [TestMethod]
@@ -939,7 +939,7 @@ namespace Jewellery_System_Testing
             //test data to pass to the method 
             string CustomerMobileNumber = "01234567891";
             //invoke the method 
-            Error = ACustomer.Valid(CustomerFirstName, CustomerSurname, CustomerDOB, CustomerAddress, CustomerPostCode, CustomerMobileNumber, CustomerEmail);            //test to see that the result is correct
+            Error = ACustomer.Valid(CustomerFirstName, CustomerSurname, CustomerDateAdded, CustomerAddress, CustomerPostCode, CustomerMobileNumber, CustomerEmail);            //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
         [TestMethod]
@@ -952,7 +952,7 @@ namespace Jewellery_System_Testing
             //test data to pass to the method 
             string CustomerMobileNumber = "0123456789";
             //invoke the method 
-            Error = ACustomer.Valid(CustomerFirstName, CustomerSurname, CustomerDOB, CustomerAddress, CustomerPostCode, CustomerMobileNumber, CustomerEmail);            //test to see that the result is correct
+            Error = ACustomer.Valid(CustomerFirstName, CustomerSurname, CustomerDateAdded, CustomerAddress, CustomerPostCode, CustomerMobileNumber, CustomerEmail);            //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
 
@@ -966,7 +966,7 @@ namespace Jewellery_System_Testing
             //test data to pass to the method 
             string CustomerMobileNumber = "0123445678910";
             //invoke the method 
-            Error = ACustomer.Valid(CustomerFirstName, CustomerSurname, CustomerDOB, CustomerAddress, CustomerPostCode, CustomerMobileNumber, CustomerEmail);            //test to see that the result is correct
+            Error = ACustomer.Valid(CustomerFirstName, CustomerSurname, CustomerDateAdded, CustomerAddress, CustomerPostCode, CustomerMobileNumber, CustomerEmail);            //test to see that the result is correct
             Assert.AreNotEqual(Error, "");
         }
         [TestMethod]
@@ -979,7 +979,7 @@ namespace Jewellery_System_Testing
             //test data to pass to the method  
             string CustomerMobileNumber = "0123445";
             //invoke the method 
-            Error = ACustomer.Valid(CustomerFirstName, CustomerSurname, CustomerDOB, CustomerAddress, CustomerPostCode, CustomerMobileNumber, CustomerEmail);            //test to see that the result is correct
+            Error = ACustomer.Valid(CustomerFirstName, CustomerSurname, CustomerDateAdded, CustomerAddress, CustomerPostCode, CustomerMobileNumber, CustomerEmail);            //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
         [TestMethod]
@@ -993,11 +993,11 @@ namespace Jewellery_System_Testing
             string CustomerMobileNumber = "";
             CustomerMobileNumber = CustomerMobileNumber.PadRight(100, '0');
             //invoke the method 
-            Error = ACustomer.Valid(CustomerFirstName, CustomerSurname, CustomerDOB, CustomerAddress, CustomerPostCode, CustomerMobileNumber, CustomerEmail);            //test to see that the result is correct
+            Error = ACustomer.Valid(CustomerFirstName, CustomerSurname, CustomerDateAdded, CustomerAddress, CustomerPostCode, CustomerMobileNumber, CustomerEmail);            //test to see that the result is correct
             Assert.AreNotEqual(Error, "");
         }
         [TestMethod]
-        public void CustomerDateOfBirthExtremeMin()
+        public void CustomerCustomerDateAddedExtremeMin()
         {
             //create an instance of the class we want to create 
             clsCustomer ACustomer = new clsCustomer();
@@ -1010,13 +1010,13 @@ namespace Jewellery_System_Testing
             //change the date to whatever the date is less 100 years
             TestDate = TestDate.AddYears(-100);
             //convert the date variable to a string variable
-            string CustomerDOB = TestDate.ToString();
+            string CustomerDateAdded = TestDate.ToString();
             //invoke the method 
-            Error = ACustomer.Valid(CustomerFirstName, CustomerSurname, CustomerDOB, CustomerAddress, CustomerPostCode, CustomerMobileNumber, CustomerEmail);            //test to see that the result is correct
+            Error = ACustomer.Valid(CustomerFirstName, CustomerSurname, CustomerDateAdded, CustomerAddress, CustomerPostCode, CustomerMobileNumber, CustomerEmail);            //test to see that the result is correct
             Assert.AreNotEqual(Error, "");
         }
         [TestMethod]
-        public void CustomerDateOfBirthMinLessOne()
+        public void CustomerDateAddedMinLessOne()
         {
             //create an instance of the class we want to create 
             clsCustomer ACustomer = new clsCustomer();
@@ -1029,13 +1029,13 @@ namespace Jewellery_System_Testing
             //change the date to whatever the date is less 1 day
             TestDate = TestDate.AddDays(-1);
             //convert the date variable to a string variable
-            string CustomerDOB = TestDate.ToString();
+            string CustomerDateAdded = TestDate.ToString();
             //invoke the method 
-            Error = ACustomer.Valid(CustomerFirstName, CustomerSurname, CustomerDOB, CustomerAddress, CustomerPostCode, CustomerMobileNumber, CustomerEmail);            //test to see that the result is correct
+            Error = ACustomer.Valid(CustomerFirstName, CustomerSurname, CustomerDateAdded, CustomerAddress, CustomerPostCode, CustomerMobileNumber, CustomerEmail);            //test to see that the result is correct
             Assert.AreNotEqual(Error, "");
         }
         [TestMethod]
-        public void CustomerDateOfBirthMin()
+        public void CustomerDateAddedMin()
         {
             //create an instance of the class we want to create 
             clsCustomer ACustomer = new clsCustomer();
@@ -1046,13 +1046,13 @@ namespace Jewellery_System_Testing
             //set the date to todays date 
             TestDate = DateTime.Now.Date;
             //convert the date variable to a string variable
-            string CustomerDOB = TestDate.ToString();
+            string CustomerDateAdded = TestDate.ToString();
             //invoke the method 
-            Error = ACustomer.Valid(CustomerFirstName, CustomerSurname, CustomerDOB, CustomerAddress, CustomerPostCode, CustomerMobileNumber, CustomerEmail);            //test to see that the result is correct
+            Error = ACustomer.Valid(CustomerFirstName, CustomerSurname, CustomerDateAdded, CustomerAddress, CustomerPostCode, CustomerMobileNumber, CustomerEmail);            //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
         [TestMethod]
-        public void CustomerDateOfBirthMinPlusOne()
+        public void CustomerDateAddedMinPlusOne()
         {
             //create an instance of the class we want to create 
             clsCustomer ACustomer = new clsCustomer();
@@ -1065,13 +1065,13 @@ namespace Jewellery_System_Testing
             //change the date to whatever the date is plus 1 day
             TestDate = TestDate.AddDays(1);
             //convert the date variable to a string variable
-            string CustomerDOB = TestDate.ToString();
+            string CustomerDateAdded = TestDate.ToString();
             //invoke the method 
-            Error = ACustomer.Valid(CustomerFirstName, CustomerSurname, CustomerDOB, CustomerAddress, CustomerPostCode, CustomerMobileNumber, CustomerEmail);            //test to see that the result is correct
+            Error = ACustomer.Valid(CustomerFirstName, CustomerSurname, CustomerDateAdded, CustomerAddress, CustomerPostCode, CustomerMobileNumber, CustomerEmail);            //test to see that the result is correct
             Assert.AreNotEqual(Error, "");
         }
         [TestMethod]
-        public void CustomerDateOfBirthExtremeMax()
+        public void CustomerDateAddedExtremeMax()
         {
             //create an instance of the class we want to create 
             clsCustomer ACustomer = new clsCustomer();
@@ -1084,22 +1084,22 @@ namespace Jewellery_System_Testing
             //change the date to whatever the date is plus 1 day
             TestDate = TestDate.AddYears(100);
             //convert the date variable to a string variable
-            string CustomerDOB = TestDate.ToString();
+            string CustomerDateAdded = TestDate.ToString();
             //invoke the method 
-            Error = ACustomer.Valid(CustomerFirstName, CustomerSurname, CustomerDOB, CustomerAddress, CustomerPostCode, CustomerMobileNumber, CustomerEmail);            //test to see that the result is correct
+            Error = ACustomer.Valid(CustomerFirstName, CustomerSurname, CustomerDateAdded, CustomerAddress, CustomerPostCode, CustomerMobileNumber, CustomerEmail);            //test to see that the result is correct
             Assert.AreNotEqual(Error, "");
         }
         [TestMethod]
-        public void CustomerDateOfBirthInvalidData()
+        public void CustomerDateAddedInvalidData()
         {
             //create an instance of the class we want to create 
             clsCustomer ACustomer = new clsCustomer();
             //string variable to store any error message 
             String Error = "";
             //string the Date Of Birth to a non date value 
-            string CustomerDOB = "this is not a date!";
+            string CustomerDateAdded = "this is not a date!";
             //invoke the method 
-            Error = ACustomer.Valid(CustomerFirstName, CustomerSurname, CustomerDOB, CustomerAddress, CustomerPostCode, CustomerMobileNumber, CustomerEmail);            //test to see that the result is correct
+            Error = ACustomer.Valid(CustomerFirstName, CustomerSurname, CustomerDateAdded, CustomerAddress, CustomerPostCode, CustomerMobileNumber, CustomerEmail);            //test to see that the result is correct
             Assert.AreNotEqual(Error, "");
         }
     }

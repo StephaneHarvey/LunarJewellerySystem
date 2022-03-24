@@ -18,10 +18,6 @@ public partial class CustomerDefault : System.Web.UI.Page
             //update the list above
             DisplayCustomers();
 
-            //    //if (CustomerID != -1)
-            //    //{
-            //    //   // DisplayCustomers();
-            //    //}
         }
     }
     void DisplayCustomers()

@@ -21,7 +21,7 @@ public partial class ACustomer : System.Web.UI.Page
             }
             else
             {
-                txtCustomerDOB.Text = DateTime.Today.Date.ToString("dd/MM/yyyy");
+                txtCustomerDateAdded.Text = DateTime.Today.Date.ToString("dd/MM/yyyy");
             }
         }
 
@@ -63,7 +63,7 @@ public partial class ACustomer : System.Web.UI.Page
             //txtCustomerID.Text = Convert.ToInt32(ACustomer.CustomerID);
             txtCustomerFirstName.Text = ACustomer.CustomerFirstName;
             txtCustomerSurname.Text = ACustomer.CustomerSurname;
-            txtCustomerDOB.Text = ACustomer.CustomerDOB.ToString();
+            txtCustomerDateAdded.Text = ACustomer.CustomerDateAdded.ToString();
             txtCustomerAddress.Text = ACustomer.CustomerAddress;
             txtPostCode.Text = ACustomer.CustomerPostCode;
             txtMobileNumber.Text = ACustomer.CustomerMobileNumber;
@@ -77,14 +77,14 @@ public partial class ACustomer : System.Web.UI.Page
         //create an instance of the customer book
         clsCustomerCollection CustomerBook = new clsCustomerCollection();
         //validate the data on the web form
-        String Error = CustomerBook.ThisCustomer.Valid(txtCustomerFirstName.Text, txtCustomerSurname.Text, txtCustomerDOB.Text, txtCustomerAddress.Text, txtPostCode.Text, txtMobileNumber.Text, txtEmail.Text);
+        String Error = CustomerBook.ThisCustomer.Valid(txtCustomerFirstName.Text, txtCustomerSurname.Text, txtCustomerDateAdded.Text, txtCustomerAddress.Text, txtPostCode.Text, txtMobileNumber.Text, txtEmail.Text);
         //if the data is OK then add it to the object
         if (Error == "")
         {
             //get the data entered by the user
             CustomerBook.ThisCustomer.CustomerFirstName = txtCustomerFirstName.Text;
             CustomerBook.ThisCustomer.CustomerSurname = txtCustomerSurname.Text;
-            CustomerBook.ThisCustomer.CustomerDOB = Convert.ToDateTime(txtCustomerDOB.Text);
+            CustomerBook.ThisCustomer.CustomerDateAdded = Convert.ToDateTime(txtCustomerDateAdded.Text);
             CustomerBook.ThisCustomer.CustomerAddress = txtCustomerAddress.Text;
             CustomerBook.ThisCustomer.CustomerPostCode = txtPostCode.Text;
             CustomerBook.ThisCustomer.CustomerMobileNumber = txtMobileNumber.Text;
@@ -106,7 +106,7 @@ public partial class ACustomer : System.Web.UI.Page
         //create an instance of the customer book
         ClassLibrary.clsCustomerCollection CustomerBook = new ClassLibrary.clsCustomerCollection();
         //validate the data on the web form
-        String Error = CustomerBook.ThisCustomer.Valid(txtCustomerFirstName.Text, txtCustomerSurname.Text, txtCustomerDOB.Text, txtCustomerAddress.Text, txtPostCode.Text, txtMobileNumber.Text, txtEmail.Text);
+        String Error = CustomerBook.ThisCustomer.Valid(txtCustomerFirstName.Text, txtCustomerSurname.Text, txtCustomerDateAdded.Text, txtCustomerAddress.Text, txtPostCode.Text, txtMobileNumber.Text, txtEmail.Text);
         //if the data is OK then add it to the object
         if (Error == "")
         {
@@ -114,7 +114,7 @@ public partial class ACustomer : System.Web.UI.Page
             //get the data entered by the user
             CustomerBook.ThisCustomer.CustomerFirstName = txtCustomerFirstName.Text;
             CustomerBook.ThisCustomer.CustomerSurname = txtCustomerSurname.Text;
-            CustomerBook.ThisCustomer.CustomerDOB = Convert.ToDateTime(txtCustomerDOB.Text);
+            CustomerBook.ThisCustomer.CustomerDateAdded = Convert.ToDateTime(txtCustomerDateAdded.Text);
             CustomerBook.ThisCustomer.CustomerAddress = txtCustomerAddress.Text;
             CustomerBook.ThisCustomer.CustomerPostCode = txtPostCode.Text;
             CustomerBook.ThisCustomer.CustomerMobileNumber = txtMobileNumber.Text;
@@ -140,7 +140,7 @@ public partial class ACustomer : System.Web.UI.Page
         //display the data for this record
         txtCustomerFirstName.Text = CustomerBook.ThisCustomer.CustomerFirstName;
         txtCustomerSurname.Text = CustomerBook.ThisCustomer.CustomerSurname;
-        txtCustomerDOB.Text = CustomerBook.ThisCustomer.CustomerDOB.ToString("dd/MM/yyyy");
+        txtCustomerDateAdded.Text = CustomerBook.ThisCustomer.CustomerDateAdded.ToString("dd/MM/yyyy");
         txtCustomerAddress.Text = CustomerBook.ThisCustomer.CustomerAddress;
         txtPostCode.Text = CustomerBook.ThisCustomer.CustomerPostCode;
         txtMobileNumber.Text = CustomerBook.ThisCustomer.CustomerMobileNumber;
