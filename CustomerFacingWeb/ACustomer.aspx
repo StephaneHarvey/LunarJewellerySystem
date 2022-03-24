@@ -31,8 +31,8 @@
         <asp:Label ID="Label3" runat="server" Text="CustomerSurname" Font-Names="Akzidenz-Grotesk Pro Bold" ForeColor="Aqua" Font-Bold="True" Font-Italic="True" Font-Size="Large"></asp:Label>
         <asp:TextBox ID="txtCustomerSurname" runat="server" Font-Size="Large"></asp:TextBox>
         <p>
-            <asp:Label ID="Label4" runat="server" Text="CustomerDOB" Font-Names="Akzidenz-Grotesk Pro Bold" ForeColor="Aqua" Font-Bold="True" Font-Italic="True" Font-Size="Large"></asp:Label>
-            <asp:TextBox ID="txtCustomerDOB" runat="server" Font-Size="Large"></asp:TextBox>
+            <asp:Label ID="Label4" runat="server" Text="CustomerDateAdded" Font-Names="Akzidenz-Grotesk Pro Bold" ForeColor="Aqua" Font-Bold="True" Font-Italic="True" Font-Size="Large"></asp:Label>
+            <asp:TextBox ID="txtCustomerDateAdded" runat="server" Font-Size="Large"></asp:TextBox>
         </p>
         <asp:Label ID="Label5" runat="server" Text="CustomerAddress" Font-Names="Akzidenz-Grotesk Pro Bold" ForeColor="Aqua" Font-Bold="True" Font-Italic="True" Font-Size="Large"></asp:Label>
         <asp:TextBox ID="txtCustomerAddress" runat="server" Font-Size="Large"></asp:TextBox>

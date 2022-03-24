@@ -33,7 +33,7 @@ namespace Jewellery_System_Testing
             TestItem.CustomerFirstName = "Afseen";
             TestItem.CustomerSurname = "Jay";
             TestItem.CustomerAddress = "344 Real Rd";
-            TestItem.CustomerDOB = DateTime.Now.Date;
+            TestItem.CustomerDateAdded = DateTime.Now.Date;
             TestItem.CustomerEmail = "Afseen@gmail.com";
             TestItem.CustomerMobileNumber = "07898765432";
             TestItem.CustomerPostCode = "LE3 1ER";
@@ -63,7 +63,7 @@ namespace Jewellery_System_Testing
             TestItem.CustomerFirstName = "Afseen";
             TestItem.CustomerSurname = "Jay";
             TestItem.CustomerAddress = "344 Real Rd";
-            TestItem.CustomerDOB = DateTime.Now.Date;
+            TestItem.CustomerDateAdded = DateTime.Now.Date;
             TestItem.CustomerEmail = "Afseen@gmail.com";
             TestItem.CustomerMobileNumber = "07898765432";
             TestItem.CustomerPostCode = "LE3 1ER";
@@ -89,7 +89,7 @@ namespace Jewellery_System_Testing
             TestItem.CustomerFirstName = "Afseen";
             TestItem.CustomerSurname = "Jay";
             TestItem.CustomerAddress = "344 Real Rd";
-            TestItem.CustomerDOB = DateTime.Now.Date;
+            TestItem.CustomerDateAdded = DateTime.Now.Date;
             TestItem.CustomerEmail = "Afseen@gmail.com";
             TestItem.CustomerMobileNumber = "07898765432";
             TestItem.CustomerPostCode = "LE3 1ER";
@@ -118,7 +118,7 @@ namespace Jewellery_System_Testing
             TestItem.CustomerFirstName = "Afseen";
             TestItem.CustomerSurname = "Jay";
             TestItem.CustomerAddress = "344 Real Rd";
-            TestItem.CustomerDOB = DateTime.Now.Date;
+            TestItem.CustomerDateAdded = DateTime.Now.Date;
             TestItem.CustomerEmail = "Afseen@gmail.com";
             TestItem.CustomerMobileNumber = "07898765432";
             TestItem.CustomerPostCode = "LE3 1ER";
@@ -151,7 +151,7 @@ namespace Jewellery_System_Testing
             TestItem.CustomerFirstName = "Afseen";
             TestItem.CustomerSurname = "Jay";
             TestItem.CustomerAddress = "344 Real Rd";
-            TestItem.CustomerDOB = DateTime.Now.Date;
+            TestItem.CustomerDateAdded = DateTime.Now.Date;
             TestItem.CustomerEmail = "Afseen@gmail.com";
             TestItem.CustomerMobileNumber = "07898765432";
             TestItem.CustomerPostCode = "LE3 1ER";
@@ -166,7 +166,7 @@ namespace Jewellery_System_Testing
             TestItem.CustomerFirstName = "Afseen";
             TestItem.CustomerSurname = "Jay";
             TestItem.CustomerAddress = "344 Real Rd";
-            TestItem.CustomerDOB = DateTime.Now.Date;
+            TestItem.CustomerDateAdded = DateTime.Now.Date;
             TestItem.CustomerEmail = "Afseen@gmail.com";
             TestItem.CustomerMobileNumber = "07898765432";
             TestItem.CustomerPostCode = "LE3 1ER";
@@ -191,7 +191,7 @@ namespace Jewellery_System_Testing
             TestCustomer.CustomerFirstName = "Afseen";
             TestCustomer.CustomerSurname = "Jay";
             TestCustomer.CustomerAddress = "344 Real Rd";
-            TestCustomer.CustomerDOB = DateTime.Now.Date;
+            TestCustomer.CustomerDateAdded = DateTime.Now.Date;
             TestCustomer.CustomerEmail = "Afseen@gmail.com";
             TestCustomer.CustomerMobileNumber = "07898765432";
             TestCustomer.CustomerPostCode = "LE3 1ER";
