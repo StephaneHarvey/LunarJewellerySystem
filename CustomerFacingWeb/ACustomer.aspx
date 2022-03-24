@@ -14,6 +14,12 @@
 <body>
     <form id="form1" runat="server">
         <link href="StyleSheet/Customer.css" rel="stylesheet" />
+        <br />
+        <div style="margin-left: 880px">
+            <asp:Image ID="Image1" runat="server" Height="138px" Width="157px" ImageUrl="~/StyleSheet/Lunar.png" />
+        </div>
+        <br />
+        <br />
         <div style="text-align: center"><asp:Label ID="Label1" runat="server" Text="CustomerID" Font-Names="Akzidenz-Grotesk Pro Bold" ForeColor="Aqua" Font-Bold="True" Font-Italic="True" Font-Size="Large"></asp:Label>
         <asp:TextBox ID="txtCustomerID" runat="server" Font-Size="Large"></asp:TextBox>
         <p class="auto-style1">
