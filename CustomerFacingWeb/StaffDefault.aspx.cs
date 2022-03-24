@@ -126,9 +126,6 @@ public partial class StaffDefault : System.Web.UI.Page
         }
     }
 
-
-
-
     protected void btnApply_Click(object sender, EventArgs e)
     {
         Int32 RecordCount;
@@ -140,7 +137,7 @@ public partial class StaffDefault : System.Web.UI.Page
     {
         Int32 RecordCount;
         RecordCount = DisplayStaff("");
-        lblError.Text = RecordCount + "records in the database";
+        lblError.Text = "There are " + RecordCount + " records in this database";
         txtFName.Text = "";
     }
 

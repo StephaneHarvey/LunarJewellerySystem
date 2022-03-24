@@ -438,10 +438,10 @@ namespace Jewellery_System_Testing
             DateTime TestDate;
             //set the date totodays date
             TestDate = DateTime.Now.Date;
-            //change the date to whatever the date is less 100 years
+            //change the date to whatever the date is less than100 years
             TestDate = TestDate.AddYears(-100);
-            //convert the date variable to a string variable
-            string StaffDOB = TestDate.ToString();
+            //convert the date variable to string variable
+            string StaffDOB = TestDate.ToString(); 
             //invoke the method
             Error = AStaff.Valid(StaffFirstName, StaffLastName, StaffAddress, StaffContactNo, StaffDOB);
             //test to see that the result is correct
