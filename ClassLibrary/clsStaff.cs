@@ -126,7 +126,7 @@ namespace ClassLibrary
                 return false;
             }
         }
-       public string Valid(string staffFirstName, string staffLastName, string staffAddress, string staffContactNo, string staffDOB)
+       public string Valid(string staffFirstName, string staffLastName, string staffDOB, string staffContactNo, string staffAddress)
         {
             string Error = "";
             //create a temporary variable to store date values
@@ -177,7 +177,7 @@ namespace ClassLibrary
             }
 
             try
-            {
+           {
                 //copy the DOB value to the DateTemp variable
                 DateTemp = Convert.ToDateTime(staffDOB);
                 if (DateTemp < DateTime.Now.Date.AddYears(-100))

@@ -36,60 +36,6 @@ public partial class AStaff : System.Web.UI.Page
         {
             Update();
         }
-        ////create new instance of cls Staff
-        //clsStaff AStaff = new clsStaff();
-        ////capture StaffFirstName
-        //string StaffFirstName = txtStaffFirstName.Text;
-        ////capture lastname
-        //string StaffLastName = txtStaffLastName.Text;
-        ////capture DOB
-        //string StaffDOB = txtStaffDOB.Text;
-        ////capture contactno
-        //string StaffContactNo = txtStaffContactNo.Text;
-        ////capture address
-        //string StaffAddress = txtStaffAddress.Text;
-        ////variable to store error message 
-        //string Error = "";
-        ////validate data
-        //Error = AStaff.Valid(StaffFirstName, StaffLastName, StaffDOB, StaffContactNo, StaffAddress);
-        //if (Error == "")
-        //{
-        //    //Capture first name 
-        //    AStaff.StaffFirstName = StaffFirstName;
-        //    //capture last name
-        //    AStaff.StaffLastName = StaffLastName;
-        //    //capture address
-        //    AStaff.StaffAddress = StaffAddress;
-        //    //capture contact no
-        //    AStaff.StaffContactNo = StaffContactNo;
-        //    //capture dob
-        //    AStaff.StaffDOB = Convert.ToDateTime(StaffDOB);
-        //    //Store staff in session object
-        //    Session["AStaff"] = AStaff;
-        //    //redirect to viewer page
-        //    Response.Write("AddressViewer.aspx");
-        //}
-
-        //else
-        //{
-        //    //display error
-        //    lblError.Text = Error;
-        //}
-
-
-
-        ////store staffID in session object
-        //Session["AStaff"] = AStaff;
-        ////redirect to the viewer page
-        //Response.Write("StaffViewer.aspx");
-
-        
-
-        ////add new record
-        //Add();
-        ////redirect back to main page
-        //Response.Redirect("StaffDefault.aspx");
-
     }
 
     protected void btnCancel_Click(object sender, EventArgs e)
@@ -121,7 +67,6 @@ public partial class AStaff : System.Web.UI.Page
             txtStaffDOB.Text = AStaff.StaffDOB.ToString();
         }
 
-
     }
 
     //function to add new records
@@ -148,7 +93,7 @@ public partial class AStaff : System.Web.UI.Page
         else
         {
             //report an error
-            lblError.Text = "There were problems with the data entered" + Error;
+            lblError.Text = "There were problems with the data entered " + Error;
         }
     }
 
@@ -161,6 +106,8 @@ public partial class AStaff : System.Web.UI.Page
         //if data is OK then add it to the object
         if (Error == "")
         {
+            //find record to update
+            JewellerySystem.ThisStaff.Find(StaffID);
             //get the data entered by the user
             JewellerySystem.ThisStaff.StaffFirstName = txtStaffFirstName.Text;
             JewellerySystem.ThisStaff.StaffLastName = txtStaffLastName.Text;
