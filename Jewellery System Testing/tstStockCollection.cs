@@ -41,19 +41,19 @@ namespace Jewellery_System_Testing
             Assert.AreEqual(AllStocks.StockList, TestList);
 
         }
-        [TestMethod]
-        public void StockQuantityPropertyOK()
-        {
-            // create an istance for the class we want to create 
-            clsStockCollection AllStocks = new clsStockCollection();
-            //create some test data  assign to the property 
-            Int32 SomeCount = 1;
-            //assign the data to the property
-            AllStocks.Count = SomeCount;
-            //test to see that 2 values are the same
-            Assert.AreEqual(AllStocks.Count, SomeCount);
+        //[TestMethod]
+        //public void StockQuantityPropertyOK()
+        //{
+        //    // create an istance for the class we want to create 
+        //    clsStockCollection AllStocks = new clsStockCollection();
+        //    //create some test data  assign to the property 
+        //    Int32 SomeCount = 1;
+        //    //assign the data to the property
+        //    AllStocks.Count = SomeCount;
+        //    //test to see that 2 values are the same
+        //    Assert.AreEqual(AllStocks.Count, SomeCount);
 
-        }
+        //}
         [TestMethod]
         public void ThisStockPropertyOK()
         {

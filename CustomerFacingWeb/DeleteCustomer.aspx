@@ -7,7 +7,7 @@
     <title></title>
     <style type="text/css">
         .auto-style1 {
-            margin-left: 560px;
+            margin-left: 640px;
         }
         .auto-style2 {
             margin-left: 760px;
@@ -20,8 +20,15 @@
 <body>
     <form id="form1" runat="server">
         <link href="StyleSheet/Customer.css" rel="stylesheet" />
-        <div>
+       </br>
+        <div style="margin-left: 840px">
+            <asp:Image ID="Image1" runat="server" Height="124px" ImageUrl="~/StyleSheet/Lunar.png" Width="146px" />
         </div>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
         <div class="auto-style1">
             <asp:Label ID="Label1" runat="server" Text="Are You Sure You Would Like To Delete The Customer?" Font-Bold="True" Font-Italic="True" Font-Names="Akzidenz-Grotesk Pro Bold" Font-Size="X-Large" ForeColor="#66FFFF"></asp:Label>
         </div>
