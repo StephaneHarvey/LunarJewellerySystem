@@ -172,4 +172,10 @@ public partial class AnOrder : System.Web.UI.Page
         txtDateAdded.Text = OrderBook.ThisOrder.DateAdded.ToString();
         chkActive.Checked = OrderBook.ThisOrder.Active;
     }
+
+
+    protected void btnCancel_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("OrderDefault.aspx");
+    }
 }
