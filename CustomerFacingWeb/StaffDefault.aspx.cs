@@ -141,5 +141,10 @@ public partial class StaffDefault : System.Web.UI.Page
         txtFName.Text = "";
     }
 
-  
+
+
+    protected void ImgBtnLogo_Click(object sender, ImageClickEventArgs e)
+    {
+        Response.Redirect("Homepage.aspx");
+    }
 }

@@ -19,7 +19,7 @@
             <div class="auto-style1">
         <br />
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:Image ID="Image1" runat="server" Height="98px" ImageAlign="Top" ImageUrl="~/StyleSheet/LunarJewelleryLogo.png" Width="98px" style="text-align: center" />
+                <asp:ImageButton ID="ImgBtnLogo" runat="server" Height="150px" ImageUrl="~/StyleSheet/LunarJewelleryLogo.png" OnClick="ImgBtnLogo_Click" Width="150px" />
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <br />
         <asp:ListBox ID="lstStaff" runat="server" BackColor="#DFF4F1" Height="299px" Width="530px" Font-Bold="True" Font-Names="Akzidenz-Grotesk Pro Light"></asp:ListBox>
