@@ -35,6 +35,12 @@ namespace ClassLibrary
                 Index++;
             }
         }
+
+        public void Delete()
+        {
+            throw new NotImplementedException();
+        }
+
         public List<clsStock> StockList
         {
             get
