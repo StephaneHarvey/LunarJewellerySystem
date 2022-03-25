@@ -95,7 +95,7 @@ public partial class AnStock : System.Web.UI.Page
         if (IsPostBack == false)
         {
             //populate the list of Quantitys
-            DisplayStockQuantity();
+            //DisplayStockQuantity();
             //if this is not a new record 
             if (StockID != -1)
             {
