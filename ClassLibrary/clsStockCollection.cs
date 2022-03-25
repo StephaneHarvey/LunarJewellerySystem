@@ -62,5 +62,10 @@ namespace ClassLibrary
         }
 public clsStock ThisStock { get; set; }
         List<clsStock> mStockList = new List<clsStock>();
+
+        public void Add()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

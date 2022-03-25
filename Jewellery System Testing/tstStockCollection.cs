@@ -14,6 +14,8 @@ namespace Jewellery_System_Testing
             List<clsStock> mStockList = new List<clsStock>();
             //private data member thisStock
             clsStock mThisStock = new clsStock();
+            private List<clsStock> StockList;
+            private int Count;
 
 
             //public property for ThisStock

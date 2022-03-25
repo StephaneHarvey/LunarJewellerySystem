@@ -15,7 +15,7 @@ public partial class StockDelete : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         //get the number of the stock to be deleted from the session object 
-        StockID = Convert.ToInt32(Session["StockId"]);
+        StockID = Convert.ToInt32(Session["StockID"]);
     }
     void DeleteStock()
     {
