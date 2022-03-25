@@ -13,6 +13,10 @@ public partial class AnStock : System.Web.UI.Page
 
     protected void btnOk_Click(object sender, EventArgs e)
     {
+        //add the new record 
+        Add();
+        //all done so redirect back to the main page
+        Response.Redirect("StockDefault.aspx");
         //create a new instance of clsStock
         clsStock AnStock = new clsStock();
         //get the data from the session object
@@ -48,7 +52,16 @@ public partial class AnStock : System.Web.UI.Page
             //display the error message 
             lblError.Text = Error;
         }
-
+        if (StockID == -1)
+        {
+            //add the new record 
+            Add();
+        }
+        else
+        {
+            //update the record
+            Update();
+        }
     }
 
     protected void btnFind_Click(object sender, EventArgs e)
@@ -72,4 +85,90 @@ public partial class AnStock : System.Web.UI.Page
             txtStockQuantity.Text = AnStock.StockQuantity.ToString();
         }
     }
-}
+    //variable to store the primary key with the page level scope
+    Int32 StockID;
+    //event handler for the page load event 
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        //get the number of the Stocks being processed
+        StockID = Convert.ToInt32(Session["StockID"]);
+        if (IsPostBack == false)
+        {
+            //populate the list of Quantitys
+            DisplayStockQuantity();
+            //if this is not a new record 
+            if (StockID != -1)
+            {
+                //display the current data for the record 
+                DisplayStocks();
+            }
+        }
+    }
+    //funcaion for adding new recordds 
+    void Add()
+    {
+        //create an instance of the Stock
+        clsStockCollection StockBook = new clsStockCollection();
+        //validate the data on the web form 
+        String Error = StockBook.ThisStock.Valid(txtStockID.Text, txtStockDate.Text);
+        //if the data is OK then add it to the object 
+        if (Error == "")
+        {
+            //get the data entered by the user/Manager
+            StockBook.ThisStock.StockItem = txtStockItem.Text;
+            StockBook.ThisStock.StockDate = Convert.ToDateTime(txtStockDate.Text);
+            StockBook.ThisStock.Active = chkActive.Checked;
+           //// StockBook.ThisStock.StockQuantity = Convert.ToInt32(ddlStockQuantity.SelectedValue);
+            //add the record
+            StockBook.Add();
+        }
+        else
+        {
+            //report an error
+            lblError.Text = "There were problems with the data entered" + Error;
+        }
+    }
+        //funcaion for updating  recordds 
+        void Update()
+        {
+            //create an instance of the Stock
+            ClassLibrary.clsStockCollection StockBook = new ClassLibrary.clsStockCollection();
+            //validate the data on the web form 
+            String Error = StockBook.ThisStock.Valid(txtStockID.Text, txtStockDate.Text);
+            //if the data is OK then add it to the object 
+            if (Error == "")
+            {
+                //find the record to update
+                StockBook.ThisStock.Find(StockID);
+                //get the data entered by the user/Manager
+                StockBook.ThisStock.StockItem = txtStockItem.Text;
+                StockBook.ThisStock.StockDate = Convert.ToDateTime(txtStockDate.Text);
+                StockBook.ThisStock.Active = chkActive.Checked;
+               /// StockBook.ThisStock.StockQuantity = Convert.ToInt32(ddlStockQuantity.SelectedValue);
+                //update the record
+                StockBook.Update();
+                //all done so redirect back to the main page 
+                Response.Redirect("StockDefault.aspx");
+            }
+            else
+            {
+                //report an error 
+                lblError.Text = "There were problems with the data entered" +
+                    Error;
+            }
+        }
+
+        void DisplayStocks()
+        {
+        //create an instacne for the stock book
+        clsStockCollection StockBook = new clsStockCollection();
+        //find the record to update 
+        StockBook.ThisStock.Find(StockID);
+        //display the data for the record 
+        txtStockItem.Text = StockBook.ThisStock.StockItem;
+        txtStockDate.Text = StockBook.ThisStock.StockDate.ToString();
+        chkActive.Checked = StockBook.ThisStock.Active;
+       //// ddlStockQuantity.SElectedVAlue = StockBook.ThisStock.StockQuantity.ToString();
+    }
+    }
+        

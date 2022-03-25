@@ -11,6 +11,20 @@
         <div>
         </div>
         <asp:ListBox ID="lstStock" runat="server" Height="194px" Width="347px"></asp:ListBox>
+        <p>
+            <asp:Label ID="lblError" runat="server" Text="lblError"></asp:Label>
+        </p>
+        <asp:Label ID="lblStockItem" runat="server" Text="Please Type Stock Item"></asp:Label>
+        <p>
+            <asp:TextBox ID="txtStockItem" runat="server"></asp:TextBox>
+        </p>
+        <asp:Button ID="btnApply" runat="server" Text="Apply" />
+        <asp:Button ID="btnDisplayAll" runat="server" Text="Display All" />
+        <p>
+            <asp:Button ID="btnAdd" runat="server" OnClick="btnAdd_Click" Text="Add" />
+            <asp:Button ID="btnEdit" runat="server" Text="Edit" OnClick="btnEdit_Click" />
+            <asp:Button ID="btnDelete" runat="server" Text="Delete" OnClick="btnDelete_Click" />
+        </p>
     </form>
 </body>
 </html>
